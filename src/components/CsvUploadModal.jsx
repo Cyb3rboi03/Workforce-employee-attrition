@@ -1,0 +1,424 @@
+import React, { useState } from 'react';
+import { 
+  X, 
+  Upload, 
+  FileText, 
+  CheckCircle2, 
+  AlertCircle, 
+  Database, 
+  Globe, 
+  Download, 
+  ArrowRight,
+  Server
+} from 'lucide-react';
+import { calculateAttritionRisk } from '../utils/predictor';
+import ibmRealDataset from '../data/ibmRealWorkforceDataset.json';
+
+export default function CsvUploadModal({ isOpen, onClose, onImportEmployees }) {
+  const [activeSourceTab, setActiveSourceTab] = useState('ibm'); // 'ibm', 'file', 'api'
+  const [parseStatus, setParseStatus] = useState(null); // 'parsed', 'error'
+  const [previewRows, setPreviewRows] = useState([]);
+  const [errorMsg, setErrorMsg] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [remoteUrl, setRemoteUrl] = useState('');
+
+  if (!isOpen) return null;
+
+  const handleLoadIbmData = () => {
+    setLoading(true);
+    setErrorMsg('');
+    setTimeout(() => {
+      setPreviewRows(ibmRealDataset);
+      setParseStatus('parsed');
+      setLoading(false);
+    }, 120);
+  };
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (!selectedFile) return;
+
+    parseCsv(selectedFile);
+  };
+
+  const parseCsv = (fileToParse) => {
+    setLoading(true);
+    setErrorMsg('');
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const text = event.target.result;
+        const lines = text.split(/\r\n|\n/).filter(line => line.trim().length > 0);
+        if (lines.length < 2) {
+          throw new Error('CSV must contain a header row and at least one data row.');
+        }
+
+        const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/['"]/g, ''));
+
+        // Identify key columns
+        const ageIdx = headers.findIndex(h => h.includes('age'));
+        const salaryIdx = headers.findIndex(h => h.includes('salary') || h.includes('income') || h.includes('pay'));
+        const expIdx = headers.findIndex(h => h.includes('exp') || h.includes('tenure') || h.includes('years'));
+        const deptIdx = headers.findIndex(h => h.includes('dept') || h.includes('department'));
+        const satIdx = headers.findIndex(h => h.includes('satisfaction') || h.includes('sat'));
+        const otIdx = headers.findIndex(h => h.includes('overtime') || h.includes('ot'));
+        const nameIdx = headers.findIndex(h => h.includes('name'));
+        const idIdx = headers.findIndex(h => h.includes('id'));
+
+        const parsed = [];
+        for (let i = 1; i < lines.length; i++) {
+          const row = lines[i].split(',').map(c => c.trim().replace(/['"]/g, ''));
+          if (row.length < 3) continue;
+
+          const age = ageIdx !== -1 ? Number(row[ageIdx]) || 32 : 32;
+          const salary = salaryIdx !== -1 ? Number(row[salaryIdx]) || 6500 : 6500;
+          const exp = expIdx !== -1 ? Number(row[expIdx]) || 5 : 5;
+          const dept = deptIdx !== -1 ? row[deptIdx] || 'Research & Development' : 'Research & Development';
+          const sat = satIdx !== -1 ? Number(row[satIdx]) || 3 : 3;
+          const otStr = otIdx !== -1 ? String(row[otIdx]).toLowerCase() : 'no';
+          const isOt = otStr === 'yes' || otStr === 'true' || otStr === '1';
+          const empName = nameIdx !== -1 && row[nameIdx] ? row[nameIdx] : `Imported Staff ${i}`;
+          const empId = idIdx !== -1 && row[idIdx] ? row[idIdx] : `CSV-${1000 + i}`;
+
+          // Score using ML model
+          const score = calculateAttritionRisk({
+            age,
+            salary,
+            experience: exp,
+            department: dept,
+            job_satisfaction: sat,
+            work_life_balance: sat,
+            environment_satisfaction: sat,
+            relationship_satisfaction: sat,
+            overtime: isOt
+          });
+
+          parsed.push({
+            employee_id: empId,
+            name: empName,
+            age,
+            salary,
+            experience: exp,
+            department: dept,
+            job_satisfaction: sat,
+            work_life_balance: sat,
+            environment_satisfaction: sat,
+            relationship_satisfaction: sat,
+            composite_satisfaction: sat.toFixed(1),
+            overtime: isOt ? 1 : 0,
+            attrition: score.isAttritionLikely ? 1 : 0,
+            ground_truth_prob: score.rawProbability
+          });
+        }
+
+        if (parsed.length === 0) {
+          throw new Error('Could not parse any valid rows from the provided CSV file.');
+        }
+
+        setPreviewRows(parsed);
+        setParseStatus('parsed');
+      } catch (err) {
+        setErrorMsg(err.message || 'Failed to parse CSV file.');
+        setParseStatus('error');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    reader.readAsText(fileToParse);
+  };
+
+  const handleFetchRemoteApi = async () => {
+    if (!remoteUrl.trim()) {
+      setErrorMsg('Please enter a valid HTTP/HTTPS database or API URL.');
+      return;
+    }
+    setLoading(true);
+    setErrorMsg('');
+    try {
+      const res = await fetch(remoteUrl.trim());
+      if (!res.ok) throw new Error(`HTTP Error ${res.status}: Failed to reach remote database.`);
+      const data = await res.json();
+      const list = Array.isArray(data) ? data : data.employees || data.data || [];
+      if (!list.length) throw new Error('Remote response must contain an array of records.');
+
+      const parsed = list.map((item, idx) => {
+        const age = Number(item.age) || 34;
+        const salary = Number(item.salary) || 6200;
+        const exp = Number(item.experience || item.years_at_company) || 5;
+        const dept = item.department || 'Research & Development';
+        const sat = Number(item.job_satisfaction || item.satisfaction) || 3;
+        const isOt = item.overtime === 1 || item.overtime === true || String(item.overtime).toLowerCase() === 'yes';
+        const score = calculateAttritionRisk({ age, salary, experience: exp, department: dept, job_satisfaction: sat, overtime: isOt });
+
+        return {
+          employee_id: item.employee_id || item.id || `API-${1000 + idx}`,
+          name: item.name || `Employee ${1000 + idx}`,
+          age,
+          salary,
+          experience: exp,
+          department: dept,
+          job_satisfaction: sat,
+          work_life_balance: Number(item.work_life_balance) || 3,
+          environment_satisfaction: Number(item.environment_satisfaction) || 3,
+          relationship_satisfaction: Number(item.relationship_satisfaction) || 3,
+          composite_satisfaction: Number(item.composite_satisfaction) || sat,
+          overtime: isOt ? 1 : 0,
+          attrition: score.isAttritionLikely ? 1 : 0,
+          ground_truth_prob: score.rawProbability
+        };
+      });
+
+      setPreviewRows(parsed);
+      setParseStatus('parsed');
+    } catch (err) {
+      setErrorMsg(err.message || 'Failed to fetch from remote database site.');
+      setParseStatus('error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleConfirmImport = () => {
+    if (previewRows.length > 0) {
+      onImportEmployees(previewRows);
+      onClose();
+    }
+  };
+
+  const downloadSampleTemplate = () => {
+    const csvContent = "data:text/csv;charset=utf-8," + 
+      "EmployeeID,Name,Age,Salary,Experience,Department,JobSatisfaction,Overtime\n" +
+      "EMP-901,Maria Gomez,29,5400,4,Sales,2,Yes\n" +
+      "EMP-902,Brian Lee,42,12500,14,Research & Development,4,No\n" +
+      "EMP-903,Sophia Taylor,26,3800,2,Engineering,2,Yes\n" +
+      "EMP-904,David Wilson,35,7800,8,Human Resources,3,No\n";
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "workforce_import_template.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal-card glass-panel animate-fade-in" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '640px' }}>
+        <div className="modal-header">
+          <div className="brand-title-row">
+            <Database size={22} className="icon-accent" />
+            <div>
+              <h3 className="modal-emp-name" style={{ fontSize: '1.15rem' }}>Import Real Workforce Datasets</h3>
+              <p className="brand-subtitle" style={{ fontSize: '0.75rem' }}>Connect industry databases, live REST APIs, or custom CSV records</p>
+            </div>
+          </div>
+          <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
+            <X size={20} />
+          </button>
+        </div>
+
+        {/* Source Navigation Tabs */}
+        <div style={{ display: 'flex', gap: '8px', padding: '12px 24px 0', borderBottom: '1px solid var(--border-color)' }}>
+          <button
+            onClick={() => setActiveSourceTab('ibm')}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px 14px',
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              border: 'none',
+              background: 'transparent',
+              borderBottom: activeSourceTab === 'ibm' ? '2.5px solid var(--primary)' : '2.5px solid transparent',
+              color: activeSourceTab === 'ibm' ? 'var(--primary)' : 'var(--text-muted)'
+            }}
+          >
+            <Server size={14} />
+            <span>IBM HR Benchmark (1,470)</span>
+          </button>
+
+          <button
+            onClick={() => setActiveSourceTab('file')}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px 14px',
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              border: 'none',
+              background: 'transparent',
+              borderBottom: activeSourceTab === 'file' ? '2.5px solid var(--primary)' : '2.5px solid transparent',
+              color: activeSourceTab === 'file' ? 'var(--primary)' : 'var(--text-muted)'
+            }}
+          >
+            <Upload size={14} />
+            <span>Upload CSV File</span>
+          </button>
+
+          <button
+            onClick={() => setActiveSourceTab('api')}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px 14px',
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              border: 'none',
+              background: 'transparent',
+              borderBottom: activeSourceTab === 'api' ? '2.5px solid var(--primary)' : '2.5px solid transparent',
+              color: activeSourceTab === 'api' ? 'var(--primary)' : 'var(--text-muted)'
+            }}
+          >
+            <Globe size={14} />
+            <span>Remote Database API</span>
+          </button>
+        </div>
+
+        <div className="modal-body" style={{ padding: '20px 24px' }}>
+          {/* TAB 1: IBM Real Dataset */}
+          {activeSourceTab === 'ibm' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div style={{ 
+                padding: '16px', 
+                borderRadius: 'var(--radius-md)', 
+                background: 'rgba(37, 99, 235, 0.05)', 
+                border: '1px solid rgba(37, 99, 235, 0.20)' 
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Server size={18} style={{ color: 'var(--primary)' }} />
+                    <strong style={{ fontSize: '0.95rem' }}>IBM Watson HR Analytics Dataset</strong>
+                  </div>
+                  <span className="badge badge-low">1,470 Real Records</span>
+                </div>
+                <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: '1.45', marginBottom: '14px' }}>
+                  The gold-standard industry employee turnover dataset. Contains verified workforce records across Sales, R&D, and HR with real satisfaction indexes, overtime flags, tenure, and ground-truth attrition labels.
+                </p>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <button 
+                    className="action-btn action-btn-primary" 
+                    onClick={handleLoadIbmData}
+                    style={{ padding: '8px 16px', fontSize: '0.85rem' }}
+                  >
+                    <span>Load 1,470 Real Records</span>
+                    <ArrowRight size={14} />
+                  </button>
+                  <a 
+                    href="/ibm_real_workforce_1470.csv" 
+                    download="ibm_real_workforce_1470.csv"
+                    className="action-btn action-btn-secondary"
+                    style={{ padding: '8px 14px', fontSize: '0.85rem', textDecoration: 'none' }}
+                  >
+                    <Download size={14} />
+                    <span>Download CSV Dataset</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 2: File Upload */}
+          {activeSourceTab === 'file' && (
+            <div>
+              <p className="section-subheading" style={{ marginBottom: '14px', fontSize: '0.82rem' }}>
+                Upload any CSV containing Age, Salary, Experience, Department, Job Satisfaction, and Overtime.
+              </p>
+
+              <div className="upload-dropzone">
+                <FileText size={36} className="dropzone-icon" />
+                <label className="upload-file-btn">
+                  <span>Choose CSV File</span>
+                  <input 
+                    type="file" 
+                    accept=".csv" 
+                    style={{ display: 'none' }} 
+                    onChange={handleFileChange} 
+                  />
+                </label>
+                <span className="dropzone-hint">Supported formats: .csv with comma separation</span>
+              </div>
+
+              <div className="sample-template-row" style={{ marginTop: '10px' }}>
+                <button className="link-button" onClick={downloadSampleTemplate}>
+                  📥 Download Sample CSV Template
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: Remote API / Database URL */}
+          {activeSourceTab === 'api' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <p className="section-subheading" style={{ fontSize: '0.82rem' }}>
+                Fetch live workforce records from any remote REST API endpoint, Cloud Database (PostgreSQL/Supabase/Firebase REST), or mock API server.
+              </p>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <input 
+                  type="url" 
+                  className="form-input" 
+                  placeholder="https://api.example.com/workforce/employees" 
+                  value={remoteUrl} 
+                  onChange={(e) => setRemoteUrl(e.target.value)}
+                  style={{ flex: 1, padding: '9px 12px', fontSize: '0.85rem' }}
+                />
+                <button 
+                  className="action-btn action-btn-primary" 
+                  onClick={handleFetchRemoteApi}
+                  disabled={loading}
+                >
+                  <Globe size={14} />
+                  <span>Fetch & Score</span>
+                </button>
+              </div>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>
+                Tip: Endpoint should return a JSON array with objects matching standard employee fields.
+              </span>
+            </div>
+          )}
+
+          {loading && <p className="loading-text" style={{ marginTop: '14px' }}>Scoring records with AI engine...</p>}
+
+          {errorMsg && (
+            <div className="error-banner" style={{ marginTop: '14px' }}>
+              <AlertCircle size={16} />
+              <span>{errorMsg}</span>
+            </div>
+          )}
+
+          {parseStatus === 'parsed' && (
+            <div className="upload-preview-box" style={{ marginTop: '16px' }}>
+              <div className="preview-header">
+                <CheckCircle2 size={18} className="text-success" />
+                <strong>Successfully Ready: {previewRows.length} Real Employee Records!</strong>
+              </div>
+              <p className="preview-note">
+                Sample: {previewRows[0]?.name} (${previewRows[0]?.salary?.toLocaleString()}/mo, {previewRows[0]?.department}, Risk: {(previewRows[0]?.ground_truth_prob || 0).toFixed(2)} prob)
+              </p>
+            </div>
+          )}
+        </div>
+
+        <div className="modal-footer" style={{ padding: '16px 24px', borderTop: '1px solid var(--border-color)', display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+          <button className="action-btn action-btn-secondary" onClick={onClose}>
+            Cancel
+          </button>
+          <button 
+            className="action-btn action-btn-primary" 
+            disabled={previewRows.length === 0}
+            onClick={handleConfirmImport}
+          >
+            <span>Import & Merge {previewRows.length > 0 ? `(${previewRows.length})` : ''}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

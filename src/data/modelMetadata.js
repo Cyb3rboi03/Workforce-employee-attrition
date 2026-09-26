@@ -1,0 +1,327 @@
+export const modelMetadata = {
+  "models_evaluated": {
+    "Logistic Regression": {
+      "accuracy": 0.75,
+      "precision": 0.7065,
+      "recall": 0.5752,
+      "f1": 0.6341,
+      "roc_auc": 0.7914,
+      "cv_roc_auc_mean": 0.7808,
+      "cv_roc_auc_std": 0.0343,
+      "confusion_matrix": [
+        [
+          160,
+          27
+        ],
+        [
+          48,
+          65
+        ]
+      ]
+    },
+    "Random Forest": {
+      "accuracy": 0.7433,
+      "precision": 0.6915,
+      "recall": 0.5752,
+      "f1": 0.628,
+      "roc_auc": 0.7978,
+      "cv_roc_auc_mean": 0.7825,
+      "cv_roc_auc_std": 0.0299,
+      "confusion_matrix": [
+        [
+          158,
+          29
+        ],
+        [
+          48,
+          65
+        ]
+      ]
+    },
+    "Gradient Boosting": {
+      "accuracy": 0.7433,
+      "precision": 0.6765,
+      "recall": 0.6106,
+      "f1": 0.6419,
+      "roc_auc": 0.7661,
+      "cv_roc_auc_mean": 0.7634,
+      "cv_roc_auc_std": 0.029,
+      "confusion_matrix": [
+        [
+          154,
+          33
+        ],
+        [
+          44,
+          69
+        ]
+      ]
+    }
+  },
+  "selected_model": "Random Forest",
+  "dataset_summary": {
+    "total_records": 1500,
+    "overall_attrition_rate": 0.3753,
+    "avg_age": 37.0,
+    "avg_salary": 9279.2,
+    "avg_experience": 7.4,
+    "overtime_ratio": 0.326,
+    "high_risk_count": 317,
+    "medium_risk_count": 420,
+    "low_risk_count": 763
+  },
+  "feature_weights": [
+    {
+      "feature": "age",
+      "logistic_weight": -0.4499,
+      "importance": 0.1793,
+      "impact_direction": "Protects Retention"
+    },
+    {
+      "feature": "salary",
+      "logistic_weight": -0.3966,
+      "importance": 0.2194,
+      "impact_direction": "Protects Retention"
+    },
+    {
+      "feature": "experience",
+      "logistic_weight": -0.106,
+      "importance": 0.113,
+      "impact_direction": "Protects Retention"
+    },
+    {
+      "feature": "job_satisfaction",
+      "logistic_weight": -0.0711,
+      "importance": 0.0339,
+      "impact_direction": "Protects Retention"
+    },
+    {
+      "feature": "work_life_balance",
+      "logistic_weight": -0.2655,
+      "importance": 0.068,
+      "impact_direction": "Protects Retention"
+    },
+    {
+      "feature": "environment_satisfaction",
+      "logistic_weight": -0.2048,
+      "importance": 0.0346,
+      "impact_direction": "Protects Retention"
+    },
+    {
+      "feature": "relationship_satisfaction",
+      "logistic_weight": -0.1669,
+      "importance": 0.0346,
+      "impact_direction": "Protects Retention"
+    },
+    {
+      "feature": "department_Finance",
+      "logistic_weight": 0.1278,
+      "importance": 0.0032,
+      "impact_direction": "Increases Attrition"
+    },
+    {
+      "feature": "department_Human Resources",
+      "logistic_weight": 0.2472,
+      "importance": 0.0041,
+      "impact_direction": "Increases Attrition"
+    },
+    {
+      "feature": "department_Marketing",
+      "logistic_weight": 0.2905,
+      "importance": 0.0043,
+      "impact_direction": "Increases Attrition"
+    },
+    {
+      "feature": "department_Research & Development",
+      "logistic_weight": -0.2654,
+      "importance": 0.0194,
+      "impact_direction": "Protects Retention"
+    },
+    {
+      "feature": "department_Sales",
+      "logistic_weight": 0.2653,
+      "importance": 0.0212,
+      "impact_direction": "Increases Attrition"
+    },
+    {
+      "feature": "overtime",
+      "logistic_weight": 1.7506,
+      "importance": 0.265,
+      "impact_direction": "Increases Attrition"
+    }
+  ],
+  "logistic_parameters": {
+    "numeric_features": [
+      "age",
+      "salary",
+      "experience",
+      "job_satisfaction",
+      "work_life_balance",
+      "environment_satisfaction",
+      "relationship_satisfaction"
+    ],
+    "scaler_means": [
+      37.14416666666666,
+      9240.948333333334,
+      7.355833333333333,
+      2.9541666666666666,
+      2.7933333333333334,
+      3.0741666666666667,
+      3.1816666666666666
+    ],
+    "scaler_scales": [
+      8.338168222430845,
+      4272.880489864406,
+      5.4194909944467,
+      1.1337545173253138,
+      1.1628795676633452,
+      1.138858773314565,
+      1.1122037683006754
+    ],
+    "categorical_features": [
+      "department"
+    ],
+    "cat_feature_names": [
+      "department_Finance",
+      "department_Human Resources",
+      "department_Marketing",
+      "department_Research & Development",
+      "department_Sales"
+    ],
+    "binary_features": [
+      "overtime"
+    ],
+    "feature_names": [
+      "age",
+      "salary",
+      "experience",
+      "job_satisfaction",
+      "work_life_balance",
+      "environment_satisfaction",
+      "relationship_satisfaction",
+      "department_Finance",
+      "department_Human Resources",
+      "department_Marketing",
+      "department_Research & Development",
+      "department_Sales",
+      "overtime"
+    ],
+    "coefficients": [
+      -0.4498853184122651,
+      -0.39661232676802377,
+      -0.10598888256704024,
+      -0.07107512619968939,
+      -0.26547789084031864,
+      -0.20483150771747513,
+      -0.1669347868812626,
+      0.1277878275291165,
+      0.24715572250471993,
+      0.2904854936427953,
+      -0.2654356083315702,
+      0.26533257623209905,
+      1.750644878486517
+    ],
+    "intercept": -1.264440128985382
+  },
+  "benchmarks": {
+    "by_department": {
+      "Engineering": {
+        "total_count": 275,
+        "attrition_count": 97,
+        "attrition_rate": 0.353,
+        "avg_salary": 10308.531,
+        "avg_experience": 7.465
+      },
+      "Finance": {
+        "total_count": 77,
+        "attrition_count": 30,
+        "attrition_rate": 0.39,
+        "avg_salary": 9717.117,
+        "avg_experience": 7.688
+      },
+      "Human Resources": {
+        "total_count": 109,
+        "attrition_count": 49,
+        "attrition_rate": 0.45,
+        "avg_salary": 7772.046,
+        "avg_experience": 7.679
+      },
+      "Marketing": {
+        "total_count": 119,
+        "attrition_count": 45,
+        "attrition_rate": 0.378,
+        "avg_salary": 7884.269,
+        "avg_experience": 7.504
+      },
+      "Research & Development": {
+        "total_count": 529,
+        "attrition_count": 160,
+        "attrition_rate": 0.302,
+        "avg_salary": 9763.777,
+        "avg_experience": 7.306
+      },
+      "Sales": {
+        "total_count": 391,
+        "attrition_count": 182,
+        "attrition_rate": 0.465,
+        "avg_salary": 8658.015,
+        "avg_experience": 7.164
+      }
+    },
+    "by_salary_bracket": {
+      "<$4k Entry": {
+        "count": 106,
+        "mean": 0.755
+      },
+      "$4k-$7k Mid-Junior": {
+        "count": 393,
+        "mean": 0.496
+      },
+      "$7k-$11k Senior": {
+        "count": 579,
+        "mean": 0.363
+      },
+      "$11k-$16k Lead/Manager": {
+        "count": 301,
+        "mean": 0.199
+      },
+      "$16k+ Executive": {
+        "count": 121,
+        "mean": 0.149
+      }
+    },
+    "by_experience_bracket": {
+      "0-2 yrs (High Risk)": {
+        "count": 262,
+        "mean": 0.641
+      },
+      "3-5 yrs": {
+        "count": 412,
+        "mean": 0.43
+      },
+      "6-10 yrs": {
+        "count": 459,
+        "mean": 0.303
+      },
+      "11-20 yrs": {
+        "count": 322,
+        "mean": 0.211
+      },
+      "20+ yrs": {
+        "count": 45,
+        "mean": 0.244
+      }
+    },
+    "by_overtime": {
+      "0": {
+        "count": 1011,
+        "mean": 0.259
+      },
+      "1": {
+        "count": 489,
+        "mean": 0.616
+      }
+    }
+  }
+};
+export default modelMetadata;

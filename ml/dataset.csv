@@ -1,0 +1,1501 @@
+employee_id,name,age,salary,experience,department,job_satisfaction,work_life_balance,environment_satisfaction,relationship_satisfaction,composite_satisfaction,overtime,attrition,ground_truth_prob
+EMP-1000,Employee 1000,41,20176,13,Research & Development,5,3,3,1,3.0,0,0,0.091
+EMP-1001,Employee 1001,35,6850,7,Sales,3,3,3,3,3.0,0,0,0.2993
+EMP-1002,Employee 1002,42,9835,5,Sales,3,5,3,3,3.5,0,1,0.3194
+EMP-1003,Employee 1003,49,8685,18,Marketing,4,3,3,2,3.0,0,0,0.2141
+EMP-1004,Employee 1004,35,8542,11,Research & Development,4,2,3,2,2.75,0,0,0.1855
+EMP-1005,Employee 1005,35,7599,11,Sales,5,3,1,3,3.0,0,1,0.2142
+EMP-1006,Employee 1006,50,10192,3,Engineering,1,3,3,4,2.75,0,0,0.2608
+EMP-1007,Employee 1007,43,16263,15,Research & Development,2,1,2,3,2.0,1,0,0.2933
+EMP-1008,Employee 1008,33,8111,8,Marketing,2,3,1,4,2.5,0,0,0.3008
+EMP-1009,Employee 1009,41,10855,12,Research & Development,2,3,3,3,2.75,0,1,0.1798
+EMP-1010,Employee 1010,33,3548,3,Engineering,2,3,3,5,3.25,0,1,0.3239
+EMP-1011,Employee 1011,33,5477,3,Marketing,4,3,3,4,3.5,0,1,0.2836
+EMP-1012,Employee 1012,39,9019,7,Human Resources,1,3,1,3,2.0,0,0,0.2685
+EMP-1013,Employee 1013,20,5746,0,Sales,3,3,4,2,3.0,1,1,0.8804
+EMP-1014,Employee 1014,22,3609,1,Research & Development,3,5,3,2,3.25,1,1,0.9046
+EMP-1015,Employee 1015,32,6668,9,Marketing,2,3,2,5,3.0,0,0,0.2281
+EMP-1016,Employee 1016,28,4277,0,Sales,2,1,3,3,2.25,0,1,0.9371
+EMP-1017,Employee 1017,39,8877,7,Research & Development,3,5,3,3,3.5,0,0,0.1945
+EMP-1018,Employee 1018,29,8218,2,Engineering,4,4,1,2,2.75,0,1,0.3794
+EMP-1019,Employee 1019,24,4358,4,Sales,4,1,3,4,3.0,1,1,0.8911
+EMP-1020,Employee 1020,49,13594,14,Research & Development,4,2,4,3,3.25,0,0,0.0427
+EMP-1021,Employee 1021,35,10450,6,Research & Development,5,2,4,3,3.5,0,0,0.1432
+EMP-1022,Employee 1022,37,8247,4,Research & Development,3,2,2,3,2.5,0,0,0.3672
+EMP-1023,Employee 1023,24,5867,2,Sales,5,1,4,3,3.25,1,1,0.8852
+EMP-1024,Employee 1024,32,4147,2,Human Resources,4,5,3,3,3.75,0,1,0.593
+EMP-1025,Employee 1025,37,12153,8,Sales,4,3,5,3,3.75,0,0,0.1163
+EMP-1026,Employee 1026,27,5228,6,Engineering,1,3,1,4,2.25,0,1,0.7693
+EMP-1027,Employee 1027,40,7564,15,Marketing,5,4,3,4,4.0,0,0,0.0686
+EMP-1028,Employee 1028,31,6777,3,Human Resources,3,4,3,4,3.5,0,1,0.1338
+EMP-1029,Employee 1029,34,10345,10,Research & Development,4,4,2,2,3.0,0,0,0.1668
+EMP-1030,Employee 1030,31,7191,1,Engineering,2,4,4,4,3.5,1,0,0.787
+EMP-1031,Employee 1031,52,12475,11,Sales,3,3,3,2,2.75,0,0,0.0433
+EMP-1032,Employee 1032,36,6833,4,Sales,2,5,1,2,2.5,0,0,0.2007
+EMP-1033,Employee 1033,28,2427,0,Human Resources,1,4,3,5,3.25,1,1,0.9174
+EMP-1034,Employee 1034,43,11900,13,Sales,2,1,3,4,2.5,0,1,0.4698
+EMP-1035,Employee 1035,26,7103,4,Marketing,4,3,2,3,3.0,0,0,0.4041
+EMP-1036,Employee 1036,38,12083,12,Research & Development,1,3,5,4,3.25,0,0,0.0481
+EMP-1037,Employee 1037,20,2988,0,Human Resources,3,5,4,5,4.25,0,1,0.7021
+EMP-1038,Employee 1038,25,6433,3,Research & Development,2,3,2,3,2.5,0,0,0.5307
+EMP-1039,Employee 1039,38,8636,15,Marketing,3,3,3,3,3.0,0,1,0.1434
+EMP-1040,Employee 1040,43,12410,7,Research & Development,1,1,3,4,2.25,1,1,0.4606
+EMP-1041,Employee 1041,38,9579,9,Research & Development,2,2,4,2,2.5,0,0,0.2489
+EMP-1042,Employee 1042,36,7026,4,Research & Development,3,1,5,2,2.75,1,0,0.5915
+EMP-1043,Employee 1043,34,15131,9,Sales,3,2,3,4,3.0,1,1,0.3997
+EMP-1044,Employee 1044,24,6182,3,Research & Development,2,4,4,3,3.25,0,0,0.3037
+EMP-1045,Employee 1045,30,5594,5,Sales,2,2,3,2,2.25,0,1,0.5037
+EMP-1046,Employee 1046,33,7533,6,Sales,2,3,3,3,2.75,0,0,0.4095
+EMP-1047,Employee 1047,45,11953,10,Research & Development,5,1,5,3,3.5,1,0,0.2488
+EMP-1048,Employee 1048,39,16004,9,Research & Development,3,2,3,5,3.25,0,0,0.0428
+EMP-1049,Employee 1049,22,3837,0,Engineering,3,3,3,4,3.25,1,1,0.8887
+EMP-1050,Employee 1050,39,20797,10,Engineering,2,1,4,3,2.5,0,0,0.1673
+EMP-1051,Employee 1051,33,8415,11,Engineering,3,3,2,5,3.25,0,0,0.2385
+EMP-1052,Employee 1052,31,6782,3,Engineering,1,1,3,5,2.5,1,1,0.5127
+EMP-1053,Employee 1053,42,9446,10,Research & Development,1,1,5,3,2.5,0,1,0.2633
+EMP-1054,Employee 1054,45,10009,9,Research & Development,3,2,4,5,3.5,1,1,0.5126
+EMP-1055,Employee 1055,44,9021,7,Research & Development,3,3,4,3,3.25,0,0,0.2039
+EMP-1056,Employee 1056,29,6885,6,Engineering,2,1,2,2,1.75,0,0,0.3442
+EMP-1057,Employee 1057,34,10646,4,Finance,4,3,3,2,3.0,0,0,0.1461
+EMP-1058,Employee 1058,39,15703,12,Sales,5,4,5,4,4.5,0,0,0.0388
+EMP-1059,Employee 1059,45,13671,11,Research & Development,3,4,3,3,3.25,0,0,0.1572
+EMP-1060,Employee 1060,32,5249,2,Research & Development,2,1,2,4,2.25,1,1,0.8101
+EMP-1061,Employee 1061,35,6204,4,Research & Development,5,2,3,4,3.5,1,0,0.2496
+EMP-1062,Employee 1062,27,6307,3,Sales,4,3,3,1,2.75,0,1,0.6022
+EMP-1063,Employee 1063,26,5479,2,Research & Development,3,1,2,1,1.75,0,1,0.7229
+EMP-1064,Employee 1064,43,9717,8,Finance,4,4,4,3,3.75,1,1,0.475
+EMP-1065,Employee 1065,48,13355,11,Sales,2,5,5,2,3.5,0,0,0.0614
+EMP-1066,Employee 1066,36,7739,4,Marketing,3,4,3,3,3.25,0,0,0.214
+EMP-1067,Employee 1067,45,9682,5,Engineering,2,3,4,3,3.0,1,0,0.4587
+EMP-1068,Employee 1068,40,9958,10,Engineering,2,4,4,3,3.25,0,1,0.387
+EMP-1069,Employee 1069,31,2665,0,Human Resources,3,3,4,3,3.25,0,0,0.5895
+EMP-1070,Employee 1070,40,7569,6,Human Resources,2,3,1,3,2.25,0,0,0.2704
+EMP-1071,Employee 1071,50,19649,14,Human Resources,4,3,2,4,3.25,1,0,0.1297
+EMP-1072,Employee 1072,36,6899,12,Human Resources,3,3,1,5,3.0,0,0,0.2321
+EMP-1073,Employee 1073,50,15687,11,Sales,3,1,1,4,2.25,1,0,0.6196
+EMP-1074,Employee 1074,20,3019,1,Finance,2,3,3,3,2.75,1,1,0.9232
+EMP-1075,Employee 1075,43,8671,5,Engineering,2,4,3,2,2.75,0,0,0.37
+EMP-1076,Employee 1076,37,13968,9,Engineering,3,1,2,4,2.5,0,0,0.1685
+EMP-1077,Employee 1077,34,5998,5,Marketing,5,3,1,5,3.5,0,0,0.2049
+EMP-1078,Employee 1078,37,7574,3,Research & Development,1,5,3,2,2.75,0,0,0.141
+EMP-1079,Employee 1079,20,3957,1,Research & Development,2,4,2,2,2.5,0,1,0.869
+EMP-1080,Employee 1080,35,6476,6,Sales,3,4,4,2,3.25,1,1,0.7075
+EMP-1081,Employee 1081,40,8602,3,Sales,1,3,1,4,2.25,0,0,0.5311
+EMP-1082,Employee 1082,49,16038,15,Engineering,4,1,4,3,3.0,0,0,0.0639
+EMP-1083,Employee 1083,32,3480,1,Sales,3,4,5,1,3.25,1,1,0.8719
+EMP-1084,Employee 1084,30,5628,6,Sales,3,2,4,4,3.25,0,1,0.2904
+EMP-1085,Employee 1085,32,2692,3,Sales,3,3,4,3,3.25,0,1,0.6169
+EMP-1086,Employee 1086,44,18151,22,Research & Development,2,2,5,3,3.0,0,0,0.0813
+EMP-1087,Employee 1087,39,9139,5,Human Resources,3,2,2,3,2.5,0,0,0.342
+EMP-1088,Employee 1088,32,6243,5,Engineering,4,3,5,3,3.75,1,1,0.6459
+EMP-1089,Employee 1089,41,13672,11,Research & Development,4,3,4,3,3.5,0,0,0.0843
+EMP-1090,Employee 1090,37,8290,5,Sales,4,3,4,3,3.5,1,1,0.7047
+EMP-1091,Employee 1091,45,11310,16,Sales,4,4,3,3,3.5,0,0,0.1632
+EMP-1092,Employee 1092,31,10756,5,Research & Development,2,2,3,4,2.75,0,0,0.1817
+EMP-1093,Employee 1093,34,5295,1,Research & Development,3,2,3,4,3.0,0,0,0.4344
+EMP-1094,Employee 1094,33,9564,2,Finance,3,3,3,3,3.0,0,1,0.3846
+EMP-1095,Employee 1095,24,3229,3,Sales,4,2,4,3,3.25,1,1,0.8951
+EMP-1096,Employee 1096,39,8848,7,Research & Development,3,5,1,4,3.25,0,0,0.1147
+EMP-1097,Employee 1097,39,9115,7,Research & Development,3,1,3,1,2.0,0,0,0.4025
+EMP-1098,Employee 1098,37,6717,6,Human Resources,4,4,3,1,3.0,0,1,0.1967
+EMP-1099,Employee 1099,35,6405,3,Human Resources,3,3,2,3,2.75,0,0,0.3687
+EMP-1100,Employee 1100,24,8797,2,Human Resources,1,3,2,3,2.25,0,1,0.5729
+EMP-1101,Employee 1101,33,8517,5,Research & Development,2,1,2,2,1.75,1,1,0.5942
+EMP-1102,Employee 1102,34,9873,13,Marketing,3,3,3,4,3.25,0,1,0.1778
+EMP-1103,Employee 1103,30,4989,5,Sales,4,2,3,4,3.25,0,0,0.3204
+EMP-1104,Employee 1104,35,5233,6,Research & Development,5,2,1,5,3.25,0,1,0.1729
+EMP-1105,Employee 1105,40,12380,8,Sales,2,3,5,2,3.0,1,0,0.3924
+EMP-1106,Employee 1106,53,11960,14,Sales,3,4,4,4,3.75,0,0,0.1316
+EMP-1107,Employee 1107,38,14773,7,Marketing,4,4,4,2,3.5,0,0,0.1179
+EMP-1108,Employee 1108,39,11838,11,Marketing,2,3,2,3,2.5,0,0,0.3687
+EMP-1109,Employee 1109,36,9293,6,Research & Development,2,3,3,3,2.75,0,0,0.1965
+EMP-1110,Employee 1110,20,3407,1,Marketing,5,2,3,3,3.25,1,1,0.9139
+EMP-1111,Employee 1111,36,10260,6,Engineering,4,5,5,4,4.5,0,1,0.1521
+EMP-1112,Employee 1112,37,7817,11,Marketing,1,3,4,1,2.25,0,0,0.3204
+EMP-1113,Employee 1113,57,13389,24,Research & Development,2,2,3,3,2.5,0,0,0.0944
+EMP-1114,Employee 1114,35,5855,4,Sales,3,1,4,2,2.5,1,1,0.635
+EMP-1115,Employee 1115,39,7360,3,Research & Development,4,3,2,4,3.25,0,1,0.1799
+EMP-1116,Employee 1116,36,11236,13,Engineering,4,3,1,1,2.25,0,0,0.2173
+EMP-1117,Employee 1117,27,4160,3,Research & Development,2,1,4,4,2.75,0,0,0.5404
+EMP-1118,Employee 1118,46,9466,11,Sales,5,4,1,4,3.5,0,0,0.2029
+EMP-1119,Employee 1119,43,12306,6,Research & Development,3,4,2,4,3.25,0,0,0.1084
+EMP-1120,Employee 1120,43,11452,6,Research & Development,4,3,4,2,3.25,0,0,0.1945
+EMP-1121,Employee 1121,29,6604,7,Human Resources,3,1,2,3,2.25,0,0,0.2609
+EMP-1122,Employee 1122,48,21945,20,Engineering,1,3,3,1,2.0,1,1,0.1784
+EMP-1123,Employee 1123,25,3221,3,Human Resources,5,5,5,4,4.75,0,0,0.233
+EMP-1124,Employee 1124,41,9139,8,Engineering,2,4,3,4,3.25,1,0,0.4819
+EMP-1125,Employee 1125,55,19328,19,Research & Development,2,2,2,3,2.25,0,0,0.1289
+EMP-1126,Employee 1126,28,4173,3,Sales,4,2,2,4,3.0,0,1,0.6633
+EMP-1127,Employee 1127,32,7487,6,Sales,3,3,2,2,2.5,0,1,0.6036
+EMP-1128,Employee 1128,37,5569,4,Research & Development,4,3,1,3,2.75,0,0,0.2055
+EMP-1129,Employee 1129,32,3573,2,Sales,3,3,1,3,2.5,0,1,0.7936
+EMP-1130,Employee 1130,23,4392,2,Human Resources,3,5,3,5,4.0,1,1,0.9144
+EMP-1131,Employee 1131,37,11456,8,Sales,4,2,3,4,3.25,1,1,0.576
+EMP-1132,Employee 1132,27,5327,3,Engineering,1,1,4,4,2.5,1,1,0.7645
+EMP-1133,Employee 1133,41,6081,7,Sales,4,4,4,5,4.25,0,0,0.081
+EMP-1134,Employee 1134,29,4058,5,Research & Development,2,1,4,3,2.5,0,0,0.3601
+EMP-1135,Employee 1135,50,19046,9,Research & Development,4,5,3,5,4.25,0,0,0.0125
+EMP-1136,Employee 1136,30,4804,1,Sales,2,3,2,3,2.5,0,0,0.646
+EMP-1137,Employee 1137,34,7092,6,Research & Development,2,4,4,4,3.5,1,0,0.2712
+EMP-1138,Employee 1138,43,7727,4,Research & Development,4,2,3,4,3.25,0,0,0.2636
+EMP-1139,Employee 1139,26,3462,4,Sales,3,1,1,1,1.5,1,1,0.9639
+EMP-1140,Employee 1140,38,13253,13,Sales,3,2,4,3,3.0,1,1,0.4211
+EMP-1141,Employee 1141,48,24500,23,Research & Development,4,3,3,1,2.75,1,0,0.1162
+EMP-1142,Employee 1142,23,4173,2,Engineering,4,2,2,5,3.25,0,1,0.6063
+EMP-1143,Employee 1143,38,11774,5,Human Resources,5,5,4,2,4.0,0,1,0.1351
+EMP-1144,Employee 1144,39,9695,8,Research & Development,3,4,5,3,3.75,0,0,0.1811
+EMP-1145,Employee 1145,43,18222,9,Engineering,2,3,3,4,3.0,0,0,0.2501
+EMP-1146,Employee 1146,26,4732,3,Human Resources,1,2,3,2,2.0,0,1,0.5936
+EMP-1147,Employee 1147,25,5052,4,Human Resources,2,3,3,3,2.75,1,0,0.6273
+EMP-1148,Employee 1148,41,14101,7,Sales,2,4,4,3,3.25,0,0,0.0954
+EMP-1149,Employee 1149,39,12768,9,Research & Development,3,3,1,2,2.25,0,0,0.0771
+EMP-1150,Employee 1150,39,9444,4,Engineering,2,5,3,4,3.5,0,0,0.1634
+EMP-1151,Employee 1151,39,5318,7,Sales,1,2,5,3,2.75,0,0,0.3074
+EMP-1152,Employee 1152,31,6505,10,Finance,1,2,2,2,1.75,0,1,0.2996
+EMP-1153,Employee 1153,38,10107,5,Engineering,3,1,5,3,3.0,1,1,0.4297
+EMP-1154,Employee 1154,39,15882,12,Sales,3,4,5,3,3.75,0,0,0.065
+EMP-1155,Employee 1155,30,6887,4,Research & Development,3,3,2,5,3.25,0,0,0.1652
+EMP-1156,Employee 1156,52,15067,19,Research & Development,3,1,4,4,3.0,1,0,0.1568
+EMP-1157,Employee 1157,41,8110,13,Research & Development,1,2,2,3,2.0,0,0,0.1264
+EMP-1158,Employee 1158,26,3426,1,Sales,5,1,4,3,3.25,0,1,0.825
+EMP-1159,Employee 1159,42,12880,12,Research & Development,3,2,4,3,3.0,0,0,0.1331
+EMP-1160,Employee 1160,28,3568,1,Sales,2,3,2,3,2.5,0,1,0.6849
+EMP-1161,Employee 1161,43,6650,4,Research & Development,4,2,4,3,3.25,0,0,0.2782
+EMP-1162,Employee 1162,46,11805,11,Finance,4,2,4,4,3.5,0,0,0.1082
+EMP-1163,Employee 1163,30,12553,8,Research & Development,2,4,3,3,3.0,1,0,0.3966
+EMP-1164,Employee 1164,45,13133,13,Marketing,4,2,2,2,2.5,1,0,0.272
+EMP-1165,Employee 1165,40,7601,5,Marketing,2,4,1,3,2.5,0,0,0.4327
+EMP-1166,Employee 1166,43,7110,2,Sales,2,1,3,1,1.75,0,0,0.7629
+EMP-1167,Employee 1167,53,21319,18,Engineering,1,3,5,4,3.25,0,0,0.0278
+EMP-1168,Employee 1168,34,7334,6,Sales,2,3,4,3,3.0,1,0,0.7213
+EMP-1169,Employee 1169,30,5075,5,Human Resources,2,1,3,3,2.25,1,1,0.6954
+EMP-1170,Employee 1170,29,8478,5,Research & Development,5,2,3,3,3.25,1,0,0.3798
+EMP-1171,Employee 1171,30,7771,7,Research & Development,1,4,2,5,3.0,0,0,0.1696
+EMP-1172,Employee 1172,36,5788,6,Sales,3,5,2,2,3.0,0,0,0.3156
+EMP-1173,Employee 1173,39,17140,14,Sales,3,1,3,4,2.75,0,0,0.1021
+EMP-1174,Employee 1174,39,4822,5,Sales,4,2,3,3,3.0,1,0,0.5606
+EMP-1175,Employee 1175,44,11816,3,Research & Development,5,5,3,4,4.25,0,0,0.1057
+EMP-1176,Employee 1176,37,12203,12,Sales,4,1,5,4,3.5,0,0,0.1515
+EMP-1177,Employee 1177,49,7698,5,Research & Development,4,2,3,2,2.75,1,1,0.4202
+EMP-1178,Employee 1178,34,8307,6,Research & Development,4,5,3,4,4.0,0,0,0.0533
+EMP-1179,Employee 1179,60,21333,29,Research & Development,5,5,2,4,4.0,0,0,0.0139
+EMP-1180,Employee 1180,42,8922,2,Research & Development,4,3,5,1,3.25,1,0,0.5517
+EMP-1181,Employee 1181,29,8584,5,Research & Development,1,2,4,2,2.25,1,1,0.7714
+EMP-1182,Employee 1182,27,5737,1,Engineering,3,2,4,3,3.0,0,1,0.5382
+EMP-1183,Employee 1183,41,12985,9,Research & Development,3,4,3,4,3.5,0,0,0.06
+EMP-1184,Employee 1184,35,4022,0,Human Resources,3,5,3,4,3.75,0,0,0.5028
+EMP-1185,Employee 1185,43,13147,4,Research & Development,2,3,3,4,3.0,1,0,0.2878
+EMP-1186,Employee 1186,41,9764,5,Marketing,3,4,2,4,3.25,0,1,0.3155
+EMP-1187,Employee 1187,36,4818,1,Sales,5,4,4,4,4.25,0,0,0.1563
+EMP-1188,Employee 1188,29,8633,5,Research & Development,1,3,5,3,3.0,0,0,0.1984
+EMP-1189,Employee 1189,24,5259,2,Sales,3,4,2,3,3.0,1,1,0.8485
+EMP-1190,Employee 1190,33,8718,10,Sales,4,2,1,5,3.0,1,1,0.6886
+EMP-1191,Employee 1191,44,7217,4,Sales,4,2,4,1,2.75,1,1,0.7544
+EMP-1192,Employee 1192,38,11934,6,Research & Development,5,2,2,3,3.0,1,1,0.4102
+EMP-1193,Employee 1193,26,4350,1,Finance,4,4,3,4,3.75,0,0,0.4125
+EMP-1194,Employee 1194,38,8079,5,Sales,3,3,4,3,3.25,0,0,0.2406
+EMP-1195,Employee 1195,40,19506,15,Research & Development,2,2,3,1,2.0,0,0,0.1651
+EMP-1196,Employee 1196,29,14435,5,Engineering,3,4,4,1,3.0,0,1,0.1579
+EMP-1197,Employee 1197,38,5808,3,Sales,4,3,3,4,3.5,1,0,0.5262
+EMP-1198,Employee 1198,37,6257,1,Engineering,4,5,4,5,4.5,1,0,0.4352
+EMP-1199,Employee 1199,27,3893,0,Sales,4,2,4,3,3.25,0,1,0.7476
+EMP-1200,Employee 1200,40,12998,11,Engineering,2,2,4,3,2.75,1,0,0.2647
+EMP-1201,Employee 1201,41,9564,5,Research & Development,2,1,1,3,1.75,1,0,0.7532
+EMP-1202,Employee 1202,46,18489,24,Engineering,3,5,2,2,3.0,1,0,0.2289
+EMP-1203,Employee 1203,45,9791,11,Engineering,1,1,1,1,1.0,1,1,0.7901
+EMP-1204,Employee 1204,25,6864,1,Research & Development,2,2,3,3,2.5,1,1,0.8021
+EMP-1205,Employee 1205,29,5802,1,Research & Development,2,4,4,3,3.25,0,0,0.2356
+EMP-1206,Employee 1206,41,11569,13,Research & Development,4,3,3,2,3.0,0,0,0.0951
+EMP-1207,Employee 1207,41,9840,6,Finance,2,4,4,2,3.0,1,0,0.3821
+EMP-1208,Employee 1208,41,18675,11,Research & Development,1,3,3,4,2.75,1,0,0.3192
+EMP-1209,Employee 1209,62,13356,17,Sales,5,2,3,4,3.5,0,0,0.0647
+EMP-1210,Employee 1210,41,11359,9,Research & Development,2,1,4,5,3.0,1,1,0.564
+EMP-1211,Employee 1211,46,9732,16,Sales,1,2,3,3,2.25,0,0,0.1431
+EMP-1212,Employee 1212,45,7747,4,Sales,2,2,4,1,2.25,1,1,0.7606
+EMP-1213,Employee 1213,42,12756,10,Finance,2,3,2,4,2.75,1,1,0.3783
+EMP-1214,Employee 1214,34,5347,5,Sales,2,5,5,2,3.5,0,0,0.1683
+EMP-1215,Employee 1215,43,14147,14,Engineering,1,1,3,4,2.25,0,0,0.1142
+EMP-1216,Employee 1216,30,9169,7,Sales,3,3,4,4,3.5,1,1,0.6945
+EMP-1217,Employee 1217,34,7768,3,Research & Development,2,3,1,4,2.5,0,1,0.2167
+EMP-1218,Employee 1218,32,6362,7,Research & Development,3,1,3,5,3.0,1,0,0.2773
+EMP-1219,Employee 1219,37,7136,3,Sales,4,3,5,4,4.0,1,0,0.2346
+EMP-1220,Employee 1220,56,16405,13,Finance,3,2,4,4,3.25,0,0,0.0301
+EMP-1221,Employee 1221,21,4327,1,Engineering,5,3,1,3,3.0,0,1,0.7591
+EMP-1222,Employee 1222,42,17047,13,Research & Development,3,3,3,5,3.5,0,0,0.0435
+EMP-1223,Employee 1223,23,4029,2,Research & Development,3,4,3,2,3.0,0,1,0.7446
+EMP-1224,Employee 1224,32,6553,2,Research & Development,4,2,2,5,3.25,0,0,0.1782
+EMP-1225,Employee 1225,46,8675,14,Marketing,1,4,4,3,3.0,0,0,0.086
+EMP-1226,Employee 1226,37,6693,7,Engineering,1,3,2,2,2.0,1,1,0.7389
+EMP-1227,Employee 1227,27,9633,6,Engineering,4,3,3,4,3.5,1,1,0.6805
+EMP-1228,Employee 1228,30,5646,3,Sales,3,3,4,1,2.75,0,0,0.3094
+EMP-1229,Employee 1229,42,8032,7,Sales,4,3,3,4,3.5,1,1,0.4087
+EMP-1230,Employee 1230,30,6476,9,Sales,5,4,4,3,4.0,0,0,0.2064
+EMP-1231,Employee 1231,38,14650,12,Research & Development,3,3,5,4,3.75,0,0,0.0593
+EMP-1232,Employee 1232,37,4458,3,Sales,3,3,2,4,3.0,0,0,0.4192
+EMP-1233,Employee 1233,31,8726,4,Research & Development,3,5,4,4,4.0,1,0,0.169
+EMP-1234,Employee 1234,55,19437,18,Research & Development,5,4,2,3,3.5,0,0,0.0317
+EMP-1235,Employee 1235,42,7449,13,Marketing,4,5,3,1,3.25,0,0,0.1256
+EMP-1236,Employee 1236,20,3611,0,Engineering,5,4,1,4,3.5,0,0,0.7025
+EMP-1237,Employee 1237,38,22036,13,Sales,1,2,2,2,1.75,1,1,0.5324
+EMP-1238,Employee 1238,31,6460,1,Sales,4,1,3,3,2.75,0,0,0.4004
+EMP-1239,Employee 1239,44,6385,4,Sales,2,2,3,3,2.5,0,0,0.4165
+EMP-1240,Employee 1240,30,10691,7,Engineering,2,5,4,3,3.5,0,0,0.1233
+EMP-1241,Employee 1241,36,6904,7,Engineering,5,2,4,2,3.25,0,1,0.1105
+EMP-1242,Employee 1242,41,8313,9,Engineering,1,1,5,2,2.25,0,0,0.1835
+EMP-1243,Employee 1243,44,14172,13,Engineering,5,4,3,2,3.5,0,0,0.0509
+EMP-1244,Employee 1244,26,5834,2,Research & Development,2,4,2,4,3.0,0,1,0.6382
+EMP-1245,Employee 1245,34,7578,2,Research & Development,4,2,3,1,2.5,1,0,0.749
+EMP-1246,Employee 1246,32,8956,6,Sales,2,2,3,5,3.0,0,1,0.4881
+EMP-1247,Employee 1247,31,9461,7,Research & Development,3,3,3,2,2.75,0,0,0.335
+EMP-1248,Employee 1248,52,10804,14,Engineering,2,1,4,2,2.25,0,1,0.1708
+EMP-1249,Employee 1249,40,9457,7,Research & Development,3,4,3,3,3.25,1,0,0.6215
+EMP-1250,Employee 1250,26,5816,1,Research & Development,3,2,3,1,2.25,0,1,0.7301
+EMP-1251,Employee 1251,44,10885,8,Sales,3,4,2,3,3.0,1,1,0.7559
+EMP-1252,Employee 1252,55,23082,29,Finance,1,4,1,4,2.5,1,0,0.0743
+EMP-1253,Employee 1253,45,12299,9,Research & Development,1,3,2,1,1.75,0,0,0.1688
+EMP-1254,Employee 1254,24,4067,2,Human Resources,1,1,2,4,2.0,1,1,0.9564
+EMP-1255,Employee 1255,32,4169,5,Sales,3,3,4,3,3.25,1,1,0.877
+EMP-1256,Employee 1256,47,15487,9,Research & Development,4,3,2,2,2.75,0,1,0.0586
+EMP-1257,Employee 1257,30,7762,8,Sales,3,2,4,2,2.75,1,0,0.8251
+EMP-1258,Employee 1258,40,15813,12,Engineering,2,4,3,5,3.5,1,0,0.2933
+EMP-1259,Employee 1259,43,4873,6,Sales,3,2,1,2,2.0,1,1,0.7751
+EMP-1260,Employee 1260,29,7526,3,Marketing,4,4,4,4,4.0,0,0,0.1455
+EMP-1261,Employee 1261,36,6390,6,Research & Development,2,1,3,3,2.25,0,1,0.2506
+EMP-1262,Employee 1262,20,6078,0,Research & Development,3,2,2,1,2.0,0,1,0.6504
+EMP-1263,Employee 1263,28,7519,2,Marketing,3,5,4,3,3.75,0,1,0.4707
+EMP-1264,Employee 1264,34,4734,4,Sales,2,2,1,4,2.25,1,1,0.7065
+EMP-1265,Employee 1265,26,7431,5,Sales,1,2,2,4,2.25,1,1,0.8108
+EMP-1266,Employee 1266,50,16236,23,Engineering,2,3,4,3,3.0,0,0,0.0927
+EMP-1267,Employee 1267,24,3655,1,Research & Development,3,2,4,4,3.25,0,1,0.8301
+EMP-1268,Employee 1268,33,6599,4,Engineering,1,3,2,2,2.0,1,1,0.6543
+EMP-1269,Employee 1269,38,12168,10,Research & Development,2,1,1,5,2.25,0,0,0.193
+EMP-1270,Employee 1270,49,9516,3,Research & Development,3,2,4,4,3.25,1,0,0.2526
+EMP-1271,Employee 1271,24,3942,3,Research & Development,1,3,3,4,2.75,0,1,0.5164
+EMP-1272,Employee 1272,46,12655,7,Engineering,2,5,2,4,3.25,0,0,0.0391
+EMP-1273,Employee 1273,37,9714,9,Research & Development,5,3,3,3,3.5,0,0,0.2033
+EMP-1274,Employee 1274,28,3338,1,Engineering,1,2,5,4,3.0,0,1,0.7889
+EMP-1275,Employee 1275,40,10016,11,Finance,4,3,1,3,2.75,0,0,0.2435
+EMP-1276,Employee 1276,38,15043,10,Sales,3,1,4,3,2.75,1,1,0.5896
+EMP-1277,Employee 1277,31,6479,6,Sales,4,2,3,3,3.0,1,1,0.552
+EMP-1278,Employee 1278,37,4107,3,Sales,3,1,3,2,2.25,0,1,0.6205
+EMP-1279,Employee 1279,33,8683,4,Research & Development,2,3,4,3,3.0,0,0,0.2142
+EMP-1280,Employee 1280,37,7027,8,Sales,4,1,5,3,3.25,0,1,0.2372
+EMP-1281,Employee 1281,42,7729,6,Human Resources,3,3,2,2,2.5,0,1,0.3332
+EMP-1282,Employee 1282,50,10062,7,Finance,4,5,2,3,3.5,0,0,0.0581
+EMP-1283,Employee 1283,26,8514,5,Marketing,3,4,5,4,4.0,0,0,0.389
+EMP-1284,Employee 1284,55,7190,2,Marketing,5,1,4,3,3.25,0,0,0.4037
+EMP-1285,Employee 1285,20,2319,1,Marketing,4,2,3,4,3.25,0,1,0.8574
+EMP-1286,Employee 1286,35,5556,3,Sales,5,2,3,2,3.0,1,0,0.7103
+EMP-1287,Employee 1287,42,6877,11,Human Resources,3,4,4,3,3.5,0,0,0.1339
+EMP-1288,Employee 1288,39,8231,9,Marketing,3,1,4,2,2.5,0,0,0.3014
+EMP-1289,Employee 1289,31,8204,2,Sales,4,4,5,2,3.75,0,0,0.2987
+EMP-1290,Employee 1290,35,9618,4,Finance,4,3,3,3,3.25,0,0,0.1326
+EMP-1291,Employee 1291,32,12925,7,Sales,5,3,2,3,3.25,0,1,0.2081
+EMP-1292,Employee 1292,31,6006,4,Human Resources,3,4,3,2,3.0,1,0,0.4347
+EMP-1293,Employee 1293,44,20184,22,Engineering,4,4,3,3,3.5,0,1,0.0396
+EMP-1294,Employee 1294,40,6384,5,Finance,2,4,3,4,3.25,1,0,0.3799
+EMP-1295,Employee 1295,31,6729,3,Research & Development,3,3,3,2,2.75,0,0,0.1269
+EMP-1296,Employee 1296,44,9050,4,Engineering,2,3,2,1,2.0,0,0,0.3757
+EMP-1297,Employee 1297,39,9350,5,Sales,2,3,3,4,3.0,1,1,0.6097
+EMP-1298,Employee 1298,43,8347,9,Research & Development,5,1,4,1,2.75,1,1,0.6486
+EMP-1299,Employee 1299,42,18289,20,Engineering,2,3,4,5,3.5,0,0,0.0453
+EMP-1300,Employee 1300,29,3386,2,Sales,3,1,3,3,2.5,1,1,0.9494
+EMP-1301,Employee 1301,32,4592,1,Human Resources,3,1,2,3,2.25,1,1,0.8506
+EMP-1302,Employee 1302,43,11860,7,Research & Development,2,3,3,3,2.75,0,0,0.0791
+EMP-1303,Employee 1303,42,6328,8,Sales,3,4,4,3,3.5,0,0,0.1393
+EMP-1304,Employee 1304,36,6515,12,Human Resources,2,5,3,2,3.0,1,0,0.6394
+EMP-1305,Employee 1305,37,6067,7,Sales,2,3,4,5,3.5,0,0,0.2645
+EMP-1306,Employee 1306,47,10604,8,Research & Development,4,3,3,3,3.25,0,0,0.1003
+EMP-1307,Employee 1307,31,4242,3,Finance,5,1,2,2,2.5,0,1,0.5802
+EMP-1308,Employee 1308,41,15220,11,Sales,2,5,4,3,3.5,0,1,0.1486
+EMP-1309,Employee 1309,35,10176,6,Engineering,2,2,1,2,1.75,1,1,0.848
+EMP-1310,Employee 1310,35,10000,8,Sales,3,4,3,1,2.75,1,1,0.4148
+EMP-1311,Employee 1311,46,5448,4,Sales,4,3,2,3,3.0,1,1,0.7069
+EMP-1312,Employee 1312,44,13463,8,Sales,2,2,1,4,2.25,0,0,0.1922
+EMP-1313,Employee 1313,43,14093,13,Sales,1,3,3,3,2.5,0,0,0.1343
+EMP-1314,Employee 1314,48,6648,3,Sales,3,5,3,2,3.25,0,0,0.2732
+EMP-1315,Employee 1315,37,4420,3,Sales,5,1,4,3,3.25,0,1,0.276
+EMP-1316,Employee 1316,42,9313,8,Sales,3,3,4,1,2.75,0,0,0.3097
+EMP-1317,Employee 1317,34,9190,10,Research & Development,3,5,4,3,3.75,0,0,0.1775
+EMP-1318,Employee 1318,39,11169,15,Sales,5,2,3,3,3.25,0,0,0.137
+EMP-1319,Employee 1319,35,5736,3,Research & Development,4,3,3,4,3.5,1,1,0.509
+EMP-1320,Employee 1320,37,12863,10,Research & Development,4,4,3,4,3.75,1,0,0.2625
+EMP-1321,Employee 1321,42,6490,17,Marketing,3,4,3,4,3.5,0,0,0.1482
+EMP-1322,Employee 1322,30,8621,6,Human Resources,5,2,3,5,3.75,0,0,0.2196
+EMP-1323,Employee 1323,54,15223,14,Human Resources,4,2,5,5,4.0,0,0,0.0489
+EMP-1324,Employee 1324,28,6153,4,Sales,4,1,2,4,2.75,0,1,0.5334
+EMP-1325,Employee 1325,26,4050,2,Marketing,4,4,5,5,4.5,0,1,0.6991
+EMP-1326,Employee 1326,46,10701,7,Human Resources,4,4,1,4,3.25,0,0,0.1082
+EMP-1327,Employee 1327,43,11329,8,Engineering,2,3,3,4,3.0,0,0,0.2713
+EMP-1328,Employee 1328,42,8413,7,Sales,3,3,2,1,2.25,0,0,0.4645
+EMP-1329,Employee 1329,42,12560,7,Finance,4,1,3,1,2.25,0,1,0.1967
+EMP-1330,Employee 1330,36,12805,3,Engineering,2,4,2,4,3.0,0,0,0.071
+EMP-1331,Employee 1331,29,6893,7,Engineering,3,4,4,3,3.5,0,0,0.2513
+EMP-1332,Employee 1332,37,10218,7,Research & Development,2,5,4,4,3.75,0,0,0.0845
+EMP-1333,Employee 1333,31,5188,4,Research & Development,4,4,3,3,3.5,0,0,0.3161
+EMP-1334,Employee 1334,45,9321,3,Research & Development,2,4,3,3,3.0,0,0,0.1301
+EMP-1335,Employee 1335,35,7762,8,Research & Development,4,4,5,4,4.25,0,0,0.0553
+EMP-1336,Employee 1336,29,8088,2,Engineering,2,3,4,5,3.5,1,1,0.6328
+EMP-1337,Employee 1337,34,7043,4,Research & Development,2,3,3,2,2.5,0,0,0.3311
+EMP-1338,Employee 1338,40,8667,5,Research & Development,3,5,4,4,4.0,0,0,0.1202
+EMP-1339,Employee 1339,32,12777,7,Research & Development,2,3,3,4,3.0,0,0,0.1759
+EMP-1340,Employee 1340,30,5984,5,Research & Development,3,3,3,3,3.0,0,1,0.1631
+EMP-1341,Employee 1341,39,8161,2,Research & Development,3,1,3,3,2.5,1,0,0.7015
+EMP-1342,Employee 1342,39,11661,13,Engineering,1,1,3,1,1.5,1,1,0.5731
+EMP-1343,Employee 1343,32,9827,6,Sales,4,3,1,1,2.25,1,0,0.7007
+EMP-1344,Employee 1344,32,11666,5,Research & Development,1,2,3,3,2.25,0,1,0.1623
+EMP-1345,Employee 1345,38,6646,4,Sales,4,2,4,2,3.0,0,1,0.242
+EMP-1346,Employee 1346,24,2808,3,Sales,3,3,5,2,3.25,0,0,0.4982
+EMP-1347,Employee 1347,25,4163,2,Research & Development,3,2,5,4,3.5,0,1,0.7003
+EMP-1348,Employee 1348,30,8845,3,Human Resources,2,4,3,3,3.0,1,1,0.7439
+EMP-1349,Employee 1349,35,5929,2,Engineering,4,2,3,3,3.0,1,1,0.7502
+EMP-1350,Employee 1350,39,16017,7,Engineering,4,2,2,2,2.5,1,1,0.3593
+EMP-1351,Employee 1351,49,16413,20,Engineering,4,2,4,4,3.5,1,0,0.1625
+EMP-1352,Employee 1352,44,8672,7,Research & Development,2,2,1,4,2.25,0,0,0.2631
+EMP-1353,Employee 1353,35,7351,2,Finance,4,3,2,3,3.0,0,1,0.415
+EMP-1354,Employee 1354,36,10273,5,Engineering,2,4,4,5,3.75,0,0,0.1031
+EMP-1355,Employee 1355,28,5478,2,Marketing,1,4,3,4,3.0,0,0,0.5014
+EMP-1356,Employee 1356,36,9061,7,Research & Development,3,2,1,4,2.5,1,1,0.6461
+EMP-1357,Employee 1357,34,7172,3,Marketing,2,2,4,4,3.0,1,0,0.6203
+EMP-1358,Employee 1358,39,11652,5,Engineering,3,2,3,2,2.5,0,0,0.3757
+EMP-1359,Employee 1359,29,7213,1,Engineering,4,5,1,3,3.25,0,0,0.2692
+EMP-1360,Employee 1360,41,9662,10,Research & Development,3,4,1,1,2.25,1,1,0.6531
+EMP-1361,Employee 1361,50,15457,7,Engineering,3,3,2,1,2.25,0,0,0.1398
+EMP-1362,Employee 1362,36,5861,3,Finance,1,3,2,2,2.0,0,0,0.1622
+EMP-1363,Employee 1363,40,9561,13,Human Resources,4,4,4,4,4.0,0,1,0.0952
+EMP-1364,Employee 1364,42,12243,15,Sales,3,4,3,2,3.0,0,0,0.0428
+EMP-1365,Employee 1365,33,6436,7,Finance,3,3,4,5,3.75,0,0,0.1937
+EMP-1366,Employee 1366,38,7355,13,Sales,4,5,2,3,3.5,0,0,0.0896
+EMP-1367,Employee 1367,37,13958,11,Sales,3,3,3,2,2.75,0,0,0.1719
+EMP-1368,Employee 1368,37,6642,6,Sales,3,3,4,3,3.25,0,0,0.2661
+EMP-1369,Employee 1369,30,4351,2,Marketing,3,4,3,2,3.0,0,1,0.6028
+EMP-1370,Employee 1370,37,6792,5,Research & Development,3,3,3,5,3.5,0,1,0.2703
+EMP-1371,Employee 1371,41,7454,5,Sales,3,4,5,4,4.0,1,0,0.4107
+EMP-1372,Employee 1372,49,14352,15,Engineering,1,2,2,1,1.5,1,0,0.3108
+EMP-1373,Employee 1373,45,16177,8,Engineering,2,3,3,5,3.25,0,0,0.0743
+EMP-1374,Employee 1374,55,7564,3,Sales,2,2,4,4,3.0,0,1,0.1592
+EMP-1375,Employee 1375,30,7802,3,Marketing,3,3,1,2,2.25,0,1,0.3748
+EMP-1376,Employee 1376,44,11597,5,Finance,4,3,1,4,3.0,1,1,0.5415
+EMP-1377,Employee 1377,38,8283,7,Research & Development,3,5,2,4,3.5,0,0,0.1477
+EMP-1378,Employee 1378,55,18710,21,Sales,2,3,3,2,2.5,0,1,0.062
+EMP-1379,Employee 1379,30,5827,1,Research & Development,4,4,2,4,3.5,0,0,0.2635
+EMP-1380,Employee 1380,29,9977,7,Research & Development,4,1,2,2,2.25,1,0,0.4557
+EMP-1381,Employee 1381,31,8461,5,Sales,4,4,3,3,3.5,0,0,0.3447
+EMP-1382,Employee 1382,20,3234,1,Marketing,2,2,3,1,2.0,1,1,0.9635
+EMP-1383,Employee 1383,32,5504,3,Engineering,4,3,2,5,3.5,0,1,0.1445
+EMP-1384,Employee 1384,30,7829,4,Research & Development,1,2,3,4,2.5,0,0,0.114
+EMP-1385,Employee 1385,38,11229,12,Research & Development,2,3,3,2,2.5,0,0,0.1973
+EMP-1386,Employee 1386,39,5714,13,Sales,1,3,5,3,3.0,0,0,0.3446
+EMP-1387,Employee 1387,52,14458,13,Sales,4,3,4,2,3.25,0,0,0.07
+EMP-1388,Employee 1388,45,8997,8,Research & Development,1,5,4,4,3.5,0,0,0.2098
+EMP-1389,Employee 1389,32,5879,6,Marketing,3,4,3,1,2.75,0,1,0.3241
+EMP-1390,Employee 1390,29,5404,4,Marketing,3,5,2,4,3.5,0,0,0.0791
+EMP-1391,Employee 1391,41,8914,16,Sales,3,3,3,5,3.5,0,0,0.1553
+EMP-1392,Employee 1392,25,3786,1,Marketing,4,5,4,4,4.25,0,1,0.6633
+EMP-1393,Employee 1393,52,9933,8,Sales,2,3,3,2,2.5,1,1,0.6959
+EMP-1394,Employee 1394,47,10128,9,Engineering,3,1,4,3,2.75,1,1,0.4616
+EMP-1395,Employee 1395,33,5587,2,Sales,4,3,5,3,3.75,1,1,0.6377
+EMP-1396,Employee 1396,22,2630,1,Research & Development,1,1,1,3,1.5,1,1,0.962
+EMP-1397,Employee 1397,48,7270,3,Marketing,4,1,1,4,2.5,0,1,0.2177
+EMP-1398,Employee 1398,36,12484,13,Sales,3,1,2,3,2.25,1,1,0.4933
+EMP-1399,Employee 1399,47,16041,13,Engineering,4,1,3,3,2.75,1,0,0.1778
+EMP-1400,Employee 1400,23,5192,2,Sales,4,4,2,4,3.5,0,0,0.4328
+EMP-1401,Employee 1401,31,7032,1,Research & Development,3,3,4,2,3.0,0,0,0.3906
+EMP-1402,Employee 1402,37,10017,9,Research & Development,3,2,1,3,2.25,0,0,0.2067
+EMP-1403,Employee 1403,37,11653,8,Sales,1,4,3,4,3.0,0,0,0.2705
+EMP-1404,Employee 1404,33,9189,7,Engineering,2,3,2,1,2.0,1,1,0.655
+EMP-1405,Employee 1405,42,8728,8,Research & Development,1,5,5,4,3.75,0,0,0.1323
+EMP-1406,Employee 1406,27,6164,4,Engineering,3,3,4,4,3.5,0,0,0.1622
+EMP-1407,Employee 1407,35,7950,3,Engineering,4,3,5,4,4.0,0,0,0.1318
+EMP-1408,Employee 1408,38,14772,9,Engineering,2,2,5,1,2.5,1,0,0.5526
+EMP-1409,Employee 1409,41,7006,3,Sales,3,2,3,2,2.5,0,0,0.3818
+EMP-1410,Employee 1410,43,5547,3,Marketing,3,2,2,3,2.5,0,0,0.2839
+EMP-1411,Employee 1411,27,9551,6,Sales,3,3,2,2,2.5,0,0,0.4652
+EMP-1412,Employee 1412,23,2647,1,Sales,5,5,2,5,4.25,1,1,0.9064
+EMP-1413,Employee 1413,47,8068,5,Research & Development,2,1,4,4,2.75,0,1,0.17
+EMP-1414,Employee 1414,39,15712,13,Research & Development,3,2,1,3,2.25,0,1,0.1563
+EMP-1415,Employee 1415,30,12787,7,Research & Development,3,2,1,5,2.75,0,0,0.0537
+EMP-1416,Employee 1416,50,10605,9,Human Resources,1,4,3,4,3.0,0,0,0.1929
+EMP-1417,Employee 1417,37,14738,16,Research & Development,3,3,3,3,3.0,0,0,0.0592
+EMP-1418,Employee 1418,47,9827,7,Research & Development,4,3,4,3,3.5,0,0,0.0867
+EMP-1419,Employee 1419,37,14034,11,Engineering,1,2,3,2,2.0,0,0,0.2244
+EMP-1420,Employee 1420,54,16189,15,Research & Development,1,3,4,5,3.25,0,0,0.0262
+EMP-1421,Employee 1421,51,10065,9,Research & Development,1,1,3,3,2.0,1,0,0.4135
+EMP-1422,Employee 1422,34,8601,8,Research & Development,4,3,2,4,3.25,0,0,0.1727
+EMP-1423,Employee 1423,45,7195,3,Engineering,4,1,4,3,3.0,0,0,0.2773
+EMP-1424,Employee 1424,42,10950,9,Research & Development,3,3,5,4,3.75,1,1,0.3638
+EMP-1425,Employee 1425,48,11163,9,Sales,3,3,1,1,2.0,0,0,0.4444
+EMP-1426,Employee 1426,28,9495,5,Sales,4,3,3,5,3.75,1,1,0.6355
+EMP-1427,Employee 1427,42,10216,9,Engineering,4,3,3,5,3.75,0,0,0.178
+EMP-1428,Employee 1428,45,9634,12,Human Resources,4,3,2,3,3.0,0,1,0.1466
+EMP-1429,Employee 1429,22,6747,2,Engineering,4,1,4,4,3.25,1,1,0.9166
+EMP-1430,Employee 1430,26,7981,2,Research & Development,3,3,2,4,3.0,0,1,0.4372
+EMP-1431,Employee 1431,20,3625,0,Research & Development,3,3,4,5,3.75,1,1,0.831
+EMP-1432,Employee 1432,34,10664,12,Research & Development,4,3,4,3,3.5,0,0,0.1251
+EMP-1433,Employee 1433,43,10278,10,Research & Development,5,4,3,3,3.75,0,0,0.0821
+EMP-1434,Employee 1434,49,7820,10,Research & Development,1,4,2,4,2.75,0,0,0.086
+EMP-1435,Employee 1435,37,8927,11,Research & Development,1,3,2,4,2.5,1,1,0.5728
+EMP-1436,Employee 1436,50,11739,10,Sales,4,1,1,3,2.25,1,0,0.6545
+EMP-1437,Employee 1437,25,4860,5,Human Resources,2,3,2,4,2.75,0,0,0.4411
+EMP-1438,Employee 1438,22,4834,2,Sales,4,1,3,1,2.25,0,1,0.7256
+EMP-1439,Employee 1439,36,8297,5,Engineering,3,3,4,4,3.5,1,1,0.4595
+EMP-1440,Employee 1440,40,7576,6,Research & Development,1,2,3,2,2.0,1,1,0.5146
+EMP-1441,Employee 1441,36,11547,10,Research & Development,1,2,4,3,2.5,1,0,0.5139
+EMP-1442,Employee 1442,20,6383,1,Sales,2,4,3,3,3.0,0,1,0.6394
+EMP-1443,Employee 1443,36,9794,10,Research & Development,2,3,4,3,3.0,0,0,0.149
+EMP-1444,Employee 1444,25,5119,2,Research & Development,2,2,5,3,3.0,1,1,0.8071
+EMP-1445,Employee 1445,42,12314,9,Sales,4,1,2,3,2.5,0,0,0.2001
+EMP-1446,Employee 1446,40,7961,7,Finance,5,2,4,3,3.5,1,1,0.3683
+EMP-1447,Employee 1447,29,9759,4,Engineering,3,5,3,2,3.25,0,0,0.2109
+EMP-1448,Employee 1448,32,4331,3,Research & Development,3,3,4,4,3.5,0,0,0.3528
+EMP-1449,Employee 1449,27,7156,6,Engineering,3,5,3,3,3.5,0,0,0.3304
+EMP-1450,Employee 1450,36,10141,9,Engineering,3,2,3,3,2.75,0,0,0.4514
+EMP-1451,Employee 1451,45,10888,13,Human Resources,3,3,2,4,3.0,0,0,0.2295
+EMP-1452,Employee 1452,28,4932,6,Engineering,1,4,1,5,2.75,0,0,0.2308
+EMP-1453,Employee 1453,41,9159,2,Sales,1,3,3,4,2.75,0,0,0.4073
+EMP-1454,Employee 1454,32,9425,7,Research & Development,1,1,5,1,2.0,0,0,0.2742
+EMP-1455,Employee 1455,30,10566,8,Sales,1,2,4,4,2.75,1,0,0.6033
+EMP-1456,Employee 1456,36,9539,3,Sales,3,2,3,5,3.25,1,1,0.6487
+EMP-1457,Employee 1457,28,5636,6,Sales,2,4,4,3,3.25,0,0,0.4405
+EMP-1458,Employee 1458,32,4159,7,Sales,4,3,4,5,4.0,1,1,0.6753
+EMP-1459,Employee 1459,26,7134,3,Finance,5,4,2,3,3.5,0,0,0.3016
+EMP-1460,Employee 1460,53,11151,13,Marketing,5,3,1,3,3.0,0,0,0.2066
+EMP-1461,Employee 1461,37,4751,4,Marketing,5,2,2,3,3.0,1,1,0.4218
+EMP-1462,Employee 1462,31,6597,1,Engineering,2,3,4,4,3.25,0,1,0.2218
+EMP-1463,Employee 1463,38,21097,12,Finance,3,4,4,2,3.25,0,0,0.1122
+EMP-1464,Employee 1464,36,6793,3,Research & Development,2,5,2,2,2.75,0,1,0.2797
+EMP-1465,Employee 1465,35,9335,4,Research & Development,4,1,2,1,2.0,0,0,0.3489
+EMP-1466,Employee 1466,42,11845,20,Sales,4,3,4,3,3.5,0,0,0.1519
+EMP-1467,Employee 1467,43,8617,11,Engineering,4,2,5,3,3.5,0,0,0.165
+EMP-1468,Employee 1468,32,9157,6,Sales,3,1,4,3,2.75,1,0,0.7318
+EMP-1469,Employee 1469,32,8654,4,Engineering,4,3,3,3,3.25,0,1,0.2086
+EMP-1470,Employee 1470,34,9192,10,Research & Development,1,2,2,5,2.5,1,0,0.7034
+EMP-1471,Employee 1471,20,4932,0,Research & Development,1,1,3,3,2.0,1,1,0.838
+EMP-1472,Employee 1472,24,3723,3,Engineering,4,4,2,3,3.25,0,1,0.5363
+EMP-1473,Employee 1473,48,6730,4,Research & Development,3,4,4,2,3.25,1,0,0.4227
+EMP-1474,Employee 1474,50,16180,25,Sales,5,4,3,3,3.75,1,0,0.1593
+EMP-1475,Employee 1475,34,8026,7,Research & Development,1,2,4,1,2.0,1,1,0.7115
+EMP-1476,Employee 1476,41,11810,4,Research & Development,3,2,3,3,2.75,1,1,0.6008
+EMP-1477,Employee 1477,39,10984,8,Engineering,3,3,4,4,3.5,1,0,0.4216
+EMP-1478,Employee 1478,62,18650,24,Sales,4,2,3,2,2.75,1,1,0.1755
+EMP-1479,Employee 1479,46,7276,8,Sales,4,3,3,3,3.25,0,0,0.136
+EMP-1480,Employee 1480,35,10336,5,Research & Development,5,4,3,1,3.25,0,0,0.1043
+EMP-1481,Employee 1481,28,6077,6,Engineering,2,1,1,4,2.0,1,1,0.6376
+EMP-1482,Employee 1482,23,3099,2,Sales,5,5,5,4,4.75,0,1,0.7014
+EMP-1483,Employee 1483,38,8802,13,Human Resources,2,3,3,1,2.25,1,1,0.3749
+EMP-1484,Employee 1484,30,8137,5,Engineering,1,3,3,3,2.5,1,1,0.7962
+EMP-1485,Employee 1485,24,4447,3,Research & Development,3,4,4,5,4.0,1,1,0.6485
+EMP-1486,Employee 1486,31,8751,8,Marketing,4,3,4,3,3.5,0,0,0.1978
+EMP-1487,Employee 1487,27,5316,6,Human Resources,3,4,3,3,3.25,0,0,0.2068
+EMP-1488,Employee 1488,51,12595,6,Sales,4,3,5,3,3.75,0,0,0.0784
+EMP-1489,Employee 1489,44,15631,14,Research & Development,4,4,1,3,3.0,0,0,0.0489
+EMP-1490,Employee 1490,36,18195,13,Finance,2,2,2,5,2.75,0,0,0.0595
+EMP-1491,Employee 1491,49,16093,18,Engineering,5,2,3,5,3.75,0,0,0.019
+EMP-1492,Employee 1492,37,11985,8,Research & Development,1,3,3,4,2.75,0,0,0.2458
+EMP-1493,Employee 1493,29,5171,7,Research & Development,4,2,3,3,3.0,0,0,0.1335
+EMP-1494,Employee 1494,49,24500,25,Engineering,3,2,3,3,2.75,1,0,0.1897
+EMP-1495,Employee 1495,41,16342,12,Engineering,3,3,3,3,3.0,0,0,0.1368
+EMP-1496,Employee 1496,28,6976,5,Engineering,3,4,4,5,4.0,0,0,0.3325
+EMP-1497,Employee 1497,35,8069,8,Sales,2,2,3,4,2.75,1,1,0.7549
+EMP-1498,Employee 1498,29,5088,1,Engineering,2,2,5,3,3.0,1,1,0.7389
+EMP-1499,Employee 1499,25,7900,3,Sales,2,2,4,1,2.25,0,1,0.5458
+EMP-1500,Employee 1500,44,10768,4,Research & Development,2,3,2,3,2.5,0,0,0.2623
+EMP-1501,Employee 1501,53,12333,19,Human Resources,1,3,2,5,2.75,1,0,0.2804
+EMP-1502,Employee 1502,25,3107,1,Finance,3,4,3,3,3.25,0,0,0.5628
+EMP-1503,Employee 1503,41,11041,4,Research & Development,4,2,4,2,3.0,0,1,0.2509
+EMP-1504,Employee 1504,31,7665,4,Sales,3,2,1,1,1.75,0,1,0.3872
+EMP-1505,Employee 1505,32,6485,4,Human Resources,4,3,2,3,3.0,0,0,0.3006
+EMP-1506,Employee 1506,31,7938,8,Sales,3,3,5,5,4.0,0,0,0.2216
+EMP-1507,Employee 1507,29,6587,4,Engineering,4,3,3,5,3.75,1,0,0.3567
+EMP-1508,Employee 1508,37,12648,4,Engineering,4,3,2,5,3.5,1,0,0.1653
+EMP-1509,Employee 1509,29,9381,3,Research & Development,3,2,2,4,2.75,0,1,0.189
+EMP-1510,Employee 1510,39,11785,9,Finance,4,3,4,3,3.5,0,0,0.0428
+EMP-1511,Employee 1511,36,12536,7,Engineering,1,3,4,3,2.75,1,0,0.3734
+EMP-1512,Employee 1512,34,7689,7,Marketing,4,2,2,3,2.75,0,0,0.206
+EMP-1513,Employee 1513,29,4204,6,Human Resources,4,4,3,4,3.75,0,1,0.7034
+EMP-1514,Employee 1514,32,8111,9,Engineering,1,3,4,3,2.75,1,1,0.6982
+EMP-1515,Employee 1515,43,16786,12,Research & Development,4,3,4,4,3.75,0,0,0.0598
+EMP-1516,Employee 1516,41,14104,8,Research & Development,1,3,4,2,2.5,1,0,0.5186
+EMP-1517,Employee 1517,28,6318,3,Marketing,2,2,3,3,2.5,0,1,0.5603
+EMP-1518,Employee 1518,37,13968,14,Research & Development,1,4,5,4,3.5,0,0,0.0242
+EMP-1519,Employee 1519,43,15197,10,Research & Development,4,3,3,5,3.75,0,0,0.0444
+EMP-1520,Employee 1520,22,4299,1,Engineering,4,3,2,3,3.0,0,1,0.8268
+EMP-1521,Employee 1521,41,12366,7,Engineering,4,4,4,1,3.25,0,0,0.0663
+EMP-1522,Employee 1522,31,6468,4,Research & Development,1,4,3,5,3.25,0,0,0.1847
+EMP-1523,Employee 1523,41,7265,5,Engineering,3,3,4,4,3.5,0,0,0.219
+EMP-1524,Employee 1524,30,8999,4,Engineering,4,4,1,3,3.0,0,0,0.2031
+EMP-1525,Employee 1525,21,4867,1,Sales,2,3,4,3,3.0,0,0,0.6384
+EMP-1526,Employee 1526,23,8375,1,Engineering,3,2,2,3,2.5,1,1,0.9046
+EMP-1527,Employee 1527,37,10980,11,Sales,1,1,3,3,2.0,0,0,0.5381
+EMP-1528,Employee 1528,39,5690,3,Research & Development,2,1,1,4,2.0,1,1,0.6903
+EMP-1529,Employee 1529,29,5063,2,Research & Development,3,4,3,2,3.0,0,0,0.3305
+EMP-1530,Employee 1530,42,10545,11,Sales,4,1,4,2,2.75,0,0,0.3958
+EMP-1531,Employee 1531,22,4293,2,Sales,2,1,3,1,1.75,1,1,0.9455
+EMP-1532,Employee 1532,36,14230,12,Engineering,1,4,2,3,2.5,1,1,0.596
+EMP-1533,Employee 1533,26,5433,1,Engineering,2,1,3,2,2.0,0,0,0.666
+EMP-1534,Employee 1534,31,9844,8,Sales,2,2,4,2,2.5,0,0,0.2982
+EMP-1535,Employee 1535,37,8128,3,Engineering,2,2,3,1,2.0,1,1,0.7539
+EMP-1536,Employee 1536,29,3448,3,Research & Development,3,3,2,2,2.5,0,1,0.5205
+EMP-1537,Employee 1537,33,6402,2,Research & Development,4,4,2,3,3.25,0,0,0.2138
+EMP-1538,Employee 1538,45,6067,1,Marketing,2,3,5,1,2.75,1,1,0.8165
+EMP-1539,Employee 1539,32,10939,9,Research & Development,4,3,3,3,3.25,1,1,0.4512
+EMP-1540,Employee 1540,44,8331,5,Research & Development,4,4,1,3,3.0,1,1,0.4844
+EMP-1541,Employee 1541,27,7190,4,Engineering,2,3,4,2,2.75,0,1,0.5482
+EMP-1542,Employee 1542,41,9677,6,Sales,1,3,4,3,2.75,0,0,0.3326
+EMP-1543,Employee 1543,49,14357,21,Marketing,4,4,2,5,3.75,0,0,0.034
+EMP-1544,Employee 1544,20,3812,0,Research & Development,1,3,5,5,3.5,0,0,0.5545
+EMP-1545,Employee 1545,30,6787,4,Research & Development,2,2,3,1,2.0,1,0,0.557
+EMP-1546,Employee 1546,41,9053,5,Research & Development,1,1,3,4,2.25,0,0,0.3024
+EMP-1547,Employee 1547,35,3008,3,Sales,2,3,3,3,2.75,1,1,0.8251
+EMP-1548,Employee 1548,40,8716,13,Sales,3,1,4,1,2.25,0,0,0.2695
+EMP-1549,Employee 1549,31,5028,5,Sales,5,3,2,3,3.25,0,0,0.2843
+EMP-1550,Employee 1550,37,5304,1,Marketing,4,3,2,3,3.0,1,1,0.7906
+EMP-1551,Employee 1551,35,13055,12,Marketing,3,3,2,3,2.75,0,0,0.1785
+EMP-1552,Employee 1552,46,12638,12,Research & Development,3,1,4,4,3.0,1,0,0.2157
+EMP-1553,Employee 1553,39,8930,4,Sales,2,3,3,4,3.0,1,1,0.707
+EMP-1554,Employee 1554,39,7383,2,Sales,2,1,3,2,2.0,1,1,0.9623
+EMP-1555,Employee 1555,33,6504,3,Finance,2,4,2,3,2.75,0,0,0.2923
+EMP-1556,Employee 1556,32,8811,6,Finance,2,3,3,3,2.75,1,0,0.4624
+EMP-1557,Employee 1557,33,10284,9,Research & Development,2,2,4,3,2.75,0,0,0.3121
+EMP-1558,Employee 1558,40,10072,7,Engineering,2,5,3,5,3.75,0,0,0.0987
+EMP-1559,Employee 1559,33,11821,13,Sales,2,2,4,4,3.0,1,0,0.449
+EMP-1560,Employee 1560,39,12845,6,Research & Development,5,5,3,5,4.5,0,0,0.0494
+EMP-1561,Employee 1561,54,16476,13,Research & Development,3,1,4,4,3.0,0,0,0.0454
+EMP-1562,Employee 1562,44,8293,4,Sales,5,2,1,3,2.75,0,1,0.3973
+EMP-1563,Employee 1563,34,5674,5,Sales,2,1,3,3,2.25,1,1,0.6946
+EMP-1564,Employee 1564,47,22429,17,Research & Development,3,1,5,3,3.0,0,0,0.0263
+EMP-1565,Employee 1565,33,8186,11,Engineering,3,4,5,3,3.75,0,1,0.1573
+EMP-1566,Employee 1566,20,2439,1,Research & Development,2,3,2,4,2.75,0,1,0.7107
+EMP-1567,Employee 1567,28,4850,1,Sales,2,4,3,3,3.0,0,0,0.7109
+EMP-1568,Employee 1568,21,2694,0,Research & Development,5,1,1,3,2.5,1,1,0.9242
+EMP-1569,Employee 1569,34,7443,1,Research & Development,5,3,4,4,4.0,0,0,0.1842
+EMP-1570,Employee 1570,37,4576,4,Sales,1,2,3,4,2.5,1,1,0.5482
+EMP-1571,Employee 1571,51,14143,7,Research & Development,2,3,3,3,2.75,0,0,0.0959
+EMP-1572,Employee 1572,39,8869,4,Sales,3,3,2,4,3.0,0,1,0.3307
+EMP-1573,Employee 1573,35,9712,8,Research & Development,2,2,5,1,2.5,1,0,0.32
+EMP-1574,Employee 1574,44,4646,4,Sales,3,1,3,3,2.5,0,1,0.4195
+EMP-1575,Employee 1575,20,2429,1,Research & Development,2,3,2,1,2.0,1,1,0.941
+EMP-1576,Employee 1576,39,9585,11,Human Resources,3,4,3,1,2.75,0,1,0.3686
+EMP-1577,Employee 1577,43,10802,8,Engineering,2,3,2,3,2.5,0,0,0.2744
+EMP-1578,Employee 1578,24,6386,3,Research & Development,3,2,3,3,2.75,0,0,0.2406
+EMP-1579,Employee 1579,46,13078,15,Sales,1,2,5,4,3.0,1,1,0.3842
+EMP-1580,Employee 1580,39,8108,5,Research & Development,3,2,4,4,3.25,1,1,0.6213
+EMP-1581,Employee 1581,33,4041,6,Sales,5,2,3,2,3.0,0,1,0.5166
+EMP-1582,Employee 1582,42,12133,7,Research & Development,3,2,4,4,3.25,0,0,0.0916
+EMP-1583,Employee 1583,56,14792,21,Sales,4,4,3,3,3.5,0,0,0.038
+EMP-1584,Employee 1584,38,8991,10,Sales,4,3,2,2,2.75,1,1,0.4986
+EMP-1585,Employee 1585,39,6965,10,Marketing,5,3,5,4,4.25,0,0,0.2369
+EMP-1586,Employee 1586,33,3757,2,Sales,4,2,3,3,3.0,0,0,0.6436
+EMP-1587,Employee 1587,29,7934,3,Sales,4,5,3,3,3.75,0,0,0.3177
+EMP-1588,Employee 1588,44,10735,6,Sales,4,2,5,5,4.0,0,0,0.2339
+EMP-1589,Employee 1589,29,5835,1,Finance,1,4,2,3,2.5,0,0,0.4144
+EMP-1590,Employee 1590,37,7329,3,Engineering,3,5,4,5,4.25,0,0,0.111
+EMP-1591,Employee 1591,32,3827,2,Research & Development,5,4,5,3,4.25,0,1,0.4509
+EMP-1592,Employee 1592,41,17906,7,Engineering,3,4,3,2,3.0,1,0,0.2653
+EMP-1593,Employee 1593,39,11704,11,Sales,5,3,1,3,3.0,0,0,0.4379
+EMP-1594,Employee 1594,45,11576,7,Engineering,4,2,3,2,2.75,0,0,0.2644
+EMP-1595,Employee 1595,32,6901,4,Engineering,4,2,2,3,2.75,0,0,0.3978
+EMP-1596,Employee 1596,34,4331,4,Research & Development,4,2,3,4,3.25,0,0,0.3279
+EMP-1597,Employee 1597,28,8497,3,Engineering,4,1,4,3,3.0,1,0,0.693
+EMP-1598,Employee 1598,33,5835,5,Research & Development,3,3,3,2,2.75,1,1,0.5576
+EMP-1599,Employee 1599,40,15161,14,Research & Development,5,2,3,3,3.25,0,0,0.0599
+EMP-1600,Employee 1600,43,12145,7,Research & Development,4,4,3,2,3.25,0,0,0.1614
+EMP-1601,Employee 1601,29,8941,6,Engineering,4,3,3,4,3.5,0,1,0.1453
+EMP-1602,Employee 1602,44,12584,9,Research & Development,4,3,4,4,3.75,0,0,0.0549
+EMP-1603,Employee 1603,48,17163,10,Research & Development,3,5,3,5,4.0,0,0,0.0305
+EMP-1604,Employee 1604,40,13175,17,Engineering,1,2,4,2,2.25,1,0,0.1539
+EMP-1605,Employee 1605,52,19819,22,Research & Development,5,4,3,3,3.75,0,0,0.0165
+EMP-1606,Employee 1606,30,4837,1,Research & Development,3,4,3,3,3.25,0,0,0.253
+EMP-1607,Employee 1607,26,3535,3,Research & Development,2,2,2,5,2.75,0,1,0.8021
+EMP-1608,Employee 1608,21,3293,0,Sales,2,3,3,3,2.75,0,1,0.8556
+EMP-1609,Employee 1609,49,17414,13,Sales,3,2,3,2,2.5,1,0,0.3312
+EMP-1610,Employee 1610,42,12475,5,Research & Development,4,3,2,3,3.0,1,0,0.1808
+EMP-1611,Employee 1611,36,13773,7,Finance,4,3,5,4,4.0,0,0,0.044
+EMP-1612,Employee 1612,39,9852,16,Engineering,3,2,3,4,3.0,1,1,0.5178
+EMP-1613,Employee 1613,27,9399,4,Research & Development,3,4,5,4,4.0,0,1,0.3852
+EMP-1614,Employee 1614,57,14681,11,Research & Development,3,2,1,2,2.0,0,0,0.0789
+EMP-1615,Employee 1615,38,11295,5,Sales,1,4,3,5,3.25,0,0,0.1383
+EMP-1616,Employee 1616,37,8349,12,Human Resources,4,4,1,1,2.5,0,0,0.2547
+EMP-1617,Employee 1617,43,11037,12,Research & Development,1,4,2,5,3.0,1,1,0.402
+EMP-1618,Employee 1618,41,10243,15,Research & Development,3,4,4,4,3.75,0,0,0.0531
+EMP-1619,Employee 1619,38,14356,10,Engineering,3,3,1,4,2.75,1,0,0.4927
+EMP-1620,Employee 1620,30,7585,4,Research & Development,3,4,3,4,3.5,1,0,0.445
+EMP-1621,Employee 1621,41,8513,12,Sales,5,3,2,1,2.75,0,0,0.2323
+EMP-1622,Employee 1622,52,10391,27,Marketing,1,3,3,1,2.0,0,0,0.329
+EMP-1623,Employee 1623,48,11092,11,Human Resources,4,2,4,2,3.0,0,1,0.3322
+EMP-1624,Employee 1624,50,13126,8,Research & Development,1,5,3,2,2.75,1,0,0.124
+EMP-1625,Employee 1625,32,5459,3,Engineering,1,4,4,3,3.0,0,0,0.3274
+EMP-1626,Employee 1626,28,5135,5,Research & Development,3,4,3,2,3.0,0,0,0.2638
+EMP-1627,Employee 1627,35,10088,5,Engineering,1,1,5,4,2.75,1,1,0.4847
+EMP-1628,Employee 1628,37,12592,6,Sales,4,4,4,3,3.75,0,0,0.0577
+EMP-1629,Employee 1629,46,15485,18,Engineering,3,4,3,4,3.5,0,0,0.0259
+EMP-1630,Employee 1630,22,3081,1,Finance,1,3,3,4,2.75,0,1,0.6632
+EMP-1631,Employee 1631,50,12079,12,Marketing,1,2,5,3,2.75,0,0,0.117
+EMP-1632,Employee 1632,35,10634,11,Marketing,3,3,3,2,2.75,0,0,0.5444
+EMP-1633,Employee 1633,33,6767,6,Sales,4,1,4,3,3.0,0,0,0.2538
+EMP-1634,Employee 1634,28,9685,4,Sales,3,3,3,4,3.25,0,1,0.2506
+EMP-1635,Employee 1635,22,5183,2,Sales,3,2,2,3,2.5,0,1,0.6629
+EMP-1636,Employee 1636,43,11431,10,Engineering,4,2,4,2,3.0,0,1,0.3141
+EMP-1637,Employee 1637,37,4810,6,Marketing,3,2,3,4,3.0,0,1,0.257
+EMP-1638,Employee 1638,26,6349,1,Research & Development,2,1,3,1,1.75,1,1,0.9173
+EMP-1639,Employee 1639,25,6078,3,Marketing,3,1,3,4,2.75,0,1,0.4598
+EMP-1640,Employee 1640,34,6234,2,Engineering,3,5,2,3,3.25,0,0,0.3578
+EMP-1641,Employee 1641,51,17555,18,Finance,4,3,4,4,3.75,0,0,0.0383
+EMP-1642,Employee 1642,34,4510,1,Marketing,3,3,5,5,4.0,0,0,0.2252
+EMP-1643,Employee 1643,24,4885,1,Research & Development,4,3,4,4,3.75,1,1,0.5852
+EMP-1644,Employee 1644,34,6791,7,Research & Development,2,3,3,3,2.75,0,0,0.1485
+EMP-1645,Employee 1645,34,5780,5,Research & Development,5,5,3,2,3.75,0,0,0.138
+EMP-1646,Employee 1646,20,3943,0,Research & Development,2,2,4,4,3.0,1,1,0.9108
+EMP-1647,Employee 1647,36,12537,14,Human Resources,4,2,3,3,3.0,0,0,0.111
+EMP-1648,Employee 1648,35,10061,10,Engineering,1,5,3,1,2.5,0,0,0.277
+EMP-1649,Employee 1649,42,4994,2,Marketing,3,3,5,4,3.75,0,0,0.3262
+EMP-1650,Employee 1650,52,20371,23,Human Resources,4,1,3,3,2.75,0,0,0.0698
+EMP-1651,Employee 1651,46,11319,13,Research & Development,4,2,3,1,2.5,0,0,0.1882
+EMP-1652,Employee 1652,34,7322,4,Research & Development,1,1,1,5,2.0,0,0,0.2021
+EMP-1653,Employee 1653,27,6145,4,Research & Development,3,5,1,3,3.0,0,1,0.2036
+EMP-1654,Employee 1654,58,9939,14,Sales,1,2,1,3,1.75,0,1,0.2556
+EMP-1655,Employee 1655,37,10785,11,Sales,5,5,5,4,4.75,0,0,0.2549
+EMP-1656,Employee 1656,37,7288,3,Research & Development,4,5,3,4,4.0,0,0,0.0671
+EMP-1657,Employee 1657,36,8204,4,Research & Development,1,3,3,1,2.0,0,1,0.2985
+EMP-1658,Employee 1658,38,7549,3,Research & Development,4,1,4,4,3.25,0,0,0.1133
+EMP-1659,Employee 1659,35,9824,4,Human Resources,5,1,3,4,3.25,0,1,0.2624
+EMP-1660,Employee 1660,32,7847,3,Sales,3,3,3,2,2.75,0,0,0.1657
+EMP-1661,Employee 1661,32,7358,6,Sales,4,3,2,3,3.0,0,0,0.2114
+EMP-1662,Employee 1662,36,7072,4,Sales,3,2,4,2,2.75,1,1,0.7921
+EMP-1663,Employee 1663,32,11094,5,Finance,4,3,2,4,3.25,1,1,0.4235
+EMP-1664,Employee 1664,30,10202,7,Research & Development,3,5,1,4,3.25,0,0,0.1194
+EMP-1665,Employee 1665,37,6865,9,Sales,3,2,2,2,2.25,1,0,0.744
+EMP-1666,Employee 1666,34,10664,5,Engineering,3,3,2,4,3.0,0,1,0.2178
+EMP-1667,Employee 1667,49,9641,1,Sales,2,4,2,4,3.0,1,1,0.7599
+EMP-1668,Employee 1668,20,3985,0,Marketing,4,2,4,3,3.25,0,0,0.5753
+EMP-1669,Employee 1669,46,9041,8,Sales,3,2,2,4,2.75,1,0,0.4492
+EMP-1670,Employee 1670,47,7730,5,Sales,3,1,4,1,2.25,1,1,0.5394
+EMP-1671,Employee 1671,20,2544,0,Research & Development,4,2,1,5,3.0,0,0,0.7564
+EMP-1672,Employee 1672,34,8291,9,Human Resources,3,2,2,3,2.5,1,1,0.6731
+EMP-1673,Employee 1673,33,7886,3,Research & Development,3,2,3,3,2.75,0,0,0.3342
+EMP-1674,Employee 1674,25,4804,3,Research & Development,4,3,5,4,4.0,1,1,0.5555
+EMP-1675,Employee 1675,30,5877,4,Sales,4,5,4,3,4.0,0,0,0.1603
+EMP-1676,Employee 1676,27,3135,3,Sales,2,2,5,4,3.25,0,0,0.626
+EMP-1677,Employee 1677,51,24500,19,Research & Development,3,3,3,3,3.0,0,0,0.0591
+EMP-1678,Employee 1678,44,5181,1,Engineering,5,1,4,5,3.75,1,1,0.7609
+EMP-1679,Employee 1679,47,8193,5,Human Resources,3,2,3,3,2.75,0,0,0.193
+EMP-1680,Employee 1680,43,7335,1,Research & Development,3,3,3,2,2.75,0,1,0.2727
+EMP-1681,Employee 1681,27,4343,1,Sales,2,5,2,5,3.5,0,0,0.5572
+EMP-1682,Employee 1682,32,8825,6,Engineering,2,3,3,4,3.0,0,0,0.1002
+EMP-1683,Employee 1683,41,11675,20,Sales,4,1,3,4,3.0,1,0,0.5652
+EMP-1684,Employee 1684,26,4275,2,Sales,4,3,3,5,3.75,0,1,0.7713
+EMP-1685,Employee 1685,43,18696,16,Research & Development,5,1,3,1,2.5,1,1,0.2012
+EMP-1686,Employee 1686,34,8866,6,Human Resources,3,2,2,3,2.5,1,1,0.7876
+EMP-1687,Employee 1687,33,5652,5,Marketing,2,3,3,2,2.5,0,1,0.3278
+EMP-1688,Employee 1688,43,8048,17,Human Resources,1,1,1,3,1.5,1,1,0.6365
+EMP-1689,Employee 1689,40,10885,14,Research & Development,5,3,5,4,4.25,1,1,0.292
+EMP-1690,Employee 1690,33,9527,3,Sales,3,3,2,5,3.25,1,1,0.7119
+EMP-1691,Employee 1691,46,11484,19,Marketing,3,3,2,3,2.75,0,0,0.1346
+EMP-1692,Employee 1692,27,4085,0,Research & Development,5,1,4,4,3.5,0,1,0.6809
+EMP-1693,Employee 1693,42,13462,7,Finance,3,5,3,5,4.0,0,0,0.0595
+EMP-1694,Employee 1694,42,9150,9,Finance,1,3,2,4,2.5,1,1,0.7602
+EMP-1695,Employee 1695,34,7425,5,Research & Development,4,4,3,2,3.25,0,1,0.1517
+EMP-1696,Employee 1696,39,10057,8,Marketing,5,2,2,3,3.0,0,1,0.1853
+EMP-1697,Employee 1697,26,7119,2,Sales,1,3,2,5,2.75,0,1,0.7199
+EMP-1698,Employee 1698,44,10349,9,Engineering,4,2,1,5,3.0,1,1,0.5568
+EMP-1699,Employee 1699,35,13532,10,Sales,3,2,3,4,3.0,0,1,0.1681
+EMP-1700,Employee 1700,32,6791,6,Sales,3,1,4,4,3.0,0,0,0.2965
+EMP-1701,Employee 1701,45,10998,21,Human Resources,5,2,3,2,3.0,1,1,0.2961
+EMP-1702,Employee 1702,31,8475,5,Engineering,4,3,3,2,3.0,1,0,0.5787
+EMP-1703,Employee 1703,25,3702,2,Research & Development,2,3,2,5,3.0,1,1,0.8946
+EMP-1704,Employee 1704,23,5860,4,Sales,2,2,3,2,2.25,0,1,0.5121
+EMP-1705,Employee 1705,42,24500,15,Research & Development,1,2,4,2,2.25,1,0,0.2513
+EMP-1706,Employee 1706,26,8065,4,Research & Development,3,4,1,3,2.75,0,0,0.3089
+EMP-1707,Employee 1707,51,8816,3,Research & Development,1,4,4,3,3.0,1,0,0.3935
+EMP-1708,Employee 1708,20,4439,1,Sales,3,2,3,3,2.75,0,0,0.8388
+EMP-1709,Employee 1709,51,13730,19,Research & Development,1,4,4,3,3.0,0,0,0.0557
+EMP-1710,Employee 1710,38,6422,4,Research & Development,3,2,3,5,3.25,0,0,0.2104
+EMP-1711,Employee 1711,36,9385,8,Research & Development,1,3,3,5,3.0,0,0,0.1776
+EMP-1712,Employee 1712,32,6042,2,Research & Development,4,3,4,3,3.5,1,0,0.4898
+EMP-1713,Employee 1713,40,9081,15,Sales,2,4,4,3,3.25,0,0,0.214
+EMP-1714,Employee 1714,36,10310,12,Finance,3,5,2,4,3.5,1,1,0.3505
+EMP-1715,Employee 1715,46,16049,19,Research & Development,4,5,5,4,4.5,0,0,0.0121
+EMP-1716,Employee 1716,37,11467,5,Finance,4,1,1,3,2.25,0,0,0.1537
+EMP-1717,Employee 1717,38,9372,12,Engineering,1,4,1,3,2.25,1,1,0.7055
+EMP-1718,Employee 1718,33,3347,2,Human Resources,1,1,3,3,2.0,1,1,0.9823
+EMP-1719,Employee 1719,36,7401,7,Human Resources,4,2,4,2,3.0,0,0,0.2179
+EMP-1720,Employee 1720,39,13717,7,Engineering,3,3,5,3,3.5,0,0,0.1096
+EMP-1721,Employee 1721,22,4606,1,Research & Development,4,3,3,4,3.5,0,0,0.5214
+EMP-1722,Employee 1722,25,4360,1,Sales,3,3,1,4,2.75,0,0,0.8065
+EMP-1723,Employee 1723,43,11699,10,Engineering,2,3,3,4,3.0,1,0,0.2908
+EMP-1724,Employee 1724,38,8405,4,Sales,2,4,2,3,2.75,1,1,0.7456
+EMP-1725,Employee 1725,35,10528,5,Engineering,4,2,3,4,3.25,0,1,0.2015
+EMP-1726,Employee 1726,37,10071,10,Research & Development,5,2,3,1,2.75,1,1,0.5628
+EMP-1727,Employee 1727,39,8559,8,Engineering,1,5,1,3,2.5,0,0,0.289
+EMP-1728,Employee 1728,32,5011,4,Sales,3,1,3,4,2.75,1,1,0.7832
+EMP-1729,Employee 1729,30,6409,2,Sales,1,2,3,3,2.25,1,1,0.8634
+EMP-1730,Employee 1730,38,7042,9,Research & Development,3,3,4,3,3.25,0,0,0.335
+EMP-1731,Employee 1731,28,8226,5,Human Resources,4,3,3,4,3.5,0,0,0.375
+EMP-1732,Employee 1732,40,6314,5,Marketing,3,3,2,5,3.25,0,0,0.3413
+EMP-1733,Employee 1733,22,3959,1,Sales,5,2,2,3,3.0,1,1,0.9504
+EMP-1734,Employee 1734,45,16014,11,Engineering,3,4,2,4,3.25,1,0,0.3492
+EMP-1735,Employee 1735,41,6301,4,Sales,5,2,2,5,3.5,0,0,0.1262
+EMP-1736,Employee 1736,39,9359,9,Research & Development,4,3,3,4,3.5,0,0,0.1106
+EMP-1737,Employee 1737,45,9568,5,Research & Development,2,1,5,3,2.75,0,0,0.2989
+EMP-1738,Employee 1738,51,8983,7,Research & Development,1,3,3,1,2.0,1,0,0.5175
+EMP-1739,Employee 1739,45,4663,0,Sales,3,3,3,3,3.0,0,0,0.3644
+EMP-1740,Employee 1740,21,2629,0,Research & Development,2,5,3,3,3.25,0,0,0.5938
+EMP-1741,Employee 1741,26,6714,1,Engineering,3,4,3,4,3.5,0,0,0.369
+EMP-1742,Employee 1742,31,7552,3,Engineering,3,3,5,3,3.5,0,0,0.169
+EMP-1743,Employee 1743,37,6686,5,Research & Development,5,5,5,5,5.0,0,0,0.0401
+EMP-1744,Employee 1744,41,8897,2,Research & Development,3,3,3,3,3.0,0,0,0.4851
+EMP-1745,Employee 1745,30,5546,4,Research & Development,4,3,2,4,3.25,0,0,0.1724
+EMP-1746,Employee 1746,38,7260,14,Sales,5,3,4,3,3.75,0,0,0.0748
+EMP-1747,Employee 1747,30,11019,9,Research & Development,4,3,2,3,3.0,0,0,0.3082
+EMP-1748,Employee 1748,31,7931,1,Research & Development,2,4,4,4,3.5,0,1,0.2601
+EMP-1749,Employee 1749,25,6007,3,Finance,3,2,4,3,3.0,0,1,0.3053
+EMP-1750,Employee 1750,29,4780,5,Engineering,3,2,2,2,2.25,1,0,0.6954
+EMP-1751,Employee 1751,25,5430,3,Research & Development,2,4,5,3,3.5,1,1,0.5897
+EMP-1752,Employee 1752,28,5009,3,Sales,2,4,5,3,3.5,1,1,0.6616
+EMP-1753,Employee 1753,45,13445,13,Sales,4,4,5,4,4.25,1,0,0.1957
+EMP-1754,Employee 1754,28,6078,5,Engineering,2,3,3,5,3.25,1,1,0.6272
+EMP-1755,Employee 1755,59,21136,32,Sales,3,2,2,1,2.0,1,0,0.3924
+EMP-1756,Employee 1756,41,7918,10,Research & Development,5,3,3,3,3.5,0,0,0.1291
+EMP-1757,Employee 1757,38,7148,1,Engineering,1,3,3,4,2.75,0,0,0.397
+EMP-1758,Employee 1758,29,3886,3,Sales,3,5,2,5,3.75,1,0,0.6117
+EMP-1759,Employee 1759,42,12751,10,Research & Development,3,5,3,5,4.0,1,0,0.1821
+EMP-1760,Employee 1760,32,5256,4,Sales,2,4,4,4,3.5,0,0,0.2547
+EMP-1761,Employee 1761,38,4529,10,Sales,3,2,1,3,2.25,0,1,0.6153
+EMP-1762,Employee 1762,58,14108,6,Research & Development,2,4,3,2,2.75,0,0,0.0815
+EMP-1763,Employee 1763,36,14339,14,Research & Development,4,5,1,3,3.25,0,0,0.0343
+EMP-1764,Employee 1764,46,14019,8,Sales,3,3,4,3,3.25,0,0,0.059
+EMP-1765,Employee 1765,31,3423,2,Research & Development,3,3,3,4,3.25,0,0,0.5641
+EMP-1766,Employee 1766,36,6442,3,Engineering,3,4,1,3,2.75,0,0,0.1942
+EMP-1767,Employee 1767,52,20191,23,Research & Development,2,3,5,4,3.5,0,0,0.0192
+EMP-1768,Employee 1768,31,6659,2,Research & Development,2,5,1,3,2.75,0,0,0.2944
+EMP-1769,Employee 1769,52,8359,15,Human Resources,3,3,3,4,3.25,0,0,0.0824
+EMP-1770,Employee 1770,43,19019,18,Engineering,3,4,4,2,3.25,0,0,0.0808
+EMP-1771,Employee 1771,32,5569,2,Engineering,2,4,4,2,3.0,1,1,0.5261
+EMP-1772,Employee 1772,42,8346,16,Sales,3,3,1,2,2.25,0,0,0.4183
+EMP-1773,Employee 1773,45,11962,15,Research & Development,3,4,5,4,4.0,0,0,0.0578
+EMP-1774,Employee 1774,42,9012,2,Engineering,4,3,5,1,3.25,0,0,0.2895
+EMP-1775,Employee 1775,23,3225,2,Engineering,3,3,3,4,3.25,0,1,0.792
+EMP-1776,Employee 1776,30,9642,7,Research & Development,2,1,3,2,2.0,0,0,0.2803
+EMP-1777,Employee 1777,34,5027,1,Marketing,4,3,1,3,2.75,0,0,0.3873
+EMP-1778,Employee 1778,36,8008,6,Research & Development,4,4,3,5,4.0,0,0,0.0555
+EMP-1779,Employee 1779,42,6936,9,Finance,1,5,3,3,3.0,1,1,0.5406
+EMP-1780,Employee 1780,38,4643,5,Marketing,3,2,4,2,2.75,0,0,0.3904
+EMP-1781,Employee 1781,25,4865,2,Engineering,3,2,3,3,2.75,1,1,0.8215
+EMP-1782,Employee 1782,40,4697,3,Marketing,2,2,4,5,3.25,1,1,0.7175
+EMP-1783,Employee 1783,42,11947,11,Engineering,4,3,2,3,3.0,0,0,0.2255
+EMP-1784,Employee 1784,41,7673,0,Research & Development,1,5,2,3,2.75,0,1,0.515
+EMP-1785,Employee 1785,46,10219,10,Sales,4,3,2,3,3.0,0,0,0.1442
+EMP-1786,Employee 1786,44,9899,8,Research & Development,1,3,1,3,2.0,0,0,0.2082
+EMP-1787,Employee 1787,40,8134,7,Sales,3,2,3,2,2.5,1,1,0.6668
+EMP-1788,Employee 1788,36,14123,9,Engineering,4,1,4,4,3.25,0,0,0.0838
+EMP-1789,Employee 1789,22,5063,1,Sales,3,4,3,4,3.5,1,0,0.895
+EMP-1790,Employee 1790,40,11820,9,Research & Development,2,3,3,3,2.75,0,0,0.2305
+EMP-1791,Employee 1791,38,8322,6,Sales,5,3,4,4,4.0,0,0,0.1369
+EMP-1792,Employee 1792,39,7374,5,Marketing,4,4,3,4,3.75,0,1,0.1927
+EMP-1793,Employee 1793,26,8003,3,Research & Development,4,4,3,5,4.0,0,0,0.1428
+EMP-1794,Employee 1794,27,6966,5,Sales,3,4,3,2,3.0,0,1,0.3404
+EMP-1795,Employee 1795,45,19602,13,Research & Development,2,5,4,3,3.5,0,0,0.0388
+EMP-1796,Employee 1796,36,5313,0,Engineering,5,5,2,4,4.0,0,1,0.234
+EMP-1797,Employee 1797,42,8556,11,Research & Development,2,3,1,2,2.0,1,1,0.5635
+EMP-1798,Employee 1798,37,7111,10,Human Resources,4,1,3,1,2.25,0,0,0.2866
+EMP-1799,Employee 1799,37,5285,1,Research & Development,3,3,5,4,3.75,0,0,0.3056
+EMP-1800,Employee 1800,44,20576,14,Research & Development,3,4,3,3,3.25,0,1,0.0561
+EMP-1801,Employee 1801,32,7411,5,Marketing,5,1,4,3,3.25,0,0,0.3345
+EMP-1802,Employee 1802,37,11365,15,Research & Development,3,1,4,3,2.75,0,0,0.1176
+EMP-1803,Employee 1803,33,7338,3,Sales,2,1,3,4,2.5,0,0,0.2661
+EMP-1804,Employee 1804,33,8361,7,Research & Development,2,4,4,3,3.25,0,0,0.1278
+EMP-1805,Employee 1805,34,9922,4,Sales,3,3,4,4,3.5,1,1,0.6764
+EMP-1806,Employee 1806,38,10442,13,Sales,1,2,2,3,2.0,1,1,0.495
+EMP-1807,Employee 1807,32,4727,4,Research & Development,3,1,3,3,2.5,0,1,0.3717
+EMP-1808,Employee 1808,47,17000,21,Research & Development,3,4,2,3,3.0,0,0,0.0208
+EMP-1809,Employee 1809,29,4183,1,Sales,3,1,3,2,2.25,1,1,0.9623
+EMP-1810,Employee 1810,35,4985,7,Human Resources,2,1,4,3,2.5,1,1,0.5661
+EMP-1811,Employee 1811,33,10868,7,Engineering,5,3,3,3,3.5,1,1,0.403
+EMP-1812,Employee 1812,49,20209,16,Sales,2,3,3,5,3.25,0,0,0.0221
+EMP-1813,Employee 1813,38,8930,14,Sales,3,3,4,3,3.25,0,0,0.3256
+EMP-1814,Employee 1814,45,15765,11,Research & Development,1,3,3,3,2.5,0,0,0.1523
+EMP-1815,Employee 1815,24,3241,0,Research & Development,4,2,3,3,3.0,1,1,0.9299
+EMP-1816,Employee 1816,39,8377,5,Research & Development,5,4,4,4,4.25,0,0,0.0735
+EMP-1817,Employee 1817,44,8327,4,Research & Development,4,2,3,3,3.0,1,1,0.3849
+EMP-1818,Employee 1818,37,13246,15,Research & Development,3,2,4,3,3.0,1,0,0.2591
+EMP-1819,Employee 1819,46,12846,11,Sales,3,4,1,4,3.0,0,0,0.0635
+EMP-1820,Employee 1820,32,4909,4,Sales,4,4,2,3,3.25,0,0,0.2521
+EMP-1821,Employee 1821,48,18937,14,Finance,5,1,3,3,3.0,1,0,0.0716
+EMP-1822,Employee 1822,56,20437,19,Research & Development,5,1,3,3,3.0,1,0,0.1366
+EMP-1823,Employee 1823,33,7830,6,Human Resources,3,4,5,4,4.0,0,0,0.0716
+EMP-1824,Employee 1824,33,7724,7,Engineering,5,4,5,3,4.25,0,1,0.0613
+EMP-1825,Employee 1825,49,11426,18,Sales,2,1,4,1,2.0,1,0,0.4534
+EMP-1826,Employee 1826,50,14065,6,Research & Development,2,3,3,4,3.0,0,0,0.0742
+EMP-1827,Employee 1827,32,5975,6,Research & Development,1,1,5,2,2.25,1,1,0.5494
+EMP-1828,Employee 1828,33,8427,6,Research & Development,2,3,4,4,3.25,0,0,0.228
+EMP-1829,Employee 1829,34,12655,9,Research & Development,4,1,3,2,2.5,0,0,0.2142
+EMP-1830,Employee 1830,25,6297,4,Engineering,4,3,4,3,3.5,0,1,0.238
+EMP-1831,Employee 1831,29,8058,3,Research & Development,4,1,1,1,1.75,0,0,0.2054
+EMP-1832,Employee 1832,28,4523,1,Research & Development,3,3,2,3,2.75,0,1,0.6099
+EMP-1833,Employee 1833,30,5267,4,Engineering,3,3,4,4,3.5,0,0,0.0937
+EMP-1834,Employee 1834,36,11419,8,Engineering,4,2,3,2,2.75,1,0,0.489
+EMP-1835,Employee 1835,38,11927,13,Sales,3,1,3,3,2.5,1,1,0.4036
+EMP-1836,Employee 1836,50,21172,5,Engineering,4,3,3,5,3.75,0,0,0.0689
+EMP-1837,Employee 1837,28,3490,1,Sales,4,4,5,3,4.0,1,1,0.9281
+EMP-1838,Employee 1838,45,8692,5,Research & Development,4,3,3,4,3.5,0,0,0.2503
+EMP-1839,Employee 1839,35,4417,1,Sales,3,4,3,5,3.75,0,1,0.5656
+EMP-1840,Employee 1840,36,8430,8,Sales,4,3,2,5,3.5,0,0,0.1757
+EMP-1841,Employee 1841,42,10445,10,Finance,2,3,2,4,2.75,0,0,0.1579
+EMP-1842,Employee 1842,27,5030,4,Research & Development,3,3,5,3,3.5,0,0,0.133
+EMP-1843,Employee 1843,40,8262,4,Sales,4,5,3,5,4.25,0,0,0.2651
+EMP-1844,Employee 1844,38,10802,11,Research & Development,3,1,3,4,2.75,1,1,0.8364
+EMP-1845,Employee 1845,41,11126,5,Sales,4,1,3,4,3.0,0,1,0.2358
+EMP-1846,Employee 1846,39,8927,9,Research & Development,3,3,4,1,2.75,1,0,0.5937
+EMP-1847,Employee 1847,57,24500,32,Research & Development,3,5,3,5,4.0,1,0,0.0679
+EMP-1848,Employee 1848,31,6723,2,Engineering,4,5,4,4,4.25,0,1,0.2566
+EMP-1849,Employee 1849,32,8065,3,Sales,3,2,3,4,3.0,1,1,0.7459
+EMP-1850,Employee 1850,31,5911,3,Sales,3,2,1,2,2.0,1,1,0.676
+EMP-1851,Employee 1851,32,5288,3,Research & Development,2,2,5,2,2.75,1,1,0.4743
+EMP-1852,Employee 1852,31,5889,3,Research & Development,2,3,5,5,3.75,0,0,0.1906
+EMP-1853,Employee 1853,47,7156,8,Sales,4,3,5,3,3.75,0,0,0.1668
+EMP-1854,Employee 1854,49,13104,10,Engineering,2,4,5,3,3.5,1,0,0.2179
+EMP-1855,Employee 1855,32,8486,7,Finance,4,4,4,4,4.0,0,0,0.1171
+EMP-1856,Employee 1856,29,6988,6,Sales,3,2,4,2,2.75,1,1,0.7381
+EMP-1857,Employee 1857,41,15037,11,Sales,2,3,4,3,3.0,0,0,0.2443
+EMP-1858,Employee 1858,32,7815,5,Engineering,4,3,3,3,3.25,0,0,0.2548
+EMP-1859,Employee 1859,42,4146,2,Sales,3,3,2,3,2.75,0,1,0.7483
+EMP-1860,Employee 1860,38,24500,15,Sales,2,3,3,3,2.75,0,1,0.1325
+EMP-1861,Employee 1861,24,4044,2,Research & Development,2,1,5,2,2.5,0,0,0.7585
+EMP-1862,Employee 1862,50,18791,12,Engineering,3,2,3,2,2.5,1,0,0.2477
+EMP-1863,Employee 1863,52,11923,22,Sales,4,3,4,4,3.75,0,1,0.0824
+EMP-1864,Employee 1864,31,7867,4,Engineering,3,3,1,5,3.0,1,1,0.5371
+EMP-1865,Employee 1865,33,6773,5,Engineering,3,2,3,3,2.75,0,0,0.1357
+EMP-1866,Employee 1866,39,5695,11,Research & Development,4,3,3,3,3.25,0,0,0.2119
+EMP-1867,Employee 1867,39,12729,13,Engineering,4,2,1,2,2.25,0,0,0.1561
+EMP-1868,Employee 1868,42,11159,8,Engineering,2,1,2,4,2.25,1,1,0.7175
+EMP-1869,Employee 1869,54,14839,15,Research & Development,4,5,2,5,4.0,1,0,0.1042
+EMP-1870,Employee 1870,35,12220,12,Research & Development,3,4,4,3,3.5,0,0,0.0627
+EMP-1871,Employee 1871,30,6235,4,Research & Development,4,1,1,3,2.25,0,0,0.2238
+EMP-1872,Employee 1872,25,4593,2,Sales,3,4,2,3,3.0,0,1,0.7165
+EMP-1873,Employee 1873,30,6847,5,Sales,4,2,1,4,2.75,0,0,0.2379
+EMP-1874,Employee 1874,36,7254,5,Sales,3,5,4,3,3.75,0,0,0.1383
+EMP-1875,Employee 1875,52,14259,14,Research & Development,2,2,3,3,2.5,0,0,0.0561
+EMP-1876,Employee 1876,32,7388,7,Engineering,3,1,3,4,2.75,1,1,0.6346
+EMP-1877,Employee 1877,38,13222,11,Research & Development,3,3,3,5,3.5,1,1,0.3194
+EMP-1878,Employee 1878,36,6985,4,Research & Development,4,4,2,2,3.0,0,0,0.0937
+EMP-1879,Employee 1879,47,10536,11,Sales,3,1,4,5,3.25,1,1,0.4734
+EMP-1880,Employee 1880,58,21136,23,Sales,4,4,4,3,3.75,1,0,0.0957
+EMP-1881,Employee 1881,32,8415,6,Research & Development,4,1,2,4,2.75,1,1,0.6218
+EMP-1882,Employee 1882,32,6702,6,Research & Development,4,5,3,3,3.75,1,0,0.5157
+EMP-1883,Employee 1883,45,18315,13,Research & Development,2,1,2,3,2.0,0,0,0.1221
+EMP-1884,Employee 1884,42,6722,4,Engineering,5,5,2,4,4.0,1,1,0.3316
+EMP-1885,Employee 1885,52,10759,10,Engineering,4,3,4,3,3.5,0,0,0.0823
+EMP-1886,Employee 1886,41,9394,5,Sales,4,3,3,2,3.0,0,0,0.2621
+EMP-1887,Employee 1887,33,13672,6,Engineering,3,5,2,3,3.25,0,0,0.0697
+EMP-1888,Employee 1888,42,13676,16,Engineering,3,5,3,3,3.5,1,0,0.1756
+EMP-1889,Employee 1889,46,10990,6,Research & Development,2,3,5,2,3.0,0,0,0.088
+EMP-1890,Employee 1890,43,8213,10,Finance,2,1,4,5,3.0,1,1,0.3161
+EMP-1891,Employee 1891,41,7947,6,Engineering,2,3,4,2,2.75,0,1,0.2857
+EMP-1892,Employee 1892,46,12469,5,Research & Development,2,3,3,3,2.75,1,0,0.2726
+EMP-1893,Employee 1893,46,14264,12,Research & Development,3,3,3,2,2.75,0,0,0.1332
+EMP-1894,Employee 1894,48,12935,5,Research & Development,3,3,3,3,3.0,0,0,0.0477
+EMP-1895,Employee 1895,42,14997,10,Research & Development,3,1,1,3,2.0,0,0,0.0758
+EMP-1896,Employee 1896,35,6079,8,Engineering,4,4,3,3,3.5,0,0,0.23
+EMP-1897,Employee 1897,38,5614,5,Sales,2,4,3,2,2.75,0,1,0.4329
+EMP-1898,Employee 1898,47,14713,11,Engineering,4,1,2,1,2.0,0,0,0.2
+EMP-1899,Employee 1899,30,6583,9,Engineering,1,3,4,4,3.0,1,1,0.7031
+EMP-1900,Employee 1900,40,3906,1,Human Resources,1,3,2,4,2.5,0,1,0.8511
+EMP-1901,Employee 1901,33,11804,5,Engineering,2,3,3,3,2.75,0,0,0.1784
+EMP-1902,Employee 1902,37,11188,14,Research & Development,4,1,2,1,2.0,0,1,0.3311
+EMP-1903,Employee 1903,47,16948,14,Research & Development,3,3,3,4,3.25,0,0,0.0251
+EMP-1904,Employee 1904,38,9258,12,Human Resources,4,2,1,2,2.25,0,0,0.4494
+EMP-1905,Employee 1905,37,9935,12,Research & Development,2,2,2,5,2.75,1,0,0.5571
+EMP-1906,Employee 1906,25,3944,4,Research & Development,1,4,3,3,2.75,1,1,0.7729
+EMP-1907,Employee 1907,43,13926,11,Engineering,4,3,3,3,3.25,1,0,0.4402
+EMP-1908,Employee 1908,42,19492,12,Engineering,2,1,3,4,2.5,1,0,0.3822
+EMP-1909,Employee 1909,55,10357,8,Research & Development,4,3,2,4,3.25,0,0,0.2098
+EMP-1910,Employee 1910,34,8558,5,Engineering,2,5,3,3,3.25,0,0,0.1473
+EMP-1911,Employee 1911,38,9241,13,Engineering,3,1,3,3,2.5,1,0,0.383
+EMP-1912,Employee 1912,39,11062,14,Research & Development,4,4,3,3,3.5,0,0,0.0646
+EMP-1913,Employee 1913,50,14777,12,Research & Development,5,4,4,5,4.5,0,0,0.043
+EMP-1914,Employee 1914,36,9004,7,Marketing,3,4,3,4,3.5,0,0,0.1213
+EMP-1915,Employee 1915,39,9686,5,Research & Development,4,2,3,2,2.75,0,1,0.2836
+EMP-1916,Employee 1916,42,7501,12,Research & Development,2,2,5,2,2.75,0,0,0.3745
+EMP-1917,Employee 1917,38,5067,1,Sales,3,5,4,2,3.5,1,0,0.7308
+EMP-1918,Employee 1918,33,5604,3,Engineering,4,3,5,3,3.75,0,0,0.1285
+EMP-1919,Employee 1919,38,9591,9,Research & Development,2,1,4,2,2.25,0,1,0.2736
+EMP-1920,Employee 1920,46,12157,11,Research & Development,3,3,3,4,3.25,0,0,0.0302
+EMP-1921,Employee 1921,28,8347,4,Research & Development,2,2,2,2,2.0,0,0,0.7092
+EMP-1922,Employee 1922,38,9604,7,Finance,3,4,4,3,3.5,0,0,0.1647
+EMP-1923,Employee 1923,31,7491,1,Research & Development,2,3,5,3,3.25,0,1,0.196
+EMP-1924,Employee 1924,47,13258,20,Sales,2,4,3,3,3.0,1,0,0.1661
+EMP-1925,Employee 1925,24,2486,1,Marketing,4,4,4,1,3.25,1,1,0.9409
+EMP-1926,Employee 1926,32,10738,5,Research & Development,1,1,3,2,1.75,0,0,0.2193
+EMP-1927,Employee 1927,40,14649,15,Finance,3,3,3,2,2.75,0,0,0.0303
+EMP-1928,Employee 1928,50,13245,18,Finance,3,4,5,4,4.0,0,0,0.0186
+EMP-1929,Employee 1929,36,11203,13,Marketing,5,3,4,4,4.0,0,0,0.1548
+EMP-1930,Employee 1930,32,8558,4,Research & Development,3,5,5,1,3.5,0,1,0.1957
+EMP-1931,Employee 1931,52,10329,10,Human Resources,3,4,4,3,3.5,0,0,0.1299
+EMP-1932,Employee 1932,24,4823,3,Engineering,3,1,3,3,2.5,0,1,0.3779
+EMP-1933,Employee 1933,20,2758,0,Finance,2,4,3,3,3.0,1,1,0.9023
+EMP-1934,Employee 1934,40,9213,5,Research & Development,1,1,5,3,2.5,0,0,0.3255
+EMP-1935,Employee 1935,32,11481,10,Engineering,3,2,3,3,2.75,0,0,0.1607
+EMP-1936,Employee 1936,28,7256,2,Research & Development,1,3,2,3,2.25,1,1,0.8081
+EMP-1937,Employee 1937,43,10314,9,Research & Development,3,3,3,2,2.75,1,1,0.4856
+EMP-1938,Employee 1938,39,7162,8,Sales,3,3,3,4,3.25,0,0,0.2457
+EMP-1939,Employee 1939,32,17593,7,Engineering,3,2,1,4,2.5,1,0,0.4257
+EMP-1940,Employee 1940,26,4847,2,Sales,2,3,4,5,3.5,0,0,0.5409
+EMP-1941,Employee 1941,44,8511,2,Sales,5,1,2,1,2.25,1,1,0.8994
+EMP-1942,Employee 1942,42,13021,11,Finance,4,2,3,4,3.25,0,0,0.0337
+EMP-1943,Employee 1943,36,9153,8,Sales,2,2,4,4,3.0,0,1,0.1721
+EMP-1944,Employee 1944,52,7175,4,Human Resources,3,3,3,5,3.5,0,0,0.1021
+EMP-1945,Employee 1945,27,2599,3,Sales,3,5,4,2,3.5,0,1,0.6821
+EMP-1946,Employee 1946,24,3002,1,Sales,1,2,3,4,2.5,0,1,0.8222
+EMP-1947,Employee 1947,31,9866,7,Engineering,3,2,5,1,2.75,0,0,0.2486
+EMP-1948,Employee 1948,36,2705,2,Marketing,2,4,2,3,2.75,0,0,0.7446
+EMP-1949,Employee 1949,39,10240,10,Sales,5,4,1,3,3.25,0,1,0.2952
+EMP-1950,Employee 1950,34,11915,8,Engineering,3,5,4,4,4.0,1,0,0.5632
+EMP-1951,Employee 1951,39,12293,8,Research & Development,3,2,4,4,3.25,0,0,0.1043
+EMP-1952,Employee 1952,26,7705,5,Research & Development,3,2,2,3,2.5,0,0,0.4561
+EMP-1953,Employee 1953,49,8979,1,Sales,5,3,5,3,4.0,1,0,0.5481
+EMP-1954,Employee 1954,36,15840,10,Research & Development,5,3,3,2,3.25,0,0,0.1419
+EMP-1955,Employee 1955,46,17121,12,Research & Development,5,3,5,3,4.0,1,1,0.1226
+EMP-1956,Employee 1956,39,11559,12,Sales,2,3,3,3,2.75,0,0,0.1726
+EMP-1957,Employee 1957,40,13788,16,Research & Development,2,2,3,2,2.25,0,1,0.2216
+EMP-1958,Employee 1958,41,10556,8,Research & Development,4,2,3,4,3.25,1,1,0.4522
+EMP-1959,Employee 1959,40,8625,8,Sales,3,3,3,2,2.75,0,0,0.3896
+EMP-1960,Employee 1960,42,18174,17,Sales,1,3,3,3,2.5,0,0,0.0866
+EMP-1961,Employee 1961,48,10697,8,Marketing,1,3,3,4,2.75,1,1,0.7597
+EMP-1962,Employee 1962,38,7740,10,Human Resources,4,3,1,5,3.25,0,0,0.1723
+EMP-1963,Employee 1963,43,16023,12,Sales,4,2,2,4,3.0,0,0,0.139
+EMP-1964,Employee 1964,36,8937,12,Marketing,3,2,2,2,2.25,0,0,0.2404
+EMP-1965,Employee 1965,49,7529,3,Engineering,4,2,4,4,3.5,1,1,0.3868
+EMP-1966,Employee 1966,31,5241,1,Research & Development,3,1,3,3,2.5,1,0,0.7208
+EMP-1967,Employee 1967,52,10425,10,Research & Development,4,3,4,5,4.0,1,0,0.1307
+EMP-1968,Employee 1968,36,8439,6,Human Resources,3,4,5,4,4.0,0,1,0.1505
+EMP-1969,Employee 1969,24,3552,2,Sales,2,3,3,4,3.0,0,1,0.8239
+EMP-1970,Employee 1970,38,8209,4,Engineering,3,1,5,2,2.75,0,0,0.2317
+EMP-1971,Employee 1971,31,7225,1,Engineering,3,4,3,3,3.25,1,0,0.5045
+EMP-1972,Employee 1972,44,11735,22,Human Resources,3,2,2,4,2.75,1,1,0.5358
+EMP-1973,Employee 1973,31,6668,3,Finance,2,2,3,4,2.75,0,0,0.1184
+EMP-1974,Employee 1974,33,6923,9,Sales,5,3,3,1,3.0,0,0,0.3894
+EMP-1975,Employee 1975,20,3422,0,Research & Development,2,4,4,5,3.75,0,0,0.5281
+EMP-1976,Employee 1976,33,9521,5,Engineering,2,2,3,1,2.0,0,0,0.4545
+EMP-1977,Employee 1977,20,3186,0,Research & Development,3,3,2,3,2.75,0,0,0.7347
+EMP-1978,Employee 1978,23,5684,3,Engineering,3,3,4,4,3.5,1,0,0.6117
+EMP-1979,Employee 1979,43,10152,6,Finance,3,1,3,2,2.25,1,1,0.7134
+EMP-1980,Employee 1980,43,8052,3,Engineering,3,2,2,1,2.0,1,1,0.6185
+EMP-1981,Employee 1981,40,15672,15,Sales,2,3,3,4,3.0,1,0,0.2239
+EMP-1982,Employee 1982,28,7559,3,Sales,3,3,5,3,3.5,1,1,0.7456
+EMP-1983,Employee 1983,36,8430,12,Sales,4,1,4,2,2.75,1,1,0.5427
+EMP-1984,Employee 1984,36,15058,10,Sales,1,2,3,4,2.5,1,0,0.4417
+EMP-1985,Employee 1985,27,4538,4,Human Resources,3,3,3,4,3.25,0,1,0.2021
+EMP-1986,Employee 1986,49,24500,16,Engineering,3,3,1,3,2.5,1,1,0.3086
+EMP-1987,Employee 1987,44,7391,7,Human Resources,1,2,3,2,2.0,0,0,0.2992
+EMP-1988,Employee 1988,35,8783,4,Research & Development,3,3,4,1,2.75,0,0,0.1636
+EMP-1989,Employee 1989,37,9998,7,Sales,5,2,3,4,3.5,0,0,0.1474
+EMP-1990,Employee 1990,38,11244,11,Engineering,3,2,2,3,2.5,0,0,0.25
+EMP-1991,Employee 1991,20,2993,0,Sales,2,1,5,4,3.0,1,1,0.9471
+EMP-1992,Employee 1992,34,7419,1,Sales,5,4,4,4,4.25,0,0,0.3797
+EMP-1993,Employee 1993,31,7865,6,Engineering,2,3,3,3,2.75,0,0,0.1568
+EMP-1994,Employee 1994,28,4143,3,Human Resources,1,4,2,2,2.25,0,1,0.672
+EMP-1995,Employee 1995,34,5650,6,Sales,4,4,2,5,3.75,1,0,0.6798
+EMP-1996,Employee 1996,52,16925,12,Marketing,4,4,2,3,3.25,0,0,0.1252
+EMP-1997,Employee 1997,42,9218,8,Research & Development,2,2,3,3,2.5,1,0,0.4925
+EMP-1998,Employee 1998,32,9636,5,Finance,3,2,2,5,3.0,0,0,0.1649
+EMP-1999,Employee 1999,41,11497,14,Research & Development,4,5,4,5,4.5,0,0,0.1053
+EMP-2000,Employee 2000,48,12953,5,Research & Development,4,4,5,3,4.0,0,0,0.0182
+EMP-2001,Employee 2001,44,10785,8,Marketing,2,4,3,3,3.0,0,0,0.1401
+EMP-2002,Employee 2002,37,6723,3,Research & Development,1,1,3,5,2.5,0,0,0.1953
+EMP-2003,Employee 2003,31,6158,4,Engineering,3,3,4,4,3.5,0,0,0.1662
+EMP-2004,Employee 2004,42,10075,9,Engineering,4,4,5,3,4.0,0,0,0.0944
+EMP-2005,Employee 2005,40,7408,4,Engineering,4,1,4,3,3.0,0,0,0.3078
+EMP-2006,Employee 2006,44,15906,12,Finance,4,2,1,3,2.5,1,0,0.3705
+EMP-2007,Employee 2007,42,12436,11,Research & Development,4,3,2,4,3.25,0,1,0.061
+EMP-2008,Employee 2008,45,8040,6,Engineering,3,1,4,3,2.75,1,1,0.53
+EMP-2009,Employee 2009,32,7007,5,Research & Development,3,2,4,4,3.25,0,1,0.1194
+EMP-2010,Employee 2010,48,7174,2,Sales,4,2,2,4,3.0,0,1,0.456
+EMP-2011,Employee 2011,38,4950,4,Engineering,4,1,3,4,3.0,0,0,0.1881
+EMP-2012,Employee 2012,54,11376,10,Sales,3,3,4,4,3.5,0,0,0.0987
+EMP-2013,Employee 2013,31,6881,3,Sales,1,1,2,4,2.0,1,1,0.8433
+EMP-2014,Employee 2014,51,7984,3,Sales,5,1,4,3,3.25,1,0,0.4534
+EMP-2015,Employee 2015,38,6051,3,Human Resources,3,4,1,2,2.5,0,0,0.208
+EMP-2016,Employee 2016,31,7350,4,Finance,3,2,4,4,3.25,1,1,0.6126
+EMP-2017,Employee 2017,32,8750,9,Research & Development,3,3,3,3,3.0,0,0,0.227
+EMP-2018,Employee 2018,34,10751,9,Sales,3,3,3,2,2.75,1,1,0.6864
+EMP-2019,Employee 2019,40,12035,8,Marketing,2,5,4,2,3.25,0,0,0.1184
+EMP-2020,Employee 2020,41,7367,11,Sales,4,1,4,2,2.75,1,0,0.6539
+EMP-2021,Employee 2021,32,8746,9,Research & Development,2,3,5,4,3.5,0,1,0.1234
+EMP-2022,Employee 2022,36,10564,2,Sales,2,3,3,4,3.0,0,0,0.4568
+EMP-2023,Employee 2023,55,22441,26,Research & Development,3,2,4,2,2.75,0,0,0.0307
+EMP-2024,Employee 2024,51,17180,19,Research & Development,4,3,3,4,3.5,1,0,0.0935
+EMP-2025,Employee 2025,40,12949,13,Engineering,5,5,3,3,4.0,0,0,0.0286
+EMP-2026,Employee 2026,37,8938,3,Sales,4,4,4,4,4.0,1,0,0.5126
+EMP-2027,Employee 2027,38,5416,5,Marketing,5,2,1,3,2.75,0,1,0.3104
+EMP-2028,Employee 2028,42,18498,14,Engineering,2,2,2,4,2.5,0,0,0.0698
+EMP-2029,Employee 2029,28,6485,4,Engineering,1,5,3,3,3.0,0,0,0.3232
+EMP-2030,Employee 2030,34,6845,6,Research & Development,3,3,2,3,2.75,0,1,0.251
+EMP-2031,Employee 2031,22,3904,2,Sales,2,2,5,4,3.25,0,0,0.5798
+EMP-2032,Employee 2032,40,9491,7,Research & Development,4,4,3,1,3.0,0,0,0.2245
+EMP-2033,Employee 2033,42,9093,12,Marketing,4,2,3,5,3.5,0,0,0.1386
+EMP-2034,Employee 2034,32,12591,9,Research & Development,5,2,4,4,3.75,0,0,0.0477
+EMP-2035,Employee 2035,50,16000,23,Research & Development,2,4,3,3,3.0,0,0,0.0097
+EMP-2036,Employee 2036,26,4806,2,Sales,3,2,3,3,2.75,0,1,0.7144
+EMP-2037,Employee 2037,24,4906,1,Research & Development,3,1,1,2,1.75,1,1,0.8556
+EMP-2038,Employee 2038,38,11772,11,Research & Development,2,2,3,3,2.5,0,0,0.1978
+EMP-2039,Employee 2039,45,18849,20,Sales,3,3,2,5,3.25,0,0,0.0893
+EMP-2040,Employee 2040,51,9978,7,Research & Development,3,1,4,2,2.5,1,1,0.2475
+EMP-2041,Employee 2041,33,10695,8,Research & Development,3,3,3,4,3.25,1,0,0.454
+EMP-2042,Employee 2042,46,12878,10,Sales,3,3,3,3,3.0,0,0,0.1349
+EMP-2043,Employee 2043,36,16113,12,Engineering,1,4,3,4,3.0,0,0,0.1222
+EMP-2044,Employee 2044,35,4194,4,Sales,3,2,2,2,2.25,0,0,0.6131
+EMP-2045,Employee 2045,44,15896,17,Sales,3,4,5,3,3.75,0,0,0.0648
+EMP-2046,Employee 2046,42,15442,14,Sales,1,1,1,5,2.0,1,1,0.4666
+EMP-2047,Employee 2047,23,3419,1,Sales,3,3,4,2,3.0,0,1,0.8631
+EMP-2048,Employee 2048,49,6320,3,Marketing,2,3,3,3,2.75,0,0,0.3268
+EMP-2049,Employee 2049,48,12458,15,Research & Development,3,1,3,3,2.5,0,0,0.0388
+EMP-2050,Employee 2050,31,4116,4,Human Resources,2,3,3,3,2.75,1,1,0.8411
+EMP-2051,Employee 2051,40,6844,2,Marketing,3,2,5,3,3.25,0,1,0.3514
+EMP-2052,Employee 2052,41,24500,15,Engineering,4,2,2,3,2.75,1,1,0.31
+EMP-2053,Employee 2053,39,8236,7,Research & Development,3,3,3,1,2.5,0,0,0.2753
+EMP-2054,Employee 2054,32,8483,9,Research & Development,4,3,5,5,4.25,0,0,0.0841
+EMP-2055,Employee 2055,31,8557,6,Engineering,3,2,4,4,3.25,1,0,0.5674
+EMP-2056,Employee 2056,36,7797,12,Research & Development,3,2,3,2,2.5,0,0,0.2362
+EMP-2057,Employee 2057,46,6691,1,Engineering,4,1,5,3,3.25,0,1,0.2434
+EMP-2058,Employee 2058,41,11546,9,Engineering,3,3,4,4,3.5,0,0,0.1223
+EMP-2059,Employee 2059,33,9756,12,Engineering,4,3,2,5,3.5,0,0,0.1828
+EMP-2060,Employee 2060,43,12116,5,Research & Development,3,2,3,5,3.25,0,0,0.0617
+EMP-2061,Employee 2061,20,2532,0,Engineering,3,1,3,4,2.75,0,0,0.8394
+EMP-2062,Employee 2062,46,8703,4,Human Resources,4,3,3,2,3.0,0,0,0.1268
+EMP-2063,Employee 2063,22,7109,2,Engineering,2,4,4,5,3.75,0,1,0.4338
+EMP-2064,Employee 2064,33,7793,4,Research & Development,3,4,3,4,3.5,0,0,0.1254
+EMP-2065,Employee 2065,27,5544,3,Research & Development,2,4,1,3,2.5,0,0,0.3763
+EMP-2066,Employee 2066,25,5304,3,Sales,2,1,4,3,2.5,1,1,0.8098
+EMP-2067,Employee 2067,46,12587,14,Research & Development,2,5,2,3,3.0,0,0,0.0237
+EMP-2068,Employee 2068,33,3603,3,Sales,3,2,5,4,3.5,0,0,0.5786
+EMP-2069,Employee 2069,39,7124,10,Marketing,4,5,5,3,4.25,0,0,0.1032
+EMP-2070,Employee 2070,36,7769,6,Sales,4,2,5,1,3.0,0,1,0.3634
+EMP-2071,Employee 2071,41,6145,2,Engineering,3,3,4,2,3.0,0,0,0.2289
+EMP-2072,Employee 2072,37,5486,1,Research & Development,5,2,2,3,3.0,1,1,0.6502
+EMP-2073,Employee 2073,26,6313,3,Research & Development,3,3,3,3,3.0,0,1,0.4349
+EMP-2074,Employee 2074,45,7989,2,Research & Development,3,4,2,4,3.25,0,0,0.2716
+EMP-2075,Employee 2075,32,9724,5,Research & Development,4,4,2,2,3.0,0,0,0.189
+EMP-2076,Employee 2076,23,3691,1,Marketing,4,5,3,5,4.25,0,1,0.7873
+EMP-2077,Employee 2077,33,9433,7,Research & Development,4,3,1,4,3.0,0,0,0.173
+EMP-2078,Employee 2078,49,10491,17,Human Resources,2,3,5,5,3.75,0,0,0.0779
+EMP-2079,Employee 2079,44,9018,14,Sales,3,1,5,4,3.25,1,1,0.5398
+EMP-2080,Employee 2080,34,6923,8,Marketing,4,5,3,2,3.5,0,1,0.1306
+EMP-2081,Employee 2081,34,7315,7,Research & Development,3,2,3,3,2.75,1,1,0.4735
+EMP-2082,Employee 2082,34,9408,9,Research & Development,4,4,3,2,3.25,0,1,0.1674
+EMP-2083,Employee 2083,54,12403,16,Research & Development,3,3,4,5,3.75,0,0,0.0104
+EMP-2084,Employee 2084,40,10239,6,Sales,3,3,4,3,3.25,1,0,0.7415
+EMP-2085,Employee 2085,40,5412,1,Research & Development,2,5,2,3,3.0,0,1,0.4111
+EMP-2086,Employee 2086,45,12057,18,Marketing,3,2,3,4,3.0,0,0,0.1164
+EMP-2087,Employee 2087,39,10996,16,Human Resources,2,2,3,5,3.0,0,0,0.2678
+EMP-2088,Employee 2088,34,8020,5,Human Resources,4,2,5,4,3.75,0,0,0.2293
+EMP-2089,Employee 2089,35,11164,5,Sales,4,4,2,4,3.5,1,1,0.5428
+EMP-2090,Employee 2090,36,9388,1,Research & Development,1,1,1,3,1.5,0,1,0.3871
+EMP-2091,Employee 2091,36,5311,5,Sales,4,1,4,3,3.0,1,1,0.5728
+EMP-2092,Employee 2092,43,9629,9,Finance,3,2,4,2,2.75,0,0,0.1505
+EMP-2093,Employee 2093,37,6720,3,Engineering,2,3,4,4,3.25,0,0,0.2434
+EMP-2094,Employee 2094,43,7670,4,Marketing,3,3,3,3,3.0,0,1,0.2863
+EMP-2095,Employee 2095,36,10628,7,Engineering,2,1,3,1,1.75,0,0,0.242
+EMP-2096,Employee 2096,37,7494,6,Research & Development,2,4,3,5,3.5,1,1,0.5036
+EMP-2097,Employee 2097,20,2728,0,Research & Development,3,5,1,3,3.0,1,1,0.9478
+EMP-2098,Employee 2098,44,11946,17,Research & Development,4,2,3,4,3.25,0,0,0.1753
+EMP-2099,Employee 2099,39,3008,0,Research & Development,4,4,1,4,3.25,0,0,0.4083
+EMP-2100,Employee 2100,45,11180,17,Research & Development,3,3,3,4,3.25,0,0,0.1123
+EMP-2101,Employee 2101,20,3651,0,Sales,1,2,5,1,2.25,0,1,0.8227
+EMP-2102,Employee 2102,54,16523,13,Human Resources,5,2,3,2,3.0,0,0,0.1164
+EMP-2103,Employee 2103,35,10312,7,Marketing,4,3,5,4,4.0,0,0,0.1699
+EMP-2104,Employee 2104,46,16349,10,Engineering,1,3,2,4,2.5,0,0,0.0838
+EMP-2105,Employee 2105,28,3769,3,Marketing,4,1,3,3,2.75,1,1,0.8769
+EMP-2106,Employee 2106,42,7352,7,Research & Development,2,4,3,3,3.0,1,1,0.5251
+EMP-2107,Employee 2107,28,3736,3,Research & Development,3,3,4,2,3.0,0,0,0.57
+EMP-2108,Employee 2108,31,5655,7,Human Resources,3,3,3,5,3.5,0,0,0.1075
+EMP-2109,Employee 2109,53,17465,18,Research & Development,3,2,4,2,2.75,0,0,0.0718
+EMP-2110,Employee 2110,35,5318,3,Research & Development,4,3,1,2,2.5,0,0,0.2763
+EMP-2111,Employee 2111,38,13846,13,Research & Development,3,2,5,4,3.5,0,0,0.0724
+EMP-2112,Employee 2112,44,9515,3,Research & Development,1,3,2,2,2.0,1,1,0.7974
+EMP-2113,Employee 2113,41,10836,14,Sales,5,4,4,5,4.5,0,0,0.0817
+EMP-2114,Employee 2114,38,7105,10,Sales,5,4,3,1,3.25,1,1,0.6949
+EMP-2115,Employee 2115,40,9713,3,Sales,4,2,4,1,2.75,1,1,0.6233
+EMP-2116,Employee 2116,57,16379,24,Human Resources,3,3,4,3,3.25,0,0,0.0365
+EMP-2117,Employee 2117,36,14960,9,Sales,1,5,2,3,2.75,1,0,0.6615
+EMP-2118,Employee 2118,38,10603,9,Research & Development,4,3,5,2,3.5,0,0,0.1036
+EMP-2119,Employee 2119,45,10179,6,Research & Development,1,1,2,3,1.75,1,0,0.7008
+EMP-2120,Employee 2120,46,9822,11,Research & Development,1,2,2,3,2.0,1,0,0.4235
+EMP-2121,Employee 2121,47,9827,6,Engineering,3,1,4,4,3.0,0,0,0.1146
+EMP-2122,Employee 2122,42,8033,9,Engineering,2,4,2,1,2.25,0,1,0.271
+EMP-2123,Employee 2123,27,2630,1,Human Resources,1,3,2,5,2.75,1,1,0.9724
+EMP-2124,Employee 2124,50,23183,23,Research & Development,2,3,3,3,2.75,1,1,0.1815
+EMP-2125,Employee 2125,27,4882,3,Sales,2,1,4,2,2.25,0,0,0.6379
+EMP-2126,Employee 2126,39,7349,6,Sales,2,3,2,1,2.0,0,0,0.2664
+EMP-2127,Employee 2127,30,5453,5,Sales,1,4,3,3,2.75,1,1,0.6853
+EMP-2128,Employee 2128,36,10078,13,Sales,2,1,4,2,2.25,0,1,0.2526
+EMP-2129,Employee 2129,39,10216,5,Sales,3,2,4,3,3.0,1,0,0.6946
+EMP-2130,Employee 2130,39,10428,10,Sales,3,5,5,2,3.75,1,1,0.7677
+EMP-2131,Employee 2131,40,8608,9,Engineering,3,3,4,4,3.5,0,0,0.0659
+EMP-2132,Employee 2132,50,16887,11,Research & Development,3,3,3,3,3.0,0,0,0.0678
+EMP-2133,Employee 2133,40,10870,1,Engineering,1,3,3,1,2.0,1,1,0.9335
+EMP-2134,Employee 2134,34,9929,7,Research & Development,1,3,2,3,2.25,0,0,0.2241
+EMP-2135,Employee 2135,45,18034,15,Research & Development,2,1,4,4,2.75,1,1,0.2368
+EMP-2136,Employee 2136,47,21105,18,Finance,3,1,5,2,2.75,1,0,0.1775
+EMP-2137,Employee 2137,26,3867,4,Finance,3,3,4,4,3.5,1,1,0.5262
+EMP-2138,Employee 2138,42,15743,7,Research & Development,2,5,1,3,2.75,1,1,0.3618
+EMP-2139,Employee 2139,42,10627,5,Sales,3,1,3,5,3.0,0,1,0.2302
+EMP-2140,Employee 2140,34,6406,1,Research & Development,2,2,3,2,2.25,0,0,0.6702
+EMP-2141,Employee 2141,48,13594,16,Sales,3,3,4,5,3.75,1,0,0.1381
+EMP-2142,Employee 2142,35,6934,7,Engineering,3,4,4,4,3.75,0,0,0.1133
+EMP-2143,Employee 2143,38,8211,7,Finance,4,2,3,3,3.0,0,0,0.2281
+EMP-2144,Employee 2144,35,5990,3,Human Resources,3,4,2,3,3.0,0,1,0.3036
+EMP-2145,Employee 2145,37,4572,2,Sales,4,1,5,1,2.75,0,0,0.6261
+EMP-2146,Employee 2146,27,5607,6,Human Resources,5,5,4,5,4.75,1,1,0.662
+EMP-2147,Employee 2147,24,3960,3,Research & Development,5,3,2,4,3.5,0,0,0.3686
+EMP-2148,Employee 2148,50,14453,23,Marketing,3,3,3,2,2.75,0,0,0.1342
+EMP-2149,Employee 2149,29,4762,7,Marketing,3,3,5,1,3.0,0,0,0.4737
+EMP-2150,Employee 2150,28,4054,4,Sales,2,4,4,1,2.75,0,1,0.6264
+EMP-2151,Employee 2151,20,3505,0,Research & Development,5,2,3,3,3.25,0,1,0.5951
+EMP-2152,Employee 2152,31,5889,4,Research & Development,3,1,1,3,2.0,0,0,0.3039
+EMP-2153,Employee 2153,25,3921,1,Research & Development,2,3,1,3,2.25,0,1,0.7769
+EMP-2154,Employee 2154,50,10669,8,Engineering,3,3,2,3,2.75,1,0,0.6528
+EMP-2155,Employee 2155,45,24164,13,Sales,2,3,3,3,2.75,1,1,0.2736
+EMP-2156,Employee 2156,31,6719,2,Research & Development,3,3,3,3,3.0,0,0,0.3567
+EMP-2157,Employee 2157,56,17977,16,Sales,2,3,3,1,2.25,1,0,0.2484
+EMP-2158,Employee 2158,45,7362,3,Engineering,3,2,4,3,3.0,0,1,0.2313
+EMP-2159,Employee 2159,34,9367,6,Research & Development,1,4,1,1,1.75,0,0,0.5686
+EMP-2160,Employee 2160,20,3306,0,Engineering,5,4,2,5,4.0,0,1,0.7808
+EMP-2161,Employee 2161,56,14698,26,Marketing,4,3,3,4,3.5,0,0,0.0495
+EMP-2162,Employee 2162,25,6859,1,Finance,4,3,2,5,3.5,0,0,0.4276
+EMP-2163,Employee 2163,23,4374,1,Sales,3,5,1,3,3.0,0,1,0.8471
+EMP-2164,Employee 2164,45,11728,7,Research & Development,4,4,3,4,3.75,0,0,0.1068
+EMP-2165,Employee 2165,57,13744,21,Sales,3,3,4,3,3.25,1,0,0.3659
+EMP-2166,Employee 2166,48,10430,14,Research & Development,2,3,4,3,3.0,0,0,0.1239
+EMP-2167,Employee 2167,41,11641,11,Research & Development,2,3,4,2,2.75,0,1,0.2258
+EMP-2168,Employee 2168,42,7751,10,Human Resources,3,3,4,4,3.5,0,0,0.1866
+EMP-2169,Employee 2169,44,9704,5,Sales,2,3,4,5,3.5,1,0,0.5515
+EMP-2170,Employee 2170,43,9299,6,Marketing,5,2,2,2,2.75,0,0,0.3464
+EMP-2171,Employee 2171,39,11724,11,Research & Development,1,3,5,2,2.75,0,0,0.2053
+EMP-2172,Employee 2172,37,9342,8,Human Resources,3,3,2,4,3.0,0,0,0.3688
+EMP-2173,Employee 2173,36,9143,5,Engineering,3,3,2,5,3.25,0,0,0.232
+EMP-2174,Employee 2174,30,4473,1,Engineering,3,2,2,4,2.75,1,1,0.8498
+EMP-2175,Employee 2175,34,5270,3,Marketing,3,4,5,3,3.75,0,0,0.1242
+EMP-2176,Employee 2176,22,5094,2,Engineering,2,3,5,3,3.25,0,1,0.5947
+EMP-2177,Employee 2177,36,7813,4,Marketing,4,1,4,3,3.0,0,0,0.1869
+EMP-2178,Employee 2178,28,7858,6,Research & Development,2,3,3,4,3.0,1,0,0.5849
+EMP-2179,Employee 2179,27,6180,7,Sales,3,4,3,4,3.5,0,0,0.3052
+EMP-2180,Employee 2180,38,11874,7,Research & Development,4,4,5,3,4.0,0,0,0.0625
+EMP-2181,Employee 2181,48,17467,17,Research & Development,4,2,4,3,3.25,1,0,0.1275
+EMP-2182,Employee 2182,44,18752,12,Research & Development,3,5,5,5,4.5,1,0,0.1323
+EMP-2183,Employee 2183,23,4771,2,Research & Development,3,1,3,4,2.75,0,0,0.4318
+EMP-2184,Employee 2184,28,6131,7,Research & Development,3,5,3,5,4.0,0,0,0.3404
+EMP-2185,Employee 2185,44,15017,9,Research & Development,3,2,4,3,3.0,0,0,0.0325
+EMP-2186,Employee 2186,28,3743,0,Research & Development,3,1,2,4,2.5,1,1,0.9035
+EMP-2187,Employee 2187,35,8387,8,Marketing,4,3,5,4,4.0,0,0,0.1348
+EMP-2188,Employee 2188,41,14540,15,Research & Development,2,3,3,3,2.75,0,0,0.0356
+EMP-2189,Employee 2189,28,5322,1,Engineering,3,3,5,5,4.0,0,1,0.6145
+EMP-2190,Employee 2190,37,12278,14,Research & Development,4,4,3,1,3.0,0,0,0.1372
+EMP-2191,Employee 2191,25,3551,5,Marketing,3,4,4,4,3.75,0,0,0.4513
+EMP-2192,Employee 2192,31,5375,7,Marketing,3,3,3,5,3.5,0,1,0.3309
+EMP-2193,Employee 2193,39,7124,2,Human Resources,2,3,3,3,2.75,1,1,0.8363
+EMP-2194,Employee 2194,23,4067,2,Human Resources,3,2,3,4,3.0,0,1,0.8855
+EMP-2195,Employee 2195,40,13808,5,Research & Development,5,1,5,3,3.5,1,1,0.2274
+EMP-2196,Employee 2196,36,7824,10,Finance,3,3,4,4,3.5,0,0,0.1505
+EMP-2197,Employee 2197,41,6712,4,Marketing,2,1,2,4,2.25,0,1,0.5421
+EMP-2198,Employee 2198,38,13735,13,Marketing,2,4,5,3,3.5,0,0,0.1128
+EMP-2199,Employee 2199,48,8680,11,Human Resources,1,3,2,4,2.5,0,0,0.2393
+EMP-2200,Employee 2200,38,8260,7,Research & Development,3,2,3,3,2.75,1,0,0.4227
+EMP-2201,Employee 2201,33,5438,4,Marketing,3,3,2,2,2.5,1,0,0.6181
+EMP-2202,Employee 2202,38,7880,6,Research & Development,2,2,4,3,2.75,0,0,0.1025
+EMP-2203,Employee 2203,41,10697,8,Sales,4,3,2,4,3.25,0,0,0.3411
+EMP-2204,Employee 2204,37,3898,1,Research & Development,4,4,2,2,3.0,0,1,0.5976
+EMP-2205,Employee 2205,37,13379,10,Marketing,2,3,5,4,3.5,0,0,0.1251
+EMP-2206,Employee 2206,31,5355,4,Research & Development,2,2,4,3,2.75,1,1,0.5253
+EMP-2207,Employee 2207,31,4924,7,Research & Development,5,4,2,4,3.75,0,0,0.0757
+EMP-2208,Employee 2208,25,5446,4,Sales,3,1,4,1,2.25,1,1,0.8555
+EMP-2209,Employee 2209,51,17141,19,Engineering,4,4,5,4,4.25,0,0,0.0256
+EMP-2210,Employee 2210,26,4192,3,Human Resources,3,3,1,4,2.75,0,1,0.5675
+EMP-2211,Employee 2211,31,8480,6,Research & Development,4,3,4,5,4.0,0,0,0.1031
+EMP-2212,Employee 2212,30,9660,7,Research & Development,4,4,3,4,3.75,0,1,0.0929
+EMP-2213,Employee 2213,44,21114,12,Engineering,3,4,4,4,3.75,1,0,0.2342
+EMP-2214,Employee 2214,34,7062,7,Finance,4,1,3,5,3.25,0,0,0.0933
+EMP-2215,Employee 2215,47,19402,15,Engineering,5,2,4,4,3.75,0,0,0.0239
+EMP-2216,Employee 2216,31,10806,10,Sales,3,3,1,3,2.5,1,1,0.8399
+EMP-2217,Employee 2217,39,6028,16,Marketing,2,1,4,4,2.75,0,0,0.1732
+EMP-2218,Employee 2218,29,3691,1,Sales,3,3,1,4,2.75,0,1,0.6913
+EMP-2219,Employee 2219,55,13548,24,Sales,4,4,3,3,3.5,0,0,0.0355
+EMP-2220,Employee 2220,26,4662,1,Sales,4,3,2,4,3.25,1,1,0.8458
+EMP-2221,Employee 2221,39,9917,8,Sales,2,4,4,4,3.5,0,0,0.4089
+EMP-2222,Employee 2222,42,9897,4,Engineering,1,3,3,5,3.0,1,0,0.6969
+EMP-2223,Employee 2223,40,7684,6,Sales,4,3,3,5,3.75,1,1,0.512
+EMP-2224,Employee 2224,35,6009,2,Research & Development,2,4,3,3,3.0,0,0,0.2711
+EMP-2225,Employee 2225,35,9876,9,Research & Development,3,3,4,3,3.25,1,0,0.268
+EMP-2226,Employee 2226,37,9716,10,Research & Development,4,3,3,2,3.0,0,0,0.129
+EMP-2227,Employee 2227,35,13899,14,Sales,3,2,4,2,2.75,1,0,0.186
+EMP-2228,Employee 2228,45,11045,15,Research & Development,1,4,1,4,2.5,1,0,0.5145
+EMP-2229,Employee 2229,55,8323,4,Research & Development,2,4,2,3,2.75,1,1,0.5532
+EMP-2230,Employee 2230,32,7273,8,Human Resources,2,2,3,3,2.5,0,1,0.2903
+EMP-2231,Employee 2231,25,4389,1,Engineering,2,2,5,4,3.25,0,0,0.7522
+EMP-2232,Employee 2232,36,7455,7,Engineering,3,5,1,4,3.25,0,1,0.1298
+EMP-2233,Employee 2233,58,12065,6,Sales,3,2,1,2,2.0,1,1,0.2844
+EMP-2234,Employee 2234,30,6257,8,Marketing,2,2,2,3,2.25,0,1,0.3923
+EMP-2235,Employee 2235,50,7691,8,Marketing,1,3,3,3,2.5,0,1,0.2784
+EMP-2236,Employee 2236,51,12110,8,Engineering,2,5,3,3,3.25,0,0,0.125
+EMP-2237,Employee 2237,32,5967,9,Human Resources,5,4,4,5,4.5,0,0,0.2504
+EMP-2238,Employee 2238,41,9144,6,Research & Development,3,4,1,4,3.0,0,0,0.1645
+EMP-2239,Employee 2239,50,15935,21,Finance,3,1,2,3,2.25,1,1,0.2494
+EMP-2240,Employee 2240,33,6687,5,Research & Development,4,4,3,4,3.75,0,0,0.1364
+EMP-2241,Employee 2241,35,6940,5,Research & Development,3,3,3,3,3.0,0,0,0.1826
+EMP-2242,Employee 2242,32,6316,1,Sales,4,4,4,4,4.0,0,0,0.3281
+EMP-2243,Employee 2243,28,8147,6,Research & Development,2,2,2,2,2.0,0,0,0.4097
+EMP-2244,Employee 2244,31,6184,10,Finance,4,1,5,4,3.5,0,0,0.1223
+EMP-2245,Employee 2245,26,6376,3,Sales,2,3,3,3,2.75,0,0,0.6475
+EMP-2246,Employee 2246,37,13309,14,Sales,3,1,4,2,2.5,1,1,0.4186
+EMP-2247,Employee 2247,30,4944,2,Human Resources,1,4,3,3,2.75,1,1,0.8953
+EMP-2248,Employee 2248,38,11811,9,Sales,4,5,2,3,3.5,0,0,0.1709
+EMP-2249,Employee 2249,23,4167,1,Research & Development,1,3,4,4,3.0,0,0,0.3954
+EMP-2250,Employee 2250,39,11959,14,Human Resources,4,4,4,1,3.25,0,0,0.1223
+EMP-2251,Employee 2251,44,10328,8,Engineering,3,3,3,4,3.25,0,0,0.1432
+EMP-2252,Employee 2252,20,3633,0,Sales,4,4,3,4,3.75,1,1,0.857
+EMP-2253,Employee 2253,40,14586,13,Engineering,3,4,2,4,3.25,0,0,0.1018
+EMP-2254,Employee 2254,47,12625,21,Research & Development,2,3,4,4,3.25,1,0,0.0651
+EMP-2255,Employee 2255,26,8598,5,Research & Development,3,3,3,2,2.75,0,1,0.3716
+EMP-2256,Employee 2256,51,8763,3,Research & Development,5,3,4,3,3.75,0,0,0.1706
+EMP-2257,Employee 2257,40,10408,12,Sales,1,4,2,5,3.0,0,1,0.203
+EMP-2258,Employee 2258,31,7128,5,Engineering,5,1,1,3,2.5,1,1,0.6037
+EMP-2259,Employee 2259,36,8969,7,Engineering,3,4,2,3,3.0,0,0,0.345
+EMP-2260,Employee 2260,41,11420,11,Sales,4,5,2,4,3.75,1,1,0.4814
+EMP-2261,Employee 2261,37,5077,3,Sales,3,3,3,3,3.0,1,1,0.6791
+EMP-2262,Employee 2262,41,9053,12,Engineering,3,4,2,4,3.25,0,0,0.2451
+EMP-2263,Employee 2263,29,4212,2,Research & Development,4,4,4,5,4.25,0,1,0.3931
+EMP-2264,Employee 2264,38,7983,3,Research & Development,3,3,2,1,2.25,0,0,0.229
+EMP-2265,Employee 2265,24,4890,3,Finance,3,3,4,4,3.5,0,0,0.151
+EMP-2266,Employee 2266,36,10960,10,Human Resources,1,4,3,2,2.5,0,0,0.2284
+EMP-2267,Employee 2267,29,7608,7,Finance,1,3,5,3,3.0,1,1,0.5296
+EMP-2268,Employee 2268,30,8233,4,Research & Development,3,1,5,4,3.25,0,0,0.1236
+EMP-2269,Employee 2269,47,16283,21,Engineering,4,3,4,4,3.75,1,0,0.1681
+EMP-2270,Employee 2270,46,12140,13,Research & Development,3,3,4,4,3.5,0,0,0.0493
+EMP-2271,Employee 2271,42,14051,15,Research & Development,2,4,3,5,3.5,0,0,0.0242
+EMP-2272,Employee 2272,27,5961,5,Sales,3,2,4,3,3.0,0,1,0.508
+EMP-2273,Employee 2273,34,7288,5,Research & Development,3,1,5,4,3.25,0,0,0.3239
+EMP-2274,Employee 2274,47,8914,8,Research & Development,3,4,1,3,2.75,1,1,0.316
+EMP-2275,Employee 2275,38,6970,9,Research & Development,4,2,3,3,3.0,0,0,0.2769
+EMP-2276,Employee 2276,56,24500,29,Research & Development,4,4,2,3,3.25,0,0,0.037
+EMP-2277,Employee 2277,40,12524,8,Engineering,1,4,3,4,3.0,0,0,0.1655
+EMP-2278,Employee 2278,38,7709,8,Sales,3,4,3,3,3.25,1,1,0.5243
+EMP-2279,Employee 2279,34,10215,8,Research & Development,3,2,3,4,3.0,0,0,0.3446
+EMP-2280,Employee 2280,38,8449,6,Research & Development,4,3,3,4,3.5,0,0,0.1066
+EMP-2281,Employee 2281,35,15163,12,Research & Development,2,3,5,1,2.75,1,1,0.4015
+EMP-2282,Employee 2282,43,5646,7,Human Resources,4,3,3,3,3.25,0,0,0.2243
+EMP-2283,Employee 2283,45,13481,14,Research & Development,1,2,4,3,2.5,1,0,0.3029
+EMP-2284,Employee 2284,30,7953,6,Engineering,3,3,3,3,3.0,0,0,0.1554
+EMP-2285,Employee 2285,25,6225,4,Research & Development,1,1,3,4,2.25,1,1,0.6071
+EMP-2286,Employee 2286,21,5691,1,Research & Development,2,4,3,3,3.0,0,0,0.4948
+EMP-2287,Employee 2287,41,6972,5,Marketing,1,4,2,4,2.75,0,0,0.2783
+EMP-2288,Employee 2288,27,9542,6,Engineering,2,5,3,4,3.5,0,0,0.2305
+EMP-2289,Employee 2289,20,3103,0,Research & Development,2,3,3,3,2.75,0,1,0.7786
+EMP-2290,Employee 2290,40,14376,8,Engineering,4,4,3,4,3.75,0,0,0.0388
+EMP-2291,Employee 2291,58,19594,18,Sales,1,2,3,1,1.75,1,1,0.5264
+EMP-2292,Employee 2292,36,9568,8,Engineering,3,3,3,1,2.5,0,1,0.295
+EMP-2293,Employee 2293,44,7181,7,Human Resources,2,3,3,2,2.5,0,0,0.4057
+EMP-2294,Employee 2294,37,13186,10,Engineering,5,5,3,3,4.0,0,0,0.0785
+EMP-2295,Employee 2295,36,8189,9,Finance,5,4,2,2,3.25,1,1,0.4874
+EMP-2296,Employee 2296,44,14992,15,Research & Development,2,4,2,5,3.25,1,0,0.1089
+EMP-2297,Employee 2297,34,7023,9,Human Resources,3,4,1,3,2.75,0,0,0.4101
+EMP-2298,Employee 2298,39,11546,11,Sales,1,4,1,4,2.5,0,0,0.4008
+EMP-2299,Employee 2299,39,12073,13,Research & Development,5,1,2,3,2.75,0,0,0.0521
+EMP-2300,Employee 2300,31,6596,6,Research & Development,3,4,1,3,2.75,0,0,0.1988
+EMP-2301,Employee 2301,45,12886,6,Research & Development,1,3,2,3,2.25,0,1,0.1612
+EMP-2302,Employee 2302,35,5685,3,Human Resources,3,3,3,4,3.25,0,0,0.2439
+EMP-2303,Employee 2303,30,6475,5,Sales,1,1,1,3,1.5,0,0,0.5972
+EMP-2304,Employee 2304,41,8828,5,Sales,3,3,3,3,3.0,0,0,0.4735
+EMP-2305,Employee 2305,29,3278,1,Research & Development,4,1,5,3,3.25,1,1,0.7542
+EMP-2306,Employee 2306,37,18928,13,Sales,3,3,4,4,3.5,1,0,0.3236
+EMP-2307,Employee 2307,36,10533,14,Marketing,3,2,3,2,2.5,1,1,0.5564
+EMP-2308,Employee 2308,46,5540,6,Sales,2,5,5,4,4.0,0,1,0.1845
+EMP-2309,Employee 2309,41,10282,7,Human Resources,2,4,3,3,3.0,0,1,0.4211
+EMP-2310,Employee 2310,36,6754,4,Engineering,1,2,1,4,2.0,1,1,0.7187
+EMP-2311,Employee 2311,43,17054,11,Engineering,4,3,5,3,3.75,0,0,0.0946
+EMP-2312,Employee 2312,48,10077,7,Sales,2,1,4,3,2.5,1,0,0.7256
+EMP-2313,Employee 2313,41,7149,7,Engineering,3,2,3,2,2.5,1,0,0.726
+EMP-2314,Employee 2314,37,10468,10,Sales,3,1,4,5,3.25,1,0,0.7317
+EMP-2315,Employee 2315,25,3833,1,Marketing,2,4,4,3,3.25,1,1,0.9278
+EMP-2316,Employee 2316,27,7653,3,Research & Development,3,3,2,5,3.25,0,0,0.2067
+EMP-2317,Employee 2317,34,7049,2,Research & Development,3,2,2,3,2.5,0,1,0.2919
+EMP-2318,Employee 2318,31,4234,2,Research & Development,3,3,3,2,2.75,0,1,0.5926
+EMP-2319,Employee 2319,35,8832,2,Engineering,3,3,5,3,3.5,0,0,0.3073
+EMP-2320,Employee 2320,37,7564,7,Sales,3,3,1,1,2.0,0,0,0.4342
+EMP-2321,Employee 2321,41,16565,9,Research & Development,3,1,4,5,3.25,0,0,0.0961
+EMP-2322,Employee 2322,36,5440,1,Research & Development,3,5,1,4,3.25,1,1,0.6944
+EMP-2323,Employee 2323,41,8037,8,Marketing,4,1,3,4,3.0,1,1,0.6155
+EMP-2324,Employee 2324,37,5842,2,Engineering,1,1,3,3,2.0,0,1,0.5881
+EMP-2325,Employee 2325,20,3012,1,Sales,3,1,4,3,2.75,1,1,0.9702
+EMP-2326,Employee 2326,29,4893,6,Human Resources,1,3,1,5,2.5,1,1,0.5904
+EMP-2327,Employee 2327,35,12188,9,Sales,2,2,3,3,2.5,0,0,0.288
+EMP-2328,Employee 2328,26,4004,4,Sales,3,1,3,4,2.75,0,0,0.6428
+EMP-2329,Employee 2329,42,10501,8,Marketing,4,2,1,3,2.5,1,0,0.8135
+EMP-2330,Employee 2330,50,20513,18,Research & Development,4,3,2,5,3.5,1,0,0.1043
+EMP-2331,Employee 2331,47,12949,6,Sales,1,1,4,4,2.5,1,0,0.4143
+EMP-2332,Employee 2332,35,8487,6,Research & Development,3,2,3,5,3.25,0,0,0.0781
+EMP-2333,Employee 2333,49,6928,5,Sales,3,2,2,3,2.5,1,1,0.6728
+EMP-2334,Employee 2334,38,12231,16,Sales,2,2,3,2,2.25,0,0,0.1585
+EMP-2335,Employee 2335,34,6006,1,Sales,4,3,5,3,3.75,0,1,0.3872
+EMP-2336,Employee 2336,31,5896,2,Research & Development,4,1,1,4,2.5,0,0,0.3973
+EMP-2337,Employee 2337,34,6709,3,Sales,5,1,3,4,3.25,1,1,0.6724
+EMP-2338,Employee 2338,33,15061,11,Research & Development,1,3,1,1,1.5,1,0,0.6216
+EMP-2339,Employee 2339,38,10787,7,Research & Development,2,2,1,3,2.0,0,0,0.347
+EMP-2340,Employee 2340,38,8169,4,Research & Development,4,1,2,2,2.25,0,0,0.3966
+EMP-2341,Employee 2341,37,7362,10,Engineering,4,2,3,4,3.25,1,1,0.4289
+EMP-2342,Employee 2342,40,10702,16,Sales,4,5,4,2,3.75,0,0,0.1039
+EMP-2343,Employee 2343,47,8573,10,Human Resources,1,3,2,4,2.5,1,1,0.6006
+EMP-2344,Employee 2344,45,5795,4,Engineering,2,3,3,3,2.75,1,0,0.6593
+EMP-2345,Employee 2345,24,2543,1,Human Resources,3,4,3,3,3.25,0,1,0.7974
+EMP-2346,Employee 2346,20,3190,1,Sales,1,5,2,5,3.25,1,0,0.901
+EMP-2347,Employee 2347,44,12250,14,Sales,3,4,3,2,3.0,0,0,0.0606
+EMP-2348,Employee 2348,25,5123,2,Sales,3,3,4,2,3.0,0,0,0.6027
+EMP-2349,Employee 2349,35,5856,5,Human Resources,2,3,4,1,2.5,0,0,0.178
+EMP-2350,Employee 2350,27,6077,4,Sales,2,2,4,3,2.75,0,1,0.495
+EMP-2351,Employee 2351,21,3794,1,Engineering,3,3,3,4,3.25,0,1,0.7117
+EMP-2352,Employee 2352,41,9859,11,Marketing,2,4,4,3,3.25,1,0,0.4815
+EMP-2353,Employee 2353,43,15266,14,Research & Development,4,3,2,4,3.25,0,0,0.0369
+EMP-2354,Employee 2354,32,9289,3,Research & Development,3,4,4,1,3.0,0,0,0.1899
+EMP-2355,Employee 2355,20,2571,1,Human Resources,2,3,5,4,3.5,1,1,0.8523
+EMP-2356,Employee 2356,32,10419,10,Research & Development,5,3,1,4,3.25,1,1,0.3813
+EMP-2357,Employee 2357,40,13862,10,Research & Development,5,2,3,5,3.75,1,0,0.1891
+EMP-2358,Employee 2358,24,2770,2,Marketing,1,3,3,5,3.0,0,1,0.7799
+EMP-2359,Employee 2359,38,11104,2,Research & Development,4,3,4,3,3.5,0,0,0.241
+EMP-2360,Employee 2360,36,8891,5,Marketing,2,4,2,3,2.75,0,1,0.4561
+EMP-2361,Employee 2361,41,9468,14,Engineering,1,4,5,4,3.5,0,0,0.1547
+EMP-2362,Employee 2362,38,12358,9,Engineering,2,4,3,2,2.75,0,0,0.1018
+EMP-2363,Employee 2363,28,6451,6,Research & Development,2,2,2,3,2.25,0,1,0.2831
+EMP-2364,Employee 2364,47,10506,9,Research & Development,4,4,1,2,2.75,0,0,0.1168
+EMP-2365,Employee 2365,35,10945,11,Sales,4,2,4,3,3.25,0,0,0.3869
+EMP-2366,Employee 2366,36,10422,5,Research & Development,5,2,1,3,2.75,0,0,0.0916
+EMP-2367,Employee 2367,29,7195,7,Research & Development,4,4,2,2,3.0,0,0,0.1881
+EMP-2368,Employee 2368,33,7712,7,Research & Development,3,2,3,1,2.25,0,0,0.2403
+EMP-2369,Employee 2369,29,6600,3,Research & Development,4,1,3,4,3.0,0,1,0.2767
+EMP-2370,Employee 2370,35,6700,1,Research & Development,5,3,4,1,3.25,0,1,0.3963
+EMP-2371,Employee 2371,51,15956,22,Engineering,4,4,3,5,4.0,0,0,0.012
+EMP-2372,Employee 2372,25,8404,3,Research & Development,4,2,4,2,3.0,0,1,0.3986
+EMP-2373,Employee 2373,23,3534,1,Research & Development,5,3,5,4,4.25,0,0,0.2665
+EMP-2374,Employee 2374,49,13378,12,Human Resources,2,3,2,3,2.5,0,0,0.1481
+EMP-2375,Employee 2375,35,6773,2,Finance,4,4,4,1,3.25,0,1,0.3438
+EMP-2376,Employee 2376,31,6717,2,Research & Development,4,4,5,3,4.0,1,1,0.7023
+EMP-2377,Employee 2377,45,13676,18,Research & Development,5,2,4,3,3.5,1,1,0.1648
+EMP-2378,Employee 2378,31,5575,9,Sales,2,2,4,4,3.0,0,1,0.2407
+EMP-2379,Employee 2379,52,8825,6,Marketing,3,2,2,4,2.75,0,0,0.1492
+EMP-2380,Employee 2380,42,12931,11,Engineering,4,3,3,1,2.75,0,0,0.2261
+EMP-2381,Employee 2381,32,4915,6,Human Resources,2,4,3,2,2.75,0,1,0.4691
+EMP-2382,Employee 2382,55,23797,21,Research & Development,3,1,4,3,2.75,0,0,0.0326
+EMP-2383,Employee 2383,31,6136,4,Sales,2,1,5,2,2.5,1,1,0.7181
+EMP-2384,Employee 2384,43,11141,14,Research & Development,3,4,1,3,2.75,1,1,0.5439
+EMP-2385,Employee 2385,39,10917,12,Human Resources,3,3,1,5,3.0,0,0,0.3309
+EMP-2386,Employee 2386,48,18148,14,Engineering,3,4,1,3,2.75,1,0,0.172
+EMP-2387,Employee 2387,50,14162,20,Finance,3,4,4,4,3.75,0,0,0.0137
+EMP-2388,Employee 2388,37,10393,4,Research & Development,3,4,2,4,3.25,0,0,0.115
+EMP-2389,Employee 2389,30,14406,7,Research & Development,2,3,3,4,3.0,0,0,0.1334
+EMP-2390,Employee 2390,40,5236,3,Sales,2,3,3,2,2.5,0,0,0.334
+EMP-2391,Employee 2391,31,8679,7,Engineering,1,5,3,4,3.25,0,1,0.1686
+EMP-2392,Employee 2392,54,22206,21,Engineering,1,3,2,4,2.5,1,1,0.2593
+EMP-2393,Employee 2393,38,18323,9,Research & Development,3,2,4,2,2.75,0,0,0.109
+EMP-2394,Employee 2394,33,6327,5,Research & Development,4,2,3,3,3.0,0,1,0.21
+EMP-2395,Employee 2395,38,5985,5,Sales,2,2,5,5,3.5,1,1,0.5323
+EMP-2396,Employee 2396,25,4311,3,Research & Development,2,4,3,4,3.25,1,1,0.7637
+EMP-2397,Employee 2397,28,5427,1,Marketing,3,1,2,3,2.25,1,1,0.8815
+EMP-2398,Employee 2398,47,8084,7,Sales,2,1,2,3,2.0,1,0,0.7444
+EMP-2399,Employee 2399,31,7347,7,Engineering,5,4,5,3,4.25,0,0,0.1167
+EMP-2400,Employee 2400,28,5183,2,Sales,4,5,4,3,4.0,0,0,0.4955
+EMP-2401,Employee 2401,41,11435,7,Engineering,3,1,1,3,2.0,1,1,0.5966
+EMP-2402,Employee 2402,47,18548,14,Research & Development,2,3,4,3,3.0,0,0,0.0458
+EMP-2403,Employee 2403,43,12867,10,Engineering,3,3,3,4,3.25,0,0,0.1118
+EMP-2404,Employee 2404,45,9301,4,Research & Development,1,2,3,4,2.5,0,0,0.3002
+EMP-2405,Employee 2405,30,5931,4,Sales,2,4,2,4,3.0,0,1,0.333
+EMP-2406,Employee 2406,24,3469,2,Research & Development,2,1,4,2,2.25,0,1,0.8125
+EMP-2407,Employee 2407,49,14813,19,Sales,4,1,1,4,2.5,0,0,0.0394
+EMP-2408,Employee 2408,34,11541,12,Research & Development,3,2,2,2,2.25,0,0,0.3774
+EMP-2409,Employee 2409,34,8316,8,Research & Development,1,2,3,3,2.25,0,0,0.167
+EMP-2410,Employee 2410,48,4917,1,Finance,4,1,2,5,3.0,1,1,0.6495
+EMP-2411,Employee 2411,41,11620,18,Research & Development,3,1,3,3,2.5,0,0,0.1471
+EMP-2412,Employee 2412,40,12563,11,Engineering,3,4,1,2,2.5,0,0,0.0796
+EMP-2413,Employee 2413,55,17847,13,Finance,2,2,3,2,2.25,0,0,0.0474
+EMP-2414,Employee 2414,31,10367,4,Research & Development,3,5,5,3,4.0,0,0,0.056
+EMP-2415,Employee 2415,44,13765,13,Engineering,5,3,3,4,3.75,0,0,0.0699
+EMP-2416,Employee 2416,37,6383,4,Research & Development,1,3,3,5,3.0,1,0,0.4299
+EMP-2417,Employee 2417,39,7208,4,Research & Development,2,2,3,4,2.75,0,0,0.1411
+EMP-2418,Employee 2418,49,9441,12,Sales,2,2,3,4,2.75,1,1,0.6364
+EMP-2419,Employee 2419,41,15524,18,Marketing,2,3,4,4,3.25,0,1,0.0772
+EMP-2420,Employee 2420,41,20153,11,Research & Development,3,3,2,4,3.0,1,0,0.3507
+EMP-2421,Employee 2421,46,7214,5,Sales,4,4,4,1,3.25,0,0,0.1731
+EMP-2422,Employee 2422,33,3398,0,Sales,5,3,4,5,4.25,1,1,0.8917
+EMP-2423,Employee 2423,29,5840,2,Marketing,2,3,4,3,3.0,1,1,0.7539
+EMP-2424,Employee 2424,28,6923,4,Research & Development,3,2,1,5,2.75,1,1,0.4883
+EMP-2425,Employee 2425,20,3805,0,Engineering,3,4,1,1,2.25,0,1,0.7493
+EMP-2426,Employee 2426,54,24500,22,Engineering,3,3,3,4,3.25,0,0,0.0445
+EMP-2427,Employee 2427,27,2903,2,Human Resources,3,5,4,4,4.0,0,0,0.5876
+EMP-2428,Employee 2428,35,5666,6,Finance,2,4,3,5,3.5,0,0,0.2063
+EMP-2429,Employee 2429,34,11320,11,Engineering,3,1,2,4,2.5,0,0,0.1897
+EMP-2430,Employee 2430,39,8038,4,Research & Development,3,2,1,3,2.25,1,1,0.7101
+EMP-2431,Employee 2431,43,8368,7,Sales,4,3,4,3,3.5,0,0,0.2026
+EMP-2432,Employee 2432,44,18026,8,Sales,3,4,4,3,3.5,1,0,0.5158
+EMP-2433,Employee 2433,32,6906,5,Research & Development,2,3,2,2,2.25,0,0,0.3133
+EMP-2434,Employee 2434,35,6679,6,Sales,1,4,1,2,2.0,0,0,0.4717
+EMP-2435,Employee 2435,39,6477,2,Sales,5,2,3,2,3.0,0,0,0.5619
+EMP-2436,Employee 2436,34,7803,3,Sales,3,2,3,3,2.75,1,1,0.7883
+EMP-2437,Employee 2437,50,9588,9,Finance,4,1,4,5,3.5,0,0,0.0796
+EMP-2438,Employee 2438,41,9389,7,Research & Development,1,3,4,5,3.25,1,0,0.2579
+EMP-2439,Employee 2439,43,15013,15,Marketing,2,3,3,1,2.25,1,0,0.5443
+EMP-2440,Employee 2440,42,17891,17,Sales,2,2,2,1,1.75,1,0,0.4851
+EMP-2441,Employee 2441,46,12895,17,Human Resources,4,3,4,2,3.25,0,1,0.1289
+EMP-2442,Employee 2442,38,14438,3,Engineering,1,1,5,2,2.25,0,0,0.1378
+EMP-2443,Employee 2443,25,8958,4,Sales,2,1,5,2,2.5,1,0,0.7864
+EMP-2444,Employee 2444,40,7166,10,Sales,3,4,4,3,3.5,1,1,0.6479
+EMP-2445,Employee 2445,31,4072,4,Sales,4,3,3,3,3.25,0,0,0.5818
+EMP-2446,Employee 2446,32,8314,5,Sales,5,3,4,3,3.75,0,1,0.241
+EMP-2447,Employee 2447,41,14928,13,Marketing,5,4,4,3,4.0,1,0,0.1478
+EMP-2448,Employee 2448,47,17240,19,Engineering,4,4,4,3,3.75,1,0,0.0654
+EMP-2449,Employee 2449,37,9473,10,Research & Development,1,2,2,4,2.25,0,0,0.2113
+EMP-2450,Employee 2450,39,5180,1,Research & Development,1,3,5,4,3.25,0,1,0.1758
+EMP-2451,Employee 2451,51,13227,23,Sales,2,4,3,3,3.0,0,1,0.1454
+EMP-2452,Employee 2452,39,9136,2,Research & Development,3,4,2,2,2.75,0,0,0.2692
+EMP-2453,Employee 2453,59,13115,19,Human Resources,3,3,2,3,2.75,1,0,0.1947
+EMP-2454,Employee 2454,41,13852,13,Research & Development,4,1,3,2,2.5,1,1,0.3179
+EMP-2455,Employee 2455,22,2620,2,Sales,2,2,3,3,2.5,1,1,0.9636
+EMP-2456,Employee 2456,43,10209,3,Research & Development,3,3,1,2,2.25,0,0,0.2178
+EMP-2457,Employee 2457,40,14718,13,Research & Development,5,4,4,3,4.0,0,0,0.0275
+EMP-2458,Employee 2458,47,7356,12,Human Resources,3,2,4,2,2.75,0,1,0.1596
+EMP-2459,Employee 2459,42,10127,8,Sales,2,1,4,4,2.75,0,1,0.3096
+EMP-2460,Employee 2460,35,7048,4,Finance,2,4,2,1,2.25,1,0,0.6256
+EMP-2461,Employee 2461,26,4516,4,Marketing,3,2,4,3,3.0,0,0,0.296
+EMP-2462,Employee 2462,35,4624,10,Sales,3,2,1,2,2.0,0,0,0.5711
+EMP-2463,Employee 2463,29,4660,2,Research & Development,2,1,3,1,1.75,1,1,0.8313
+EMP-2464,Employee 2464,32,9356,6,Engineering,1,2,3,4,2.5,0,0,0.2337
+EMP-2465,Employee 2465,42,9723,14,Marketing,5,3,4,4,4.0,0,0,0.0918
+EMP-2466,Employee 2466,51,9839,4,Engineering,2,3,3,2,2.5,1,0,0.6342
+EMP-2467,Employee 2467,40,17721,12,Research & Development,3,1,1,4,2.25,0,0,0.1909
+EMP-2468,Employee 2468,26,6225,5,Finance,5,1,3,3,3.0,0,1,0.2805
+EMP-2469,Employee 2469,40,5684,7,Research & Development,2,1,3,3,2.25,1,1,0.5417
+EMP-2470,Employee 2470,47,19025,22,Engineering,2,2,5,3,3.0,1,0,0.1987
+EMP-2471,Employee 2471,31,7518,8,Marketing,4,1,5,4,3.5,0,0,0.2195
+EMP-2472,Employee 2472,35,5987,4,Research & Development,2,3,2,2,2.25,0,1,0.4435
+EMP-2473,Employee 2473,37,7579,4,Marketing,4,1,2,3,2.5,0,0,0.3448
+EMP-2474,Employee 2474,30,3909,2,Research & Development,2,1,2,3,2.0,1,1,0.9592
+EMP-2475,Employee 2475,42,12955,15,Finance,1,1,4,4,2.5,1,1,0.2521
+EMP-2476,Employee 2476,35,7597,11,Research & Development,3,1,1,5,2.5,0,0,0.1623
+EMP-2477,Employee 2477,40,8990,8,Finance,2,3,2,4,2.75,1,1,0.817
+EMP-2478,Employee 2478,29,6561,2,Research & Development,4,2,3,4,3.25,1,0,0.4841
+EMP-2479,Employee 2479,33,8475,6,Engineering,3,3,2,5,3.25,1,0,0.299
+EMP-2480,Employee 2480,43,12233,15,Sales,5,1,1,4,2.75,0,0,0.0487
+EMP-2481,Employee 2481,33,7940,7,Sales,4,2,3,4,3.25,1,1,0.8416
+EMP-2482,Employee 2482,51,22947,29,Research & Development,2,2,2,5,2.75,0,0,0.0969
+EMP-2483,Employee 2483,33,11834,8,Engineering,4,3,3,1,2.75,1,1,0.6052
+EMP-2484,Employee 2484,38,8027,2,Research & Development,3,2,5,3,3.25,0,1,0.3391
+EMP-2485,Employee 2485,44,15925,11,Sales,4,2,2,4,3.0,1,1,0.4782
+EMP-2486,Employee 2486,24,5552,3,Research & Development,4,2,3,5,3.5,0,0,0.1119
+EMP-2487,Employee 2487,22,2534,1,Finance,3,1,5,4,3.25,1,1,0.9367
+EMP-2488,Employee 2488,24,5956,2,Research & Development,3,5,4,4,4.0,0,1,0.4496
+EMP-2489,Employee 2489,47,11184,2,Research & Development,3,3,3,5,3.5,0,0,0.1112
+EMP-2490,Employee 2490,32,12853,4,Research & Development,2,4,4,3,3.25,0,0,0.0898
+EMP-2491,Employee 2491,58,17901,10,Sales,2,3,1,1,1.75,1,0,0.5199
+EMP-2492,Employee 2492,32,6144,4,Research & Development,3,3,4,1,2.75,0,0,0.1927
+EMP-2493,Employee 2493,38,9418,8,Sales,2,1,5,3,2.75,0,1,0.2703
+EMP-2494,Employee 2494,50,12474,17,Marketing,1,3,3,3,2.5,1,1,0.2543
+EMP-2495,Employee 2495,54,9293,3,Engineering,1,2,3,3,2.25,0,0,0.1825
+EMP-2496,Employee 2496,54,20341,29,Sales,3,3,2,3,2.75,0,1,0.1132
+EMP-2497,Employee 2497,47,21711,17,Research & Development,3,3,3,5,3.5,0,0,0.0244
+EMP-2498,Employee 2498,45,12056,19,Engineering,4,4,3,3,3.5,0,0,0.0378
+EMP-2499,Employee 2499,42,7285,6,Research & Development,3,3,3,4,3.25,0,0,0.1579
