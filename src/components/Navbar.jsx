@@ -4,7 +4,6 @@ import {
   UserCheck, 
   Sliders, 
   Users, 
-  BrainCircuit, 
   Upload, 
   Sun, 
   Moon,
@@ -30,7 +29,6 @@ export default function Navbar({
     { id: 'predictor', label: 'Attrition Predictor', icon: UserCheck },
     { id: 'whatif', label: 'What-If Simulator', icon: Sliders },
     { id: 'directory', label: 'Workforce Roster', icon: Users },
-    { id: 'model', label: 'ML Insights & ROC', icon: BrainCircuit },
   ];
 
   return (

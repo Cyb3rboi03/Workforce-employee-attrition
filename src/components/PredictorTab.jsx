@@ -12,7 +12,9 @@ import {
   Search,
   Check,
   X,
-  RotateCcw
+  RotateCcw,
+  AlertTriangle,
+  AlertCircle
 } from 'lucide-react';
 import { calculateAttritionRisk } from '../utils/predictor';
 import ibmRealWorkforceDataset from '../data/ibmRealWorkforceDataset.json';
@@ -66,6 +68,11 @@ export default function PredictorTab({
   const [dbSearchQuery, setDbSearchQuery] = useState('');
   const [dbDeptFilter, setDbDeptFilter] = useState('ALL');
 
+  // Employee Not Found warning & dialog modal states
+  const [isNotFoundModalOpen, setIsNotFoundModalOpen] = useState(false);
+  const [notFoundQuery, setNotFoundQuery] = useState('');
+  const [notFoundWarning, setNotFoundWarning] = useState(false);
+
   const searchBoxRef = useRef(null);
 
   // Reset all fields so nothing is selected
@@ -83,6 +90,9 @@ export default function PredictorTab({
     setRelSatisfaction(null);
     setOvertime(false);
     setIsSuggestionsOpen(false);
+    setNotFoundWarning(false);
+    setIsNotFoundModalOpen(false);
+    setNotFoundQuery('');
   };
 
   // Synchronize state with an employee record
@@ -107,6 +117,9 @@ export default function PredictorTab({
     setIsModified(false);
     setIsSuggestionsOpen(false);
     setIsDbBrowserOpen(false);
+    setNotFoundWarning(false);
+    setIsNotFoundModalOpen(false);
+    setNotFoundQuery('');
   };
 
   // Sync when initialEmployee prop updates dynamically from external action
@@ -164,15 +177,112 @@ export default function PredictorTab({
 
     if (exactMatch) {
       syncWithEmployee(exactMatch);
-    } else if (syncedEmployee && syncedEmployee.name.toLowerCase() !== clean) {
-      // User typed a custom name different from synced employee
-      setSyncedEmployee(null);
-      setIsModified(true);
+      setNotFoundWarning(false);
+      setIsNotFoundModalOpen(false);
+    } else {
+      if (syncedEmployee && syncedEmployee.name.toLowerCase() !== clean) {
+        // User typed a custom name different from synced employee
+        setSyncedEmployee(null);
+        setIsModified(true);
+      }
+      // Check if substring matches any employee
+      const hasAny = workforceDatabase.some((emp) =>
+        (emp.name && emp.name.toLowerCase().includes(clean)) ||
+        (emp.employee_id && emp.employee_id.toLowerCase().includes(clean))
+      );
+      if (!hasAny && clean.length >= 2) {
+        setNotFoundWarning(true);
+      } else {
+        setNotFoundWarning(false);
+      }
     }
+  };
+
+  // Verify employee in database or show not-found dialog
+  const handleCheckDatabase = (queryToTest) => {
+    const raw = typeof queryToTest === 'string' ? queryToTest : employeeName;
+    const clean = raw.trim().toLowerCase();
+    if (!clean) {
+      resetAllFields();
+      return;
+    }
+
+    // 1. Direct exact match check (Name or Employee ID)
+    const exactMatch = workforceDatabase.find((emp) => 
+      (emp.name && emp.name.toLowerCase() === clean) ||
+      (emp.employee_id && emp.employee_id.toLowerCase() === clean)
+    );
+
+    if (exactMatch) {
+      syncWithEmployee(exactMatch);
+      setNotFoundWarning(false);
+      setIsNotFoundModalOpen(false);
+      return;
+    }
+
+    // 2. Check if first suggestion is a good match
+    const candidate = workforceDatabase.find((emp) =>
+      (emp.name && emp.name.toLowerCase().startsWith(clean)) ||
+      (emp.employee_id && emp.employee_id.toLowerCase() === clean)
+    );
+
+    if (candidate) {
+      syncWithEmployee(candidate);
+      setNotFoundWarning(false);
+      setIsNotFoundModalOpen(false);
+      return;
+    }
+
+    // 3. NOT FOUND in database: Pop up warning dialog & banner
+    setIsSuggestionsOpen(false);
+    setNotFoundQuery(raw.trim());
+    setNotFoundWarning(true);
+    setIsNotFoundModalOpen(true);
+  };
+
+  // On blur handler when user moves away from input field
+  const handleNameBlur = () => {
+    setTimeout(() => {
+      const clean = employeeName.trim().toLowerCase();
+      if (!clean) {
+        setNotFoundWarning(false);
+        return;
+      }
+      if (syncedEmployee && syncedEmployee.name.toLowerCase() === clean) {
+        return;
+      }
+      const match = workforceDatabase.find((emp) =>
+        (emp.name && emp.name.toLowerCase() === clean) ||
+        (emp.employee_id && emp.employee_id.toLowerCase() === clean)
+      );
+      if (match) {
+        syncWithEmployee(match);
+      } else {
+        const hasAny = workforceDatabase.some((emp) =>
+          (emp.name && emp.name.toLowerCase().includes(clean)) ||
+          (emp.employee_id && emp.employee_id.toLowerCase().includes(clean))
+        );
+        if (!hasAny && clean.length >= 2) {
+          setNotFoundQuery(employeeName.trim());
+          setNotFoundWarning(true);
+          setIsNotFoundModalOpen(true);
+        }
+      }
+    }, 250);
   };
 
   // Keyboard navigation for suggestions
   const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (isSuggestionsOpen && suggestions.length > 0 && highlightedIndex >= 0) {
+        syncWithEmployee(suggestions[highlightedIndex]);
+        return;
+      }
+      handleCheckDatabase();
+      return;
+    }
+
     if (!isSuggestionsOpen || suggestions.length === 0) return;
 
     if (e.key === 'ArrowDown') {
@@ -181,12 +291,6 @@ export default function PredictorTab({
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       setHighlightedIndex((prev) => (prev > 0 ? prev - 1 : suggestions.length - 1));
-    } else if (e.key === 'Enter') {
-      e.preventDefault();
-      const target = highlightedIndex >= 0 ? suggestions[highlightedIndex] : suggestions[0];
-      if (target) {
-        syncWithEmployee(target);
-      }
     } else if (e.key === 'Escape') {
       setIsSuggestionsOpen(false);
     }
@@ -200,12 +304,11 @@ export default function PredictorTab({
     }
   };
 
-  // Check if an employee profile is active or inputs are given
+  // Check if an employee profile is active or valid inputs are given
+  // Prediction only evaluates when an employee is synced or all core parameters are selected
   const hasActiveProfile = Boolean(
-    employeeName.trim() || 
     syncedEmployee || 
-    department !== null || 
-    jobSatisfaction !== null
+    (department !== null && age !== null && salary !== null && experience !== null)
   );
 
   // Compute composite satisfaction for display
@@ -351,13 +454,14 @@ export default function PredictorTab({
                 <input
                   id="emp-name"
                   type="text"
-                  className="form-input name-search-field"
+                  className={`form-input name-search-field ${notFoundWarning ? 'input-not-found-border' : ''}`}
                   value={employeeName}
                   onChange={handleNameChange}
                   onFocus={() => {
                     if (employeeName.trim()) setIsSuggestionsOpen(true);
                   }}
                   onKeyDown={handleKeyDown}
+                  onBlur={handleNameBlur}
                   placeholder="Enter employee name from database (e.g. Liam Moore) or ID..."
                   autoComplete="off"
                 />
@@ -371,6 +475,14 @@ export default function PredictorTab({
                     <X size={14} />
                   </button>
                 )}
+                <button
+                  type="button"
+                  className="name-search-lookup-btn"
+                  onClick={() => handleCheckDatabase()}
+                  title="Search and verify in database"
+                >
+                  Lookup
+                </button>
               </div>
 
               {/* Autocomplete Dropdown List */}
@@ -414,6 +526,39 @@ export default function PredictorTab({
                         </div>
                       </div>
                     ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Not Found Warning Message Banner */}
+              {notFoundWarning && !syncedEmployee && employeeName.trim() && (
+                <div className="db-sync-warning-banner animate-fade-in">
+                  <div className="warning-banner-left">
+                    <AlertCircle size={18} className="warning-icon" />
+                    <div>
+                      <strong className="warning-title">Details Not Found in Database</strong>
+                      <p className="warning-desc">
+                        No record matching "<strong>{employeeName}</strong>". Please enter valid details or select from the workforce directory.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="warning-banner-actions">
+                    <button
+                      type="button"
+                      className="warning-btn-browse"
+                      onClick={() => setIsDbBrowserOpen(true)}
+                    >
+                      <Database size={12} />
+                      <span>Browse Directory</span>
+                    </button>
+                    <button
+                      type="button"
+                      className="warning-btn-dismiss"
+                      onClick={resetAllFields}
+                      title="Clear search"
+                    >
+                      <X size={14} />
+                    </button>
                   </div>
                 </div>
               )}
@@ -1034,6 +1179,63 @@ export default function PredictorTab({
                 onClick={() => setIsDbBrowserOpen(false)}
               >
                 Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Employee Not Found Warning Dialog Modal */}
+      {isNotFoundModalOpen && (
+        <div className="modal-backdrop" onClick={() => setIsNotFoundModalOpen(false)}>
+          <div className="modal-card not-found-modal-card animate-fade-in" onClick={(e) => e.stopPropagation()}>
+            <div className="not-found-header">
+              <div className="not-found-icon-bubble">
+                <AlertTriangle size={30} color="#dc2626" />
+              </div>
+              <button 
+                type="button" 
+                className="modal-close-btn" 
+                onClick={() => setIsNotFoundModalOpen(false)}
+                aria-label="Close"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            <div className="not-found-body">
+              <h3 className="not-found-title">Employee Details Not Found</h3>
+              <p className="not-found-description">
+                The name or ID <strong className="not-found-highlight">"{notFoundQuery || employeeName}"</strong> is not present in the workforce database.
+              </p>
+              <div className="not-found-instruction-box">
+                <p>
+                  Please enter valid employee details from the database or select an employee from the <strong>{workforceDatabase.length} linked records</strong> to auto-populate all predictive parameters.
+                </p>
+              </div>
+            </div>
+
+            <div className="not-found-footer">
+              <button
+                type="button"
+                className="action-btn action-btn-secondary not-found-btn"
+                onClick={() => {
+                  setIsNotFoundModalOpen(false);
+                  resetAllFields();
+                }}
+              >
+                Clear & Re-enter
+              </button>
+              <button
+                type="button"
+                className="action-btn action-btn-primary not-found-btn"
+                onClick={() => {
+                  setIsNotFoundModalOpen(false);
+                  setIsDbBrowserOpen(true);
+                }}
+              >
+                <Database size={15} />
+                <span>Browse Directory ({workforceDatabase.length})</span>
               </button>
             </div>
           </div>

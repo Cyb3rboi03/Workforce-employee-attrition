@@ -1197,13 +1197,13 @@
 .name-search-field {
   width: 100%;
   padding-left: 36px !important;
-  padding-right: 36px !important;
+  padding-right: 110px !important;
   font-weight: 500;
 }
 
 .name-clear-action-btn {
   position: absolute;
-  right: 10px;
+  right: 76px;
   background: transparent;
   border: none;
   color: var(--text-muted);
@@ -1219,6 +1219,35 @@
 .name-clear-action-btn:hover {
   background: var(--bg-elevated);
   color: var(--text-main);
+}
+
+.name-search-lookup-btn {
+  position: absolute;
+  right: 6px;
+  padding: 5px 12px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  border-radius: 6px;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.25);
+}
+
+.name-search-lookup-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.35);
+}
+
+.input-not-found-border {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
 }
 
 /* Autocomplete Dropdown */
@@ -3256,4 +3285,196 @@
   align-items: center;
   gap: 8px;
   font-size: 0.82rem;
+}
+
+/* ===================================================
+   EMPLOYEE NOT FOUND WARNING BANNER & MODAL
+   =================================================== */
+.db-sync-warning-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+  margin-top: 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.06);
+}
+
+[data-theme="midnight"] .db-sync-warning-banner,
+[data-theme="dark"] .db-sync-warning-banner {
+  background: rgba(239, 68, 68, 0.16);
+  border-color: rgba(239, 68, 68, 0.38);
+}
+
+.warning-banner-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.warning-icon {
+  color: #dc2626;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.warning-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #b91c1c;
+  display: block;
+}
+
+[data-theme="midnight"] .warning-title,
+[data-theme="dark"] .warning-title {
+  color: #f87171;
+}
+
+.warning-desc {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.warning-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.warning-btn-browse {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.warning-btn-browse:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.warning-btn-dismiss {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, background 0.15s;
+}
+
+.warning-btn-dismiss:hover {
+  color: var(--text-main);
+  background: rgba(15, 23, 42, 0.06);
+}
+
+/* Not Found Alert Dialog Modal */
+.not-found-modal-card {
+  max-width: 490px;
+  padding: 28px 24px;
+  text-align: center;
+  background: #ffffff !important;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(226, 232, 240, 0.95) !important;
+  box-shadow: 0 25px 80px -10px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="midnight"] .not-found-modal-card,
+[data-theme="dark"] .not-found-modal-card {
+  background: #0f172a !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 25px 80px -10px rgba(0, 0, 0, 0.8) !important;
+}
+
+.not-found-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.not-found-icon-bubble {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.not-found-body {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.not-found-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.not-found-description {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.not-found-highlight {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.not-found-instruction-box {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 0.8rem;
+  color: #b45309;
+  text-align: left;
+  line-height: 1.45;
+}
+
+[data-theme="midnight"] .not-found-instruction-box,
+[data-theme="dark"] .not-found-instruction-box {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.not-found-footer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.not-found-btn {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  justify-content: center;
 }

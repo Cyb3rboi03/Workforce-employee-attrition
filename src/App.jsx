@@ -4,7 +4,6 @@ import DashboardTab from './components/DashboardTab';
 import PredictorTab from './components/PredictorTab';
 import WhatIfSimulator from './components/WhatIfSimulator';
 import DirectoryTab from './components/DirectoryTab';
-import ModelInsightsTab from './components/ModelInsightsTab';
 import EmployeeDetailModal from './components/EmployeeDetailModal';
 import CsvUploadModal from './components/CsvUploadModal';
 import benchmarkEmployees from './data/benchmarkEmployees.js';
@@ -210,10 +209,6 @@ export default function App() {
             onExportCsv={handleExportCsv}
             onNavigateToPredictor={() => setActiveTab('predictor')}
           />
-        )}
-
-        {activeTab === 'model' && (
-          <ModelInsightsTab />
         )}
       </main>
 
