@@ -6,19 +6,47 @@ import WhatIfSimulator from './components/WhatIfSimulator';
 import DirectoryTab from './components/DirectoryTab';
 import EmployeeDetailModal from './components/EmployeeDetailModal';
 import CsvUploadModal from './components/CsvUploadModal';
+import LoginPage from './components/LoginPage';
 import benchmarkEmployees from './data/benchmarkEmployees.js';
 import * as XLSX from 'xlsx';
 import './App.css';
 
 export default function App() {
+  const [currentUser, setCurrentUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('workforcepulse_hr_session');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
+
   const [activeTab, setActiveTab] = useState('dashboard');
-  const [theme, setTheme] = useState('royal-white');
+  const [theme, setTheme] = useState('midnight');
   const [glassMode, setGlassMode] = useState(true);
   const [employees, setEmployees] = useState(benchmarkEmployees);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [whatIfTarget, setWhatIfTarget] = useState(null);
   const [predictorTarget, setPredictorTarget] = useState(null);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+
+  const handleLogin = (user) => {
+    setCurrentUser(user);
+    try {
+      localStorage.setItem('workforcepulse_hr_session', JSON.stringify(user));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    try {
+      localStorage.removeItem('workforcepulse_hr_session');
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   // Apply theme & glass state to html root
   useEffect(() => {
@@ -158,6 +186,17 @@ export default function App() {
   // High risk count calculation for navbar
   const highRiskCount = employees.filter(e => (e.ground_truth_prob || (e.attrition ? 0.8 : 0.1)) >= 0.60).length;
 
+  // If no HR user is logged in, show restricted Login Portal
+  if (!currentUser) {
+    return (
+      <LoginPage 
+        onLogin={handleLogin} 
+        theme={theme} 
+        toggleTheme={toggleTheme} 
+      />
+    );
+  }
+
   return (
     <div className={`app-layout ${glassMode ? 'glass-active' : ''}`}>
       {/* Global Navigation Bar */}
@@ -172,6 +211,8 @@ export default function App() {
         onExportCsv={handleExportCsv}
         totalEmployees={employees.length}
         highRiskCount={highRiskCount}
+        currentUser={currentUser}
+        onLogout={handleLogout}
       />
 
       {/* Main Content Area */}

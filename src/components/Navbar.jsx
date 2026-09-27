@@ -9,7 +9,8 @@ import {
   Moon,
   Sparkles,
   ShieldAlert,
-  Database
+  Database,
+  LogOut
 } from 'lucide-react';
 
 export default function Navbar({ 
@@ -22,7 +23,9 @@ export default function Navbar({
   onOpenUpload, 
   onExportCsv,
   totalEmployees,
-  highRiskCount
+  highRiskCount,
+  currentUser,
+  onLogout
 }) {
   const tabs = [
     { id: 'dashboard', label: 'HR Analytics Dashboard', icon: LayoutDashboard },
@@ -101,6 +104,24 @@ export default function Navbar({
           >
             {theme === 'royal-white' ? <Moon size={17} /> : <Sun size={17} />}
           </button>
+
+          {currentUser && (
+            <div className="navbar-user-profile" title={`Authorized HR Session: ${currentUser.name} (${currentUser.role})`}>
+              <div className="navbar-user-avatar">{currentUser.avatar || 'HR'}</div>
+              <div className="navbar-user-info">
+                <span className="navbar-user-name">{currentUser.name}</span>
+                <span className="navbar-user-role">{currentUser.role}</span>
+              </div>
+              <button 
+                className="navbar-logout-btn" 
+                onClick={onLogout}
+                title="Sign out of HR session"
+              >
+                <LogOut size={13} />
+                <span>Logout</span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
 

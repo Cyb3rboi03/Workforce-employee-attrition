@@ -19,8 +19,35 @@ import {
   CheckCircle2,
   Building2,
   ShieldAlert,
-  RotateCcw
+  RotateCcw,
+  Zap
 } from 'lucide-react';
+
+// Helper to distribute tenths of a percent so percentages sum to EXACTLY 100.0%
+function computeExactPercentages(list, totalCount) {
+  if (!totalCount || totalCount === 0 || !list || list.length === 0) {
+    return (list || []).map(item => ({ ...item, pct: '0.0' }));
+  }
+  const scaled = list.map((item, idx) => {
+    const raw = (item.count / totalCount) * 1000;
+    const floor = Math.floor(raw);
+    return { idx, floor, remainder: raw - floor };
+  });
+
+  const sumFloor = scaled.reduce((acc, curr) => acc + curr.floor, 0);
+  let diff = 1000 - sumFloor;
+
+  scaled.sort((a, b) => b.remainder - a.remainder);
+  for (let i = 0; i < diff; i++) {
+    scaled[i].floor += 1;
+  }
+  scaled.sort((a, b) => a.idx - b.idx);
+
+  return list.map((item, idx) => ({
+    ...item,
+    pct: (scaled[idx].floor / 10).toFixed(1)
+  }));
+}
 
 export default function DashboardTab({ employees, onSelectEmployee, onNavigateToPredictor }) {
   const [selectedDept, setSelectedDept] = useState('ALL');
@@ -31,6 +58,8 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
   const filteredEmployees = useMemo(() => {
     return employees.filter((emp) => {
       if (selectedDept !== 'ALL' && emp.department !== selectedDept) return false;
+      if (selectedOvertime === 'HEAVY' && (emp.overtime !== 1 || (emp.work_life_balance || 3) > 2)) return false;
+      if (selectedOvertime === 'MODERATE' && (emp.overtime !== 1 || (emp.work_life_balance || 3) <= 2)) return false;
       if (selectedOvertime === 'YES' && emp.overtime !== 1 && emp.overtime !== true) return false;
       if (selectedOvertime === 'NO' && (emp.overtime === 1 || emp.overtime === true)) return false;
       
@@ -120,31 +149,214 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
     };
   }, [filteredEmployees]);
 
-  // Breakdown by Department
+  // Canonical list of all monitored enterprise departments
+  const ALL_DEPARTMENTS = useMemo(() => [
+    'Research & Development',
+    'Sales',
+    'Engineering',
+    'Marketing',
+    'Human Resources',
+    'Finance'
+  ], []);
+
+  // Breakdown by Department (shows ALL departments, headcount, and exact % summing to 100%)
   const deptBreakdown = useMemo(() => {
-    const depts = {};
-    filteredEmployees.forEach(emp => {
-      const d = emp.department || 'Other';
-      if (!depts[d]) {
-        depts[d] = { count: 0, attrited: 0, highRisk: 0, salarySum: 0 };
-      }
-      depts[d].count++;
-      if (emp.attrition === 1) depts[d].attrited++;
-      if ((emp.ground_truth_prob || 0) >= 0.60) depts[d].highRisk++;
-      depts[d].salarySum += emp.salary;
+    // Evaluate the cohort filtered by Overtime & Risk, but NOT by Department so all departments are visible and compared
+    const cohort = employees.filter((emp) => {
+      if (selectedOvertime === 'HEAVY' && (emp.overtime !== 1 || (emp.work_life_balance || 3) > 2)) return false;
+      if (selectedOvertime === 'MODERATE' && (emp.overtime !== 1 || (emp.work_life_balance || 3) <= 2)) return false;
+      if (selectedOvertime === 'YES' && emp.overtime !== 1 && emp.overtime !== true) return false;
+      if (selectedOvertime === 'NO' && (emp.overtime === 1 || emp.overtime === true)) return false;
+
+      const prob = emp.ground_truth_prob !== undefined ? emp.ground_truth_prob : (emp.attrition ? 0.8 : 0.2);
+      if (selectedRisk === 'HIGH' && prob < 0.60) return false;
+      if (selectedRisk === 'MEDIUM' && (prob < 0.30 || prob >= 0.60)) return false;
+      if (selectedRisk === 'LOW' && prob >= 0.30) return false;
+
+      return true;
     });
 
-    return Object.entries(depts).map(([name, data]) => ({
-      name,
-      count: data.count,
-      rate: data.count > 0 ? (data.attrited / data.count).toFixed(2) : '0.00',
-      highRiskCount: data.highRisk,
-      avgSalary: data.count > 0 ? Math.round(data.salarySum / data.count) : 0
-    })).sort((a, b) => Number(b.rate) - Number(a.rate));
-  }, [filteredEmployees]);
+    const totalCohortCount = cohort.length;
+    const deptCounts = {};
+    ALL_DEPARTMENTS.forEach(d => { deptCounts[d] = 0; });
 
-  // Salary Bracket Breakdown
+    cohort.forEach(emp => {
+      const d = emp.department || 'Other';
+      deptCounts[d] = (deptCounts[d] || 0) + 1;
+    });
+
+    const list = ALL_DEPARTMENTS.map(name => ({
+      name,
+      count: deptCounts[name] || 0,
+      isSelected: selectedDept === name
+    })).sort((a, b) => b.count - a.count);
+
+    return computeExactPercentages(list, totalCohortCount);
+  }, [employees, selectedOvertime, selectedRisk, selectedDept, ALL_DEPARTMENTS]);
+
+  // Breakdown by Overtime Schedule (Overtime Required / Heavy, Moderate / Medium, Standard Hours, headcount & exact % summing to 100%)
+  const overtimeBreakdown = useMemo(() => {
+    // Evaluated across the department & risk cohort (without collapsing on selectedOvertime)
+    const cohort = employees.filter((emp) => {
+      if (selectedDept !== 'ALL' && emp.department !== selectedDept) return false;
+
+      const prob = emp.ground_truth_prob !== undefined ? emp.ground_truth_prob : (emp.attrition ? 0.8 : 0.2);
+      if (selectedRisk === 'HIGH' && prob < 0.60) return false;
+      if (selectedRisk === 'MEDIUM' && (prob < 0.30 || prob >= 0.60)) return false;
+      if (selectedRisk === 'LOW' && prob >= 0.30) return false;
+
+      return true;
+    });
+
+    const totalCohortCount = cohort.length;
+    let heavyCount = 0;
+    let modCount = 0;
+    let nonOtCount = 0;
+
+    cohort.forEach(emp => {
+      if (emp.overtime === 1 || emp.overtime === true) {
+        if ((emp.work_life_balance || 3) <= 2) {
+          heavyCount++;
+        } else {
+          modCount++;
+        }
+      } else {
+        nonOtCount++;
+      }
+    });
+
+    const list = [
+      { 
+        id: 'HEAVY',
+        label: 'Overtime Required', 
+        count: heavyCount, 
+        colorClass: 'ot-stat-active',
+        color: '#f87171',
+        barColor: '#ef4444',
+        iconType: 'flame',
+        isSelected: selectedOvertime === 'HEAVY' 
+      },
+      { 
+        id: 'MODERATE',
+        label: 'Moderate Overtime', 
+        count: modCount, 
+        colorClass: 'ot-stat-moderate',
+        color: '#fbbf24',
+        barColor: '#f59e0b',
+        iconType: 'zap',
+        isSelected: selectedOvertime === 'MODERATE' 
+      },
+      { 
+        id: 'NO',
+        label: 'Standard Hours', 
+        count: nonOtCount, 
+        colorClass: 'ot-stat-standard',
+        color: '#34d399',
+        barColor: '#10b981',
+        iconType: 'check',
+        isSelected: selectedOvertime === 'NO' 
+      }
+    ];
+
+    return computeExactPercentages(list, totalCohortCount);
+  }, [employees, selectedDept, selectedRisk, selectedOvertime]);
+
+  // Breakdown by Attrition Risk Tier (High, Medium, Low, headcount & exact % summing to 100%)
+  const riskTierBreakdown = useMemo(() => {
+    // Evaluated across the department & overtime cohort (without collapsing on selectedRisk)
+    const cohort = employees.filter((emp) => {
+      if (selectedDept !== 'ALL' && emp.department !== selectedDept) return false;
+      if (selectedOvertime === 'HEAVY' && (emp.overtime !== 1 || (emp.work_life_balance || 3) > 2)) return false;
+      if (selectedOvertime === 'MODERATE' && (emp.overtime !== 1 || (emp.work_life_balance || 3) <= 2)) return false;
+      if (selectedOvertime === 'YES' && emp.overtime !== 1 && emp.overtime !== true) return false;
+      if (selectedOvertime === 'NO' && (emp.overtime === 1 || emp.overtime === true)) return false;
+
+      return true;
+    });
+
+    const totalCohortCount = cohort.length;
+    let highCount = 0;
+    let medCount = 0;
+    let lowCount = 0;
+
+    cohort.forEach(emp => {
+      const prob = emp.ground_truth_prob !== undefined ? emp.ground_truth_prob : (emp.attrition ? 0.8 : 0.2);
+      if (prob >= 0.60) {
+        highCount++;
+      } else if (prob >= 0.30) {
+        medCount++;
+      } else {
+        lowCount++;
+      }
+    });
+
+    const list = [
+      {
+        id: 'HIGH',
+        label: 'High Risk',
+        count: highCount,
+        colorClass: 'bg-risk-high',
+        dotClass: 'dot-high',
+        textColor: '#ef4444',
+        barColor: '#ef4444',
+        cardClass: 'risk-card-high',
+        iconType: 'flame',
+        isSelected: selectedRisk === 'HIGH'
+      },
+      {
+        id: 'MEDIUM',
+        label: 'Medium Risk',
+        count: medCount,
+        colorClass: 'bg-risk-med',
+        dotClass: 'dot-med',
+        textColor: '#f59e0b',
+        barColor: '#f59e0b',
+        cardClass: 'risk-card-med',
+        iconType: 'alert',
+        isSelected: selectedRisk === 'MEDIUM'
+      },
+      {
+        id: 'LOW',
+        label: 'Low Risk',
+        count: lowCount,
+        colorClass: 'bg-risk-low',
+        dotClass: 'dot-low',
+        textColor: '#10b981',
+        barColor: '#10b981',
+        cardClass: 'risk-card-low',
+        iconType: 'shield',
+        isSelected: selectedRisk === 'LOW'
+      }
+    ];
+
+    return computeExactPercentages(list, totalCohortCount);
+  }, [employees, selectedDept, selectedOvertime, selectedRisk]);
+
+  // Filtered displayed lists: when a specific item is selected in the console, show ONLY that item, preserving its % share among the cohort
+  const displayedDeptList = useMemo(() => {
+    if (selectedDept === 'ALL') {
+      return deptBreakdown;
+    }
+    return deptBreakdown.filter(d => d.name === selectedDept);
+  }, [deptBreakdown, selectedDept]);
+
+  const displayedOvertimeList = useMemo(() => {
+    if (selectedOvertime === 'ALL') {
+      return overtimeBreakdown;
+    }
+    return overtimeBreakdown.filter(ot => ot.id === selectedOvertime);
+  }, [overtimeBreakdown, selectedOvertime]);
+
+  const displayedRiskList = useMemo(() => {
+    if (selectedRisk === 'ALL') {
+      return riskTierBreakdown;
+    }
+    return riskTierBreakdown.filter(r => r.id === selectedRisk);
+  }, [riskTierBreakdown, selectedRisk]);
+
+  // Salary Bracket Breakdown (Headcount & exact % summing to 100%)
   const salaryBrackets = useMemo(() => {
+    const totalCount = filteredEmployees.length;
     const brackets = [
       { label: '<$4,000 (Entry Tier)', min: 0, max: 4000, count: 0, attrited: 0 },
       { label: '$4,000 - $7,000 (Mid-Junior)', min: 4000, max: 7000, count: 0, attrited: 0 },
@@ -161,14 +373,17 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
       }
     });
 
-    return brackets.map(b => ({
+    const list = brackets.map(b => ({
       ...b,
       rate: b.count > 0 ? (b.attrited / b.count).toFixed(2) : '0.00'
     }));
+
+    return computeExactPercentages(list, totalCount);
   }, [filteredEmployees]);
 
-  // Experience Tenure Breakdown
+  // Experience Tenure Breakdown (Headcount & exact % summing to 100%)
   const experienceTiers = useMemo(() => {
+    const totalCount = filteredEmployees.length;
     const tiers = [
       { label: '0-2 Yrs (Early Shock)', min: 0, max: 2.5, count: 0, attrited: 0 },
       { label: '3-5 Yrs (Developing)', min: 2.5, max: 5.5, count: 0, attrited: 0 },
@@ -185,10 +400,12 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
       }
     });
 
-    return tiers.map(t => ({
+    const list = tiers.map(t => ({
       ...t,
       rate: t.count > 0 ? (t.attrited / t.count).toFixed(2) : '0.00'
     }));
+
+    return computeExactPercentages(list, totalCount);
   }, [filteredEmployees]);
 
   // Top At-Risk Employees for immediate HR intervention
@@ -282,7 +499,8 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
                 className="filter-boxed-select"
               >
                 <option value="ALL">⏱️ All Schedules</option>
-                <option value="YES">🔥 Active Overtime Only</option>
+                <option value="HEAVY">🔥 Overtime Required (Heavy)</option>
+                <option value="MODERATE">⚡ Moderate Overtime (Medium)</option>
                 <option value="NO">🛡️ Standard Hours Only</option>
               </select>
             </div>
@@ -301,9 +519,9 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
                 className="filter-boxed-select"
               >
                 <option value="ALL">🌐 All Risk Tiers</option>
-                <option value="HIGH">🔴 High Risk (≥0.60 prob)</option>
-                <option value="MEDIUM">🟡 Medium Risk (0.30 - 0.59 prob)</option>
-                <option value="LOW">🟢 Low Risk (&lt;0.30 prob)</option>
+                <option value="HIGH">🔴 High Risk</option>
+                <option value="MEDIUM">🟡 Medium Risk</option>
+                <option value="LOW">🟢 Low Risk</option>
               </select>
             </div>
           </div>
@@ -391,31 +609,45 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
 
       {/* ROW 1: DEPARTMENT BREAKDOWN & OVERTIME COMPARISON */}
       <div className="analytics-double-row">
-        {/* CHART 1: Attrition by Department */}
+        {/* CHART 1: Headcount Distribution by Department */}
         <div className="chart-card glass-panel">
           <div className="chart-card-header">
             <div>
               <h3 className="chart-card-title">
                 <BarChart3 size={18} className="icon-accent" />
-                <span>Attrition Rate by Department</span>
+                <span>Headcount Distribution by Department</span>
               </h3>
-              <p className="chart-card-sub">Turnover percentage and headcount distribution across units</p>
             </div>
-            <span className="badge badge-neutral">{deptBreakdown.length} Units</span>
+            <span className="badge badge-neutral">
+              {selectedDept === 'ALL' ? `${deptBreakdown.length} Departments` : '1 Selected Department'}
+            </span>
           </div>
 
           <div className="dept-bars-list">
-            {deptBreakdown.map((dept) => {
-              const rateNum = Number(dept.rate);
-              const barColor = rateNum >= 0.40 ? 'var(--risk-high)' : rateNum >= 0.30 ? 'var(--risk-med)' : 'var(--risk-low)';
+            {displayedDeptList.map((dept) => {
+              const pctNum = Number(dept.pct);
               return (
-                <div key={dept.name} className="dept-bar-row">
+                <div 
+                  key={dept.name} 
+                  className={`dept-bar-row ${dept.isSelected ? 'dept-row-selected' : ''}`}
+                  onClick={() => setSelectedDept(selectedDept === dept.name ? 'ALL' : dept.name)}
+                  style={{ cursor: 'pointer' }}
+                  title={`Click to toggle filter for ${dept.name}`}
+                >
                   <div className="dept-bar-labels">
-                    <span className="dept-bar-name">{dept.name}</span>
+                    <span className="dept-bar-name">
+                      {dept.name}
+                      {dept.isSelected && (
+                        <span className="badge badge-primary" style={{ marginLeft: '8px', fontSize: '0.68rem', padding: '2px 7px' }}>
+                          Selected
+                        </span>
+                      )}
+                    </span>
                     <div className="dept-bar-metrics">
-                      <span className="dept-bar-count">{dept.count} staff</span>
-                      <strong className="dept-bar-rate" style={{ color: barColor }}>
-                        {dept.rate}
+                      <span className="dept-bar-count">{dept.count.toLocaleString()} staff</span>
+                      <span className="dept-bar-sep">•</span>
+                      <strong className="dept-bar-rate" style={{ color: '#38bdf8', fontWeight: 700 }}>
+                        {dept.pct}%
                       </strong>
                     </div>
                   </div>
@@ -423,8 +655,10 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
                     <div 
                       className="dept-bar-fill" 
                       style={{ 
-                        width: `${Math.min(100, Math.max(5, rateNum * 100))}%`,
-                        backgroundColor: barColor
+                        width: `${Math.min(100, Math.max(dept.count > 0 ? 3 : 0, pctNum))}%`,
+                        background: dept.isSelected 
+                          ? 'linear-gradient(90deg, #38bdf8, #818cf8)' 
+                          : 'linear-gradient(90deg, #6366f1, #06b6d4)'
                       }} 
                     />
                   </div>
@@ -434,73 +668,194 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
           </div>
         </div>
 
-        {/* CHART 2: Overtime Disparity & Risk Tier Donut */}
+        {/* CHART 2: Overtime Schedule & Risk Tier Distribution */}
         <div className="chart-card glass-panel">
           <div className="chart-card-header">
             <div>
               <h3 className="chart-card-title">
                 <Clock size={18} className="icon-accent" />
-                <span>Overtime Impact on Attrition</span>
+                <span>Overtime Schedule & Risk Tier Distribution</span>
               </h3>
-              <p className="chart-card-sub">Comparative turnover odds for Overtime vs Standard Hours</p>
             </div>
+            <span className="badge badge-neutral">
+              {(selectedOvertime !== 'ALL' || selectedRisk !== 'ALL') ? 'Filtered Breakdown' : 'Headcount Breakdown'}
+            </span>
           </div>
 
           {/* Overtime comparison cards */}
-          <div className="ot-comparison-grid">
-            <div className="ot-stat-card ot-stat-active">
-              <div className="ot-card-top">
-                <Flame size={20} className="text-danger" />
-                <span className="ot-card-label">Overtime Required</span>
+          <div 
+            className="ot-comparison-grid"
+            style={{ 
+              gridTemplateColumns: displayedOvertimeList.length === 1 
+                ? '1fr' 
+                : (displayedOvertimeList.length === 2 ? '1fr 1fr' : 'repeat(3, 1fr)'),
+              gap: '12px'
+            }}
+          >
+            {displayedOvertimeList.map((ot) => (
+              <div 
+                key={ot.id}
+                className={`ot-stat-card ${ot.isSelected ? 'ot-stat-selected' : ot.colorClass}`}
+                onClick={() => setSelectedOvertime(selectedOvertime === ot.id ? 'ALL' : ot.id)}
+                style={{ cursor: 'pointer', transition: 'all 0.2s ease', padding: '14px 16px' }}
+                title={`Click to toggle filter for ${ot.label}`}
+              >
+                <div className="ot-card-top">
+                  {ot.iconType === 'flame' && <Flame size={18} style={{ color: ot.color }} />}
+                  {ot.iconType === 'zap' && <Zap size={18} style={{ color: ot.color }} />}
+                  {ot.iconType === 'check' && <CheckCircle2 size={18} style={{ color: ot.color }} />}
+                  <span className="ot-card-label">{ot.label}</span>
+                  {ot.isSelected && (
+                    <span className="badge badge-primary" style={{ marginLeft: 'auto', fontSize: '0.62rem', padding: '1px 5px' }}>
+                      Selected
+                    </span>
+                  )}
+                </div>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', margin: '6px 0 2px' }}>
+                  <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    {ot.count.toLocaleString()} staff
+                  </span>
+                  <h4 className="ot-card-pct" style={{ color: ot.color, margin: 0, fontSize: '1.5rem', fontWeight: 800 }}>
+                    {ot.pct}%
+                  </h4>
+                </div>
+                <div style={{ height: '5px', width: '100%', background: 'rgba(255,255,255,0.08)', borderRadius: '9999px', overflow: 'hidden', marginTop: '6px' }}>
+                  <div style={{ height: '100%', width: `${ot.pct}%`, background: ot.barColor, borderRadius: '9999px' }} />
+                </div>
               </div>
-              <h4 className="ot-card-pct text-danger">{stats.otAttritionRate}</h4>
-              <p className="ot-card-footnote">Turnover Rate Index (2.4x higher risk)</p>
-            </div>
-
-            <div className="ot-stat-card ot-stat-standard">
-              <div className="ot-card-top">
-                <CheckCircle2 size={20} className="text-success" />
-                <span className="ot-card-label">Standard Hours</span>
-              </div>
-              <h4 className="ot-card-pct text-success">{stats.nonOtAttritionRate}</h4>
-              <p className="ot-card-footnote">Turnover Rate Index (Protected)</p>
-            </div>
+            ))}
           </div>
 
-          {/* Risk Tier Donut / Bar Distribution */}
-          <div className="risk-dist-section">
-            <h4 className="risk-dist-title">Workforce Retention Tier Distribution</h4>
-            <div className="risk-stacked-bar">
+          {/* Overtime Stacked Distribution Bar */}
+          <div className="risk-stacked-bar" style={{ marginBottom: '8px' }}>
+            {displayedOvertimeList.map((ot) => (
               <div 
-                className="risk-stack-segment bg-risk-high" 
-                style={{ width: `${Number(stats.riskDist.high) * 100}%` }}
-                data-tooltip={`High Risk: ${stats.riskDist.high}`}
+                key={ot.id}
+                className="risk-stack-segment" 
+                style={{ width: `${ot.pct}%`, backgroundColor: ot.barColor }}
+                title={`${ot.label}: ${ot.count} staff (${ot.pct}%)`}
               />
+            ))}
+          </div>
+
+          {/* Overtime Legend Row */}
+          <div className="risk-legend-row" style={{ marginBottom: '4px' }}>
+            {displayedOvertimeList.map((ot) => (
               <div 
-                className="risk-stack-segment bg-risk-med" 
-                style={{ width: `${Number(stats.riskDist.med) * 100}%` }}
-                data-tooltip={`Medium Risk: ${stats.riskDist.med}`}
-              />
-              <div 
-                className="risk-stack-segment bg-risk-low" 
-                style={{ width: `${Number(stats.riskDist.low) * 100}%` }}
-                data-tooltip={`Low Risk: ${stats.riskDist.low}`}
-              />
+                key={ot.id}
+                className="legend-item" 
+                style={{ 
+                  cursor: 'pointer', 
+                  opacity: 1,
+                  fontWeight: ot.isSelected ? 700 : 400
+                }}
+                onClick={() => setSelectedOvertime(selectedOvertime === ot.id ? 'ALL' : ot.id)}
+                title={`Click to toggle filter for ${ot.label}`}
+              >
+                <span className="legend-dot" style={{ backgroundColor: ot.barColor }} />
+                <span>
+                  {ot.label.split(' ')[0]}: <strong>{ot.count.toLocaleString()} staff • {ot.pct}%</strong>
+                  {ot.isSelected && (
+                    <span className="badge badge-primary" style={{ marginLeft: '4px', fontSize: '0.6rem', padding: '1px 5px' }}>
+                      Selected
+                    </span>
+                  )}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Risk Tier Distribution Section with Stat Cards + Stacked Bar */}
+          <div className="risk-dist-section" style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+              <h4 className="risk-dist-title" style={{ margin: 0 }}>Attrition Risk Tier Distribution</h4>
+              <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+                {selectedRisk === 'ALL' ? 'Sum: 100.0%' : `Cohort Share: ${displayedRiskList[0]?.pct || 0}%`}
+              </span>
             </div>
 
-            <div className="risk-legend-row">
-              <div className="legend-item">
-                <span className="legend-dot dot-high" />
-                <span>High Risk (≥0.60): <strong>{stats.riskDist.high}</strong></span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-dot dot-med" />
-                <span>Medium (0.30 - 0.59): <strong>{stats.riskDist.med}</strong></span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-dot dot-low" />
-                <span>Low (&lt;0.30): <strong>{stats.riskDist.low}</strong></span>
-              </div>
+            {/* Risk Tier Cards (High, Medium, Low) */}
+            <div 
+              className="ot-comparison-grid"
+              style={{ 
+                gridTemplateColumns: displayedRiskList.length === 1 
+                  ? '1fr' 
+                  : (displayedRiskList.length === 2 ? '1fr 1fr' : 'repeat(3, 1fr)'),
+                gap: '12px',
+                marginBottom: '14px'
+              }}
+            >
+              {displayedRiskList.map((tier) => (
+                <div 
+                  key={tier.id}
+                  className={`ot-stat-card ${tier.isSelected ? 'ot-stat-selected' : tier.cardClass}`}
+                  onClick={() => setSelectedRisk(selectedRisk === tier.id ? 'ALL' : tier.id)}
+                  style={{ cursor: 'pointer', transition: 'all 0.2s ease', padding: '14px 16px' }}
+                  title={`Click to toggle filter for ${tier.label}`}
+                >
+                  <div className="ot-card-top">
+                    {tier.iconType === 'flame' && <Flame size={18} style={{ color: tier.textColor }} />}
+                    {tier.iconType === 'alert' && <AlertOctagon size={18} style={{ color: tier.textColor }} />}
+                    {tier.iconType === 'shield' && <ShieldCheck size={18} style={{ color: tier.textColor }} />}
+                    <span className="ot-card-label">{tier.label}</span>
+                    {tier.isSelected && (
+                      <span className="badge badge-primary" style={{ marginLeft: 'auto', fontSize: '0.62rem', padding: '1px 5px' }}>
+                        Selected
+                      </span>
+                    )}
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', margin: '6px 0 2px' }}>
+                    <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                      {tier.count.toLocaleString()} staff
+                    </span>
+                    <h4 className="ot-card-pct" style={{ color: tier.textColor, margin: 0, fontSize: '1.5rem', fontWeight: 800 }}>
+                      {tier.pct}%
+                    </h4>
+                  </div>
+                  <div style={{ height: '5px', width: '100%', background: 'rgba(255,255,255,0.08)', borderRadius: '9999px', overflow: 'hidden', marginTop: '6px' }}>
+                    <div style={{ height: '100%', width: `${tier.pct}%`, background: tier.barColor, borderRadius: '9999px' }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Stacked bar */}
+            <div className="risk-stacked-bar">
+              {displayedRiskList.map((tier) => (
+                <div 
+                  key={tier.id}
+                  className={`risk-stack-segment ${tier.colorClass}`} 
+                  style={{ width: `${tier.pct}%` }}
+                  title={`${tier.label}: ${tier.count} staff (${tier.pct}%)`}
+                />
+              ))}
+            </div>
+
+            {/* Legend row */}
+            <div className="risk-legend-row" style={{ marginTop: '8px' }}>
+              {displayedRiskList.map((tier) => (
+                <div 
+                  key={tier.id}
+                  className="legend-item" 
+                  style={{ 
+                    cursor: 'pointer', 
+                    opacity: 1,
+                    fontWeight: tier.isSelected ? 700 : 400
+                  }}
+                  onClick={() => setSelectedRisk(selectedRisk === tier.id ? 'ALL' : tier.id)}
+                  title={`Click to toggle filter for ${tier.label}`}
+                >
+                  <span className={`legend-dot ${tier.dotClass}`} />
+                  <span>
+                    {tier.label}: <strong>{tier.count.toLocaleString()} staff • {tier.pct}%</strong>
+                    {tier.isSelected && (
+                      <span className="badge badge-primary" style={{ marginLeft: '4px', fontSize: '0.6rem', padding: '1px 5px' }}>
+                        Selected
+                      </span>
+                    )}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -508,36 +863,35 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
 
       {/* ROW 2: SALARY & EXPERIENCE CORRELATION CHARTS */}
       <div className="analytics-double-row">
-        {/* CHART 3: Salary Tiers vs Attrition */}
+        {/* CHART 3: Headcount by Salary Bracket */}
         <div className="chart-card glass-panel">
           <div className="chart-card-header">
             <div>
               <h3 className="chart-card-title">
                 <DollarSign size={18} className="icon-accent" />
-                <span>Salary Brackets vs Turnover Rate</span>
+                <span>Headcount by Salary Bracket</span>
               </h3>
-              <p className="chart-card-sub">Demonstrates how compensation acts as a primary retention anchor</p>
             </div>
           </div>
 
           <div className="tier-bars-list">
             {salaryBrackets.map((bracket) => {
-              const rateNum = Number(bracket.rate);
+              const pctNum = Number(bracket.pct);
               return (
                 <div key={bracket.label} className="tier-row">
                   <div className="tier-header">
                     <span className="tier-name">{bracket.label}</span>
                     <span className="tier-stats">
-                      {bracket.count} staff • <strong className="tier-rate">{bracket.rate} rate</strong>
+                      {bracket.count} staff • <strong className="tier-rate" style={{ color: '#38bdf8', fontWeight: 700 }}>{bracket.pct}%</strong>
                     </span>
                   </div>
                   <div className="tier-track">
                     <div 
                       className="tier-fill"
                       style={{ 
-                        width: `${Math.min(100, Math.max(8, rateNum * 100))}%`,
-                        backgroundColor: rateNum > 0.45 ? 'var(--risk-high)' : rateNum > 0.25 ? 'var(--risk-med)' : 'var(--risk-low)'
-                      }}
+                        width: `${Math.min(100, Math.max(4, pctNum))}%`,
+                        background: 'linear-gradient(90deg, #6366f1, #06b6d4)'
+                      }} 
                     />
                   </div>
                 </div>
@@ -546,36 +900,35 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
           </div>
         </div>
 
-        {/* CHART 4: Experience / Tenure Curve */}
+        {/* CHART 4: Headcount by Experience / Tenure */}
         <div className="chart-card glass-panel">
           <div className="chart-card-header">
             <div>
               <h3 className="chart-card-title">
                 <Activity size={18} className="icon-accent" />
-                <span>Tenure / Experience Attrition Curve</span>
+                <span>Headcount by Experience / Tenure</span>
               </h3>
-              <p className="chart-card-sub">Early-career volatility vs long-term institutional retention</p>
             </div>
           </div>
 
           <div className="tier-bars-list">
             {experienceTiers.map((tier) => {
-              const rateNum = Number(tier.rate);
+              const pctNum = Number(tier.pct);
               return (
                 <div key={tier.label} className="tier-row">
                   <div className="tier-header">
                     <span className="tier-name">{tier.label}</span>
                     <span className="tier-stats">
-                      {tier.count} staff • <strong className="tier-rate">{tier.rate} rate</strong>
+                      {tier.count} staff • <strong className="tier-rate" style={{ color: '#38bdf8', fontWeight: 700 }}>{tier.pct}%</strong>
                     </span>
                   </div>
                   <div className="tier-track">
                     <div 
                       className="tier-fill"
                       style={{ 
-                        width: `${Math.min(100, Math.max(8, rateNum * 100))}%`,
-                        backgroundColor: rateNum > 0.45 ? 'var(--risk-high)' : rateNum > 0.30 ? 'var(--risk-med)' : 'var(--risk-low)'
-                      }}
+                        width: `${Math.min(100, Math.max(4, pctNum))}%`,
+                        background: 'linear-gradient(90deg, #6366f1, #06b6d4)'
+                      }} 
                     />
                   </div>
                 </div>
