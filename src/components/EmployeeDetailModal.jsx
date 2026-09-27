@@ -11,11 +11,12 @@ import {
   ShieldAlert, 
   ShieldCheck, 
   HeartHandshake,
-  ArrowRight
+  ArrowRight,
+  Sparkles
 } from 'lucide-react';
 import { calculateAttritionRisk } from '../utils/predictor';
 
-export default function EmployeeDetailModal({ employee, onClose, onSendToWhatIf }) {
+export default function EmployeeDetailModal({ employee, onClose, onSendToWhatIf, onSendToPredictor }) {
   const result = useMemo(() => {
     if (!employee) return null;
     return calculateAttritionRisk(employee);
@@ -165,6 +166,19 @@ export default function EmployeeDetailModal({ employee, onClose, onSendToWhatIf 
           <button className="action-btn action-btn-secondary" onClick={onClose}>
             Close
           </button>
+          {onSendToPredictor && (
+            <button 
+              className="action-btn action-btn-secondary"
+              onClick={() => {
+                onClose();
+                onSendToPredictor(employee);
+              }}
+              title="Sync employee into Attrition Predictor"
+            >
+              <Sparkles size={15} color="var(--primary)" />
+              <span>Sync in Predictor</span>
+            </button>
+          )}
           <button 
             className="action-btn action-btn-primary"
             onClick={() => {

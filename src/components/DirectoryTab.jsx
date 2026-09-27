@@ -1,18 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { 
   Search, 
-  Filter, 
   ArrowUpDown, 
   Eye, 
   Sliders, 
-  Download, 
+  Database, 
   Upload, 
   Plus, 
   ChevronLeft, 
   ChevronRight,
-  ShieldAlert,
-  ShieldCheck,
-  Building2,
   Clock,
   Sparkles
 } from 'lucide-react';
@@ -21,6 +17,7 @@ export default function DirectoryTab({
   employees, 
   onSelectEmployee, 
   onSendToWhatIf, 
+  onSendToPredictor,
   onOpenUpload, 
   onExportCsv,
   onNavigateToPredictor
@@ -119,11 +116,15 @@ export default function DirectoryTab({
             <span>Score New Employee</span>
           </button>
           <button className="action-btn action-btn-secondary" onClick={onOpenUpload}>
-            <Upload size={15} />
-            <span>Upload CSV</span>
+            <Database size={15} />
+            <span>Real Data / CSV</span>
           </button>
-          <button className="action-btn action-btn-secondary" onClick={onExportCsv}>
-            <Download size={15} />
+          <button 
+            className="action-btn action-btn-secondary" 
+            onClick={onExportCsv}
+            title="Export full workforce roster to Microsoft Excel (.xlsx)"
+          >
+            <Upload size={15} />
             <span>Export Roster</span>
           </button>
         </div>
@@ -286,6 +287,13 @@ export default function DirectoryTab({
                             onClick={() => onSelectEmployee(emp)}
                           >
                             <Eye size={15} />
+                          </button>
+                          <button 
+                            className="icon-action-btn"
+                            title="Sync Details in Attrition Predictor"
+                            onClick={() => onSendToPredictor && onSendToPredictor(emp)}
+                          >
+                            <Sparkles size={15} />
                           </button>
                           <button 
                             className="icon-action-btn"

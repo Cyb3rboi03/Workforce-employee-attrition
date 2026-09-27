@@ -6,7 +6,6 @@ import {
   Users, 
   BrainCircuit, 
   Upload, 
-  Download, 
   Sun, 
   Moon,
   Sparkles,
@@ -39,7 +38,7 @@ export default function Navbar({
       <div className="navbar-top">
         <div className="navbar-brand">
           <div className="brand-icon-wrapper">
-            <Sparkles className="brand-icon" size={22} />
+            <img src="/app-icon.png" alt="WorkforcePulse Logo" className="brand-icon-img" />
           </div>
           <div>
             <div className="brand-title-row">
@@ -90,9 +89,9 @@ export default function Navbar({
           <button 
             className="action-btn action-btn-secondary" 
             onClick={onExportCsv}
-            title="Export full roster with attrition predictions"
+            title="Export full workforce roster to Microsoft Excel (.xlsx)"
           >
-            <Download size={15} />
+            <Upload size={15} />
             <span>Export Roster</span>
           </button>
 

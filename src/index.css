@@ -1,8 +1,8 @@
 :root,
 [data-theme="royal-white"],
 [data-theme="light"] {
-  --bg-main: #f8fafd;
-  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-main: #ffffff;
+  --bg-card: #ffffff;
   --bg-card-hover: #ffffff;
   --bg-elevated: rgba(241, 245, 249, 0.88);
   --border-color: rgba(226, 232, 240, 0.95);
@@ -116,113 +116,16 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Ambient Frosted Glass Background Layer for Royal White */
-.ambient-glass-canvas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: radial-gradient(circle at 50% -5%, #ffffff 0%, #f8fafd 45%, #f1f5f9 100%);
-  overflow: hidden;
-  transition: opacity 0.5s ease;
+/* Clean, Modern Background Shell */
+body {
+  background-color: var(--bg-main);
+  background-image: none;
 }
 
-[data-theme="midnight"] .ambient-glass-canvas,
-[data-theme="dark"] .ambient-glass-canvas {
-  background: radial-gradient(circle at 50% -10%, #0d1629 0%, #050811 100%);
-}
-
-.glass-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.65;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              opacity 0.6s ease, 
-              filter 0.6s ease;
-  animation: orbFloat 24s infinite alternate ease-in-out;
-}
-
-.orb-indigo {
-  width: 620px;
-  height: 620px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.16) 0%, rgba(37, 99, 235, 0) 70%);
-  top: -140px;
-  left: 10%;
-  animation-duration: 22s;
-}
-
-.orb-cyan {
-  width: 540px;
-  height: 540px;
-  background: radial-gradient(circle, rgba(217, 119, 6, 0.14) 0%, rgba(217, 119, 6, 0) 70%);
-  top: 25%;
-  right: -80px;
-  animation-duration: 26s;
-  animation-delay: -6s;
-}
-
-.orb-violet {
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(circle, rgba(147, 51, 234, 0.12) 0%, rgba(147, 51, 234, 0) 70%);
-  bottom: 0%;
-  left: -120px;
-  animation-duration: 28s;
-  animation-delay: -12s;
-}
-
-.orb-teal {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, rgba(2, 132, 199, 0) 70%);
-  bottom: 12%;
-  right: 15%;
-  animation-duration: 25s;
-  animation-delay: -18s;
-}
-
-/* Midnight / Dark mode orb adjustments */
-[data-theme="midnight"] .orb-indigo,
-[data-theme="dark"] .orb-indigo {
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.55) 0%, rgba(99, 102, 241, 0) 70%);
-}
-[data-theme="midnight"] .orb-cyan,
-[data-theme="dark"] .orb-cyan {
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.48) 0%, rgba(6, 182, 212, 0) 70%);
-}
-[data-theme="midnight"] .orb-violet,
-[data-theme="dark"] .orb-violet {
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(168, 85, 247, 0) 70%);
-}
-[data-theme="midnight"] .orb-teal,
-[data-theme="dark"] .orb-teal {
-  background: radial-gradient(circle, rgba(20, 184, 166, 0.38) 0%, rgba(20, 184, 166, 0) 70%);
-}
-
-.glass-mesh-overlay {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity: 0.7;
-}
-
-[data-theme="midnight"] .glass-mesh-overlay,
-[data-theme="dark"] .glass-mesh-overlay {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-}
-
-@keyframes orbFloat {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(40px, 30px) scale(1.1);
-  }
-  100% {
-    transform: translate(-30px, -20px) scale(0.95);
-  }
+[data-theme="midnight"] body,
+[data-theme="dark"] body {
+  background-color: #060a14;
+  background-image: none;
 }
 
 /* Glassmorphism Card Utilities */

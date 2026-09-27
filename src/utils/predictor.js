@@ -222,6 +222,18 @@ export function calculateAttritionRisk(employeeData) {
     });
   }
 
+  // Estimate turnover replacement cost (standard HR formula: 50% - 150% of annual salary based on tenure and role)
+  const estimatedTurnoverCost = Math.round(salary * 6 * (0.8 + probability * 0.4));
+
+  // Extract risk & protective feature lists for quick badge display
+  const topRiskFactors = factorContributions
+    .filter(f => f.type === 'risk')
+    .map(f => `${f.feature} (${f.impact})`);
+
+  const protectiveFactors = factorContributions
+    .filter(f => f.type === 'protective')
+    .map(f => `${f.feature} (${f.impact})`);
+
   return {
     attritionPrediction: prediction,
     isAttritionLikely,
@@ -233,6 +245,9 @@ export function calculateAttritionRisk(employeeData) {
     riskColor,
     riskBg,
     compositeSatisfaction,
+    estimatedTurnoverCost,
+    topRiskFactors,
+    protectiveFactors,
     factorContributions,
     retentionRecommendations,
     timestamp: new Date().toISOString()

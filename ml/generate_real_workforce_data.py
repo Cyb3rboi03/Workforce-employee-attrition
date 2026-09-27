@@ -97,9 +97,9 @@ csv_rows = csv_rows[:1470]
 with open('/Users/prudhviraj/Desktop/Project/src/data/ibmRealWorkforceDataset.json', 'w', encoding='utf-8') as f:
     json.dump(employees, f, indent=2)
 
-# Write benchmarkEmployees.js with first 400 real named employees for immediate instant load
+# Write benchmarkEmployees.js with all 1,470 real named employees for complete database link
 with open('/Users/prudhviraj/Desktop/Project/src/data/benchmarkEmployees.js', 'w', encoding='utf-8') as f:
-    f.write('export const benchmarkEmployees = ' + json.dumps(employees[:450], indent=2) + ';\nexport default benchmarkEmployees;\n')
+    f.write('export const benchmarkEmployees = ' + json.dumps(employees, indent=2) + ';\nexport default benchmarkEmployees;\n')
 
 # Write public CSV for 1-click dataset download
 with open('/Users/prudhviraj/Desktop/Project/public/ibm_real_workforce_1470.csv', 'w', encoding='utf-8', newline='') as f:

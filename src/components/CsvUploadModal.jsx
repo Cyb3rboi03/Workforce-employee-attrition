@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { calculateAttritionRisk } from '../utils/predictor';
 import ibmRealDataset from '../data/ibmRealWorkforceDataset.json';
+import * as XLSX from 'xlsx';
 
 export default function CsvUploadModal({ isOpen, onClose, onImportEmployees }) {
   const [activeSourceTab, setActiveSourceTab] = useState('ibm'); // 'ibm', 'file', 'api'
@@ -48,13 +49,17 @@ export default function CsvUploadModal({ isOpen, onClose, onImportEmployees }) {
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
-        const text = event.target.result;
-        const lines = text.split(/\r\n|\n/).filter(line => line.trim().length > 0);
-        if (lines.length < 2) {
-          throw new Error('CSV must contain a header row and at least one data row.');
+        const data = new Uint8Array(event.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const firstSheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[firstSheetName];
+        const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: '' });
+
+        if (!rows || rows.length < 2) {
+          throw new Error('Dataset must contain a header row and at least one data row.');
         }
 
-        const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/['"]/g, ''));
+        const headers = rows[0].map(h => String(h).trim().toLowerCase().replace(/['"]/g, ''));
 
         // Identify key columns
         const ageIdx = headers.findIndex(h => h.includes('age'));
@@ -67,19 +72,19 @@ export default function CsvUploadModal({ isOpen, onClose, onImportEmployees }) {
         const idIdx = headers.findIndex(h => h.includes('id'));
 
         const parsed = [];
-        for (let i = 1; i < lines.length; i++) {
-          const row = lines[i].split(',').map(c => c.trim().replace(/['"]/g, ''));
-          if (row.length < 3) continue;
+        for (let i = 1; i < rows.length; i++) {
+          const row = rows[i];
+          if (!row || row.length === 0) continue;
 
-          const age = ageIdx !== -1 ? Number(row[ageIdx]) || 32 : 32;
-          const salary = salaryIdx !== -1 ? Number(row[salaryIdx]) || 6500 : 6500;
-          const exp = expIdx !== -1 ? Number(row[expIdx]) || 5 : 5;
-          const dept = deptIdx !== -1 ? row[deptIdx] || 'Research & Development' : 'Research & Development';
-          const sat = satIdx !== -1 ? Number(row[satIdx]) || 3 : 3;
+          const age = ageIdx !== -1 && row[ageIdx] !== '' ? Number(row[ageIdx]) || 32 : 32;
+          const salary = salaryIdx !== -1 && row[salaryIdx] !== '' ? Number(row[salaryIdx]) || 6500 : 6500;
+          const exp = expIdx !== -1 && row[expIdx] !== '' ? Number(row[expIdx]) || 5 : 5;
+          const dept = deptIdx !== -1 && row[deptIdx] ? String(row[deptIdx]) : 'Research & Development';
+          const sat = satIdx !== -1 && row[satIdx] !== '' ? Number(row[satIdx]) || 3 : 3;
           const otStr = otIdx !== -1 ? String(row[otIdx]).toLowerCase() : 'no';
           const isOt = otStr === 'yes' || otStr === 'true' || otStr === '1';
-          const empName = nameIdx !== -1 && row[nameIdx] ? row[nameIdx] : `Imported Staff ${i}`;
-          const empId = idIdx !== -1 && row[idIdx] ? row[idIdx] : `CSV-${1000 + i}`;
+          const empName = nameIdx !== -1 && row[nameIdx] ? String(row[nameIdx]) : `Imported Staff ${i}`;
+          const empId = idIdx !== -1 && row[idIdx] ? String(row[idIdx]) : `EMP-${1000 + i}`;
 
           // Score using ML model
           const score = calculateAttritionRisk({
@@ -105,7 +110,7 @@ export default function CsvUploadModal({ isOpen, onClose, onImportEmployees }) {
             work_life_balance: sat,
             environment_satisfaction: sat,
             relationship_satisfaction: sat,
-            composite_satisfaction: sat.toFixed(1),
+            composite_satisfaction: Number(sat.toFixed(1)),
             overtime: isOt ? 1 : 0,
             attrition: score.isAttritionLikely ? 1 : 0,
             ground_truth_prob: score.rawProbability
@@ -113,20 +118,20 @@ export default function CsvUploadModal({ isOpen, onClose, onImportEmployees }) {
         }
 
         if (parsed.length === 0) {
-          throw new Error('Could not parse any valid rows from the provided CSV file.');
+          throw new Error('Could not parse any valid rows from the provided file.');
         }
 
         setPreviewRows(parsed);
         setParseStatus('parsed');
       } catch (err) {
-        setErrorMsg(err.message || 'Failed to parse CSV file.');
+        setErrorMsg(err.message || 'Failed to parse file.');
         setParseStatus('error');
       } finally {
         setLoading(false);
       }
     };
 
-    reader.readAsText(fileToParse);
+    reader.readAsArrayBuffer(fileToParse);
   };
 
   const handleFetchRemoteApi = async () => {
@@ -188,19 +193,17 @@ export default function CsvUploadModal({ isOpen, onClose, onImportEmployees }) {
   };
 
   const downloadSampleTemplate = () => {
-    const csvContent = "data:text/csv;charset=utf-8," + 
-      "EmployeeID,Name,Age,Salary,Experience,Department,JobSatisfaction,Overtime\n" +
-      "EMP-901,Maria Gomez,29,5400,4,Sales,2,Yes\n" +
-      "EMP-902,Brian Lee,42,12500,14,Research & Development,4,No\n" +
-      "EMP-903,Sophia Taylor,26,3800,2,Engineering,2,Yes\n" +
-      "EMP-904,David Wilson,35,7800,8,Human Resources,3,No\n";
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "workforce_import_template.csv");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const sampleRows = [
+      { EmployeeID: 'EMP-901', Name: 'Maria Gomez', Age: 29, Salary: 5400, Experience: 4, Department: 'Sales', JobSatisfaction: 2, Overtime: 'Yes' },
+      { EmployeeID: 'EMP-902', Name: 'Brian Lee', Age: 42, Salary: 12500, Experience: 14, Department: 'Research & Development', JobSatisfaction: 4, Overtime: 'No' },
+      { EmployeeID: 'EMP-903', Name: 'Sophia Taylor', Age: 26, Salary: 3800, Experience: 2, Department: 'Engineering', JobSatisfaction: 2, Overtime: 'Yes' },
+      { EmployeeID: 'EMP-904', Name: 'David Wilson', Age: 35, Salary: 7800, Experience: 8, Department: 'Human Resources', JobSatisfaction: 3, Overtime: 'No' }
+    ];
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(sampleRows);
+    ws['!cols'] = [{ wch: 15 }, { wch: 18 }, { wch: 8 }, { wch: 12 }, { wch: 14 }, { wch: 25 }, { wch: 18 }, { wch: 12 }];
+    XLSX.utils.book_append_sheet(wb, ws, 'Sample Template');
+    XLSX.writeFile(wb, 'workforce_import_template.xlsx', { bookType: 'xlsx', type: 'binary' });
   };
 
   return (
@@ -329,26 +332,26 @@ export default function CsvUploadModal({ isOpen, onClose, onImportEmployees }) {
           {activeSourceTab === 'file' && (
             <div>
               <p className="section-subheading" style={{ marginBottom: '14px', fontSize: '0.82rem' }}>
-                Upload any CSV containing Age, Salary, Experience, Department, Job Satisfaction, and Overtime.
+                Upload any Excel spreadsheet (.xlsx, .xls) or CSV containing Age, Salary, Experience, Department, Job Satisfaction, and Overtime.
               </p>
 
               <div className="upload-dropzone">
                 <FileText size={36} className="dropzone-icon" />
                 <label className="upload-file-btn">
-                  <span>Choose CSV File</span>
+                  <span>Choose Excel / CSV File</span>
                   <input 
                     type="file" 
-                    accept=".csv" 
+                    accept=".xlsx, .xls, .csv" 
                     style={{ display: 'none' }} 
                     onChange={handleFileChange} 
                   />
                 </label>
-                <span className="dropzone-hint">Supported formats: .csv with comma separation</span>
+                <span className="dropzone-hint">Supported formats: .xlsx (MS Excel), .xls, .csv</span>
               </div>
 
               <div className="sample-template-row" style={{ marginTop: '10px' }}>
                 <button className="link-button" onClick={downloadSampleTemplate}>
-                  📥 Download Sample CSV Template
+                  📥 Download Sample Excel Template (.xlsx)
                 </button>
               </div>
             </div>
