@@ -5,6 +5,7 @@
   --bg-card: #ffffff;
   --bg-card-hover: #ffffff;
   --bg-elevated: rgba(241, 245, 249, 0.88);
+  --bg-surface: #ffffff;
   --border-color: rgba(226, 232, 240, 0.95);
   --border-light: rgba(203, 213, 225, 0.90);
   
@@ -60,6 +61,7 @@
   --bg-card: rgba(15, 23, 42, 0.60);
   --bg-card-hover: rgba(30, 41, 59, 0.72);
   --bg-elevated: rgba(30, 41, 59, 0.48);
+  --bg-surface: #0f172a;
   --border-color: rgba(255, 255, 255, 0.10);
   --border-light: rgba(255, 255, 255, 0.20);
   

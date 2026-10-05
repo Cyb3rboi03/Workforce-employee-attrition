@@ -138,6 +138,28 @@
   color: var(--risk-high);
 }
 
+/* Mobile Quick Stat Badge (Default hidden on desktop/tablet) */
+.workforce-quick-stat-mobile {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-elevated);
+  padding: 5px 9px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.workforce-quick-stat-mobile .stat-divider {
+  color: var(--text-dim);
+  opacity: 0.6;
+}
+
+.btn-text-responsive {
+  display: inline;
+}
+
 .action-btn {
   display: inline-flex;
   align-items: center;
@@ -314,6 +336,13 @@
   display: flex;
   gap: 6px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabs-list::-webkit-scrollbar {
+  display: none;
 }
 
 .tab-btn {
@@ -755,9 +784,20 @@
 /* Overtime Comparison Cards */
 .ot-comparison-grid {
   display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ot-comparison-grid.ot-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.ot-comparison-grid.ot-cols-2 {
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 20px;
+}
+
+.ot-comparison-grid.ot-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .ot-stat-card {
@@ -3525,14 +3565,14 @@
    =================================================== */
 .login-viewport {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   background: var(--bg-main);
   padding: 24px;
-  overflow: hidden;
+  overflow-x: hidden;
   box-sizing: border-box;
 }
 
@@ -3540,27 +3580,29 @@
 .login-bg-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(80px);
   pointer-events: none;
   opacity: 0.28;
   z-index: 1;
+  max-width: 90vw;
+  max-height: 90vw;
 }
 
 .login-bg-glow-1 {
-  width: 500px;
-  height: 500px;
+  width: 480px;
+  height: 480px;
   background: radial-gradient(circle, #6366f1 0%, rgba(99, 102, 241, 0) 70%);
   top: -100px;
-  left: 10%;
+  left: 5%;
   animation: pulseGlow 8s ease-in-out infinite alternate;
 }
 
 .login-bg-glow-2 {
-  width: 450px;
-  height: 450px;
+  width: 400px;
+  height: 400px;
   background: radial-gradient(circle, #38bdf8 0%, rgba(56, 189, 248, 0) 70%);
   bottom: -80px;
-  right: 12%;
+  right: 5%;
   animation: pulseGlow 10s ease-in-out infinite alternate-reverse;
 }
 
@@ -3613,9 +3655,12 @@
   z-index: 10;
   margin-top: 20px;
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .login-card {
+  width: 100%;
+  box-sizing: border-box;
   padding: 34px 30px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
@@ -4093,5 +4138,523 @@
   background: rgba(239, 68, 68, 0.2);
   border-color: #ef4444;
   transform: translateY(-1px);
+}
+
+/* ===================================================
+   COMPREHENSIVE RESPONSIVE DESIGN SYSTEM (ALL DEVICES)
+   =================================================== */
+
+/* --- TIER 1: PC & LARGE MONITORS (>= 1440px) --- */
+@media (min-width: 1440px) {
+  .main-content-viewport {
+    max-width: 1560px;
+    padding: 28px 32px 56px;
+  }
+
+  .navbar-top,
+  .navbar-tabs-bar {
+    max-width: 1560px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  /* Single-row 6-column KPI layout on wide displays */
+  .kpi-grid {
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 16px;
+  }
+
+  .filter-inputs-grid {
+    gap: 20px;
+  }
+
+  .analytics-double-row {
+    gap: 24px;
+  }
+
+  .predictor-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 28px;
+  }
+
+  .output-card {
+    position: sticky;
+    top: 85px;
+  }
+
+  .whatif-grid {
+    grid-template-columns: 1fr 1.25fr;
+    gap: 28px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .main-content-viewport,
+  .navbar-top,
+  .navbar-tabs-bar {
+    max-width: 1680px;
+  }
+}
+
+/* --- TIER 2: TABLETS & COMPACT LAPTOPS (641px - 1024px) --- */
+@media (max-width: 1024px) {
+  .main-content-viewport {
+    padding: 20px 18px 40px;
+  }
+
+  .navbar-top {
+    padding: 12px 18px;
+    gap: 12px;
+  }
+
+  /* 3-column x 2-row balanced KPI grid */
+  .kpi-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px;
+  }
+
+  /* Balanced 3-column filter inputs on tablet */
+  .filter-inputs-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px;
+  }
+
+  .analytics-double-row {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .predictor-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .output-card {
+    position: static !important;
+  }
+
+  .whatif-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .dept-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- TIER 3: MOBILE PHONES & PHABLETS (<= 640px) --- */
+@media (max-width: 640px) {
+  /* Global Shell & Viewport */
+  .main-content-viewport {
+    padding: 12px 12px 36px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-heading {
+    font-size: 1.35rem;
+    line-height: 1.25;
+  }
+
+  .section-subheading {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .glass-panel {
+    padding: 16px 12px;
+    border-radius: var(--radius-md);
+  }
+
+  /* Header & Navbar */
+  .navbar-top {
+    padding: 10px 12px;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .brand-title {
+    font-size: 1.08rem;
+  }
+
+  .brand-icon-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-subtitle-desktop {
+    display: none !important;
+  }
+
+  .navbar-actions {
+    gap: 6px;
+  }
+
+  .navbar-stat-desktop {
+    display: none !important;
+  }
+
+  .workforce-quick-stat-mobile {
+    display: inline-flex !important;
+  }
+
+  .btn-text-responsive {
+    display: none !important;
+  }
+
+  .navbar-user-info-desktop {
+    display: none !important;
+  }
+
+  .action-btn {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+
+  .glass-toggle-pill {
+    padding: 5px 9px;
+    font-size: 0.74rem;
+    gap: 5px;
+  }
+
+  .theme-toggle-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Tabs Bar */
+  .navbar-tabs-bar {
+    padding: 0 8px;
+  }
+
+  .tab-btn {
+    padding: 9px 12px;
+    font-size: 0.78rem;
+    gap: 5px;
+  }
+
+  .tab-btn .tab-pill {
+    display: none !important;
+  }
+
+  /* Filter Console */
+  .filter-card {
+    padding: 14px 12px;
+  }
+
+  .filter-inputs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+
+  .filter-field-card {
+    padding: 9px 12px;
+  }
+
+  /* Mobile 2-Column x 3-Row Compact KPI Grid */
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 14px;
+    margin-bottom: 16px;
+  }
+
+  .kpi-card {
+    padding: 12px 10px !important;
+    gap: 8px !important;
+    border-radius: var(--radius-sm);
+  }
+
+  .kpi-icon-wrap {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 8px;
+  }
+
+  .kpi-icon-wrap svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .kpi-value {
+    font-size: 1.25rem !important;
+    font-weight: 800;
+    margin: 1px 0 !important;
+  }
+
+  .kpi-label {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.02em;
+  }
+
+  .kpi-subtext {
+    font-size: 0.65rem !important;
+    line-height: 1.2;
+  }
+
+  /* Overtime & Risk Comparison Cards Stack */
+  .ot-comparison-grid,
+  .ot-comparison-grid.ot-cols-1,
+  .ot-comparison-grid.ot-cols-2,
+  .ot-comparison-grid.ot-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .ot-stat-card {
+    padding: 12px 14px;
+  }
+
+  .risk-legend-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* Analytics Charts */
+  .chart-card {
+    padding: 16px 12px;
+  }
+
+  .chart-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Attrition Predictor */
+  .predictor-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .input-card,
+  .output-card {
+    padding: 16px 12px;
+  }
+
+  .dept-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .dept-card {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+
+  .star-selector {
+    gap: 6px;
+    width: 100%;
+  }
+
+  .sat-btn {
+    flex: 1;
+    max-width: 48px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .db-lookup-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* What-If Simulator */
+  .comparison-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .sim-state-card {
+    padding: 14px 12px;
+  }
+
+  .roi-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+
+  /* Directory Roster Tab */
+  .directory-header-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .directory-actions-top {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .directory-actions-top .action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .directory-filters-bar {
+    padding: 12px 10px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .search-input-wrapper {
+    min-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dir-filter-selects {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .dir-filter-selects select:last-child {
+    grid-column: span 2;
+  }
+
+  .dashboard-select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Sticky Employee Name Column for Mobile Table */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  .directory-table th:first-child,
+  .directory-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--bg-card);
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .directory-table th:first-child {
+    z-index: 3;
+    background: var(--bg-elevated);
+  }
+
+  .pagination-bar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Responsive Modals */
+  .modal-backdrop {
+    padding: 10px;
+  }
+
+  .modal-card,
+  .db-modal-content,
+  .not-found-modal-card {
+    width: 100%;
+    max-width: 100%;
+    max-height: 88vh;
+    padding: 18px 14px;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-metrics-banner {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+
+  /* Mobile HR Login Page */
+  .login-viewport {
+    padding: 16px 14px 28px;
+    min-height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+
+  .login-top-bar {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 460px;
+  }
+
+  .login-container {
+    margin-top: 0;
+    margin-bottom: 16px;
+    max-width: 460px;
+    width: 100%;
+  }
+
+  .login-card {
+    padding: 22px 16px;
+    gap: 16px;
+  }
+
+  .login-input {
+    font-size: 16px !important; /* Prevents auto-zoom in mobile Safari */
+    min-height: 44px;
+    padding: 10px 12px;
+  }
+
+  .login-submit-btn {
+    min-height: 46px;
+    font-size: 0.92rem;
+  }
+
+  .login-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* --- TIER 4: EXTRA SMALL PHONES (<= 390px) --- */
+@media (max-width: 390px) {
+  .kpi-card {
+    padding: 10px 7px !important;
+  }
+
+  .kpi-value {
+    font-size: 1.15rem !important;
+  }
+
+  .brand-title {
+    font-size: 1.02rem;
+  }
+
+  .directory-actions-top {
+    grid-template-columns: 1fr;
+  }
+
+  .dir-filter-selects {
+    grid-template-columns: 1fr;
+  }
+
+  .dir-filter-selects select:last-child {
+    grid-column: auto;
+  }
+
+  .login-card {
+    padding: 18px 12px;
+  }
+
+  .login-brand-text {
+    font-size: 0.85rem;
+  }
 }
 

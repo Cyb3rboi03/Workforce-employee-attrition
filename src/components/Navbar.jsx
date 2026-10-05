@@ -48,20 +48,29 @@ export default function Navbar({
                 AI Engine Active
               </span>
             </div>
-            <p className="brand-subtitle">Employee Attrition Prediction & Workforce Analytics Platform</p>
+            <p className="brand-subtitle brand-subtitle-desktop">Employee Attrition Prediction & Workforce Analytics Platform</p>
           </div>
         </div>
 
         {/* Live Status Summary & Actions */}
         <div className="navbar-actions">
-          <div className="workforce-quick-stat" data-tooltip="Monitored Employees in Current Cohort">
+          {/* Desktop & Tablet Quick Stats */}
+          <div className="workforce-quick-stat navbar-stat-desktop" data-tooltip="Monitored Employees in Current Cohort">
             <span className="stat-label">Workforce:</span>
             <span className="stat-val">{totalEmployees.toLocaleString()}</span>
           </div>
 
-          <div className="workforce-quick-stat stat-alert" data-tooltip="Employees Flagged at Critical Flight Risk">
+          <div className="workforce-quick-stat stat-alert navbar-stat-desktop" data-tooltip="Employees Flagged at Critical Flight Risk">
             <ShieldAlert size={14} className="stat-alert-icon" />
             <span className="stat-label">At-Risk:</span>
+            <span className="stat-val stat-val-danger">{highRiskCount}</span>
+          </div>
+
+          {/* Compact Mobile Quick Stat Badge */}
+          <div className="workforce-quick-stat-mobile" title="Workforce / At-Risk summary">
+            <span className="stat-val">{totalEmployees.toLocaleString()}</span>
+            <span className="stat-divider">•</span>
+            <ShieldAlert size={13} className="stat-alert-icon" />
             <span className="stat-val stat-val-danger">{highRiskCount}</span>
           </div>
 
@@ -74,7 +83,7 @@ export default function Navbar({
             aria-label="Toggle Glass UI"
           >
             <Sparkles size={14} className={glassMode ? "icon-glass-sparkle" : ""} />
-            <span>{glassMode ? "Glass UI: ON" : "Glass UI: OFF"}</span>
+            <span className="btn-text-responsive">{glassMode ? "Glass UI: ON" : "Glass UI: OFF"}</span>
             <span className={`glass-status-dot ${glassMode ? 'dot-active' : ''}`}></span>
           </button>
 
@@ -82,18 +91,20 @@ export default function Navbar({
             className="action-btn action-btn-secondary" 
             onClick={onOpenUpload}
             title="Import custom CSV dataset with the 6 parameters"
+            aria-label="Real Data / CSV"
           >
             <Database size={15} />
-            <span>Real Data / CSV</span>
+            <span className="btn-text-responsive">Real Data / CSV</span>
           </button>
 
           <button 
             className="action-btn action-btn-secondary" 
             onClick={onExportCsv}
             title="Export full workforce roster to Microsoft Excel (.xlsx)"
+            aria-label="Export Roster"
           >
             <Upload size={15} />
-            <span>Export Roster</span>
+            <span className="btn-text-responsive">Export Roster</span>
           </button>
 
           <button 
@@ -108,7 +119,7 @@ export default function Navbar({
           {currentUser && (
             <div className="navbar-user-profile" title={`Authorized HR Session: ${currentUser.name} (${currentUser.role})`}>
               <div className="navbar-user-avatar">{currentUser.avatar || 'HR'}</div>
-              <div className="navbar-user-info">
+              <div className="navbar-user-info navbar-user-info-desktop">
                 <span className="navbar-user-name">{currentUser.name}</span>
                 <span className="navbar-user-role">{currentUser.role}</span>
               </div>
@@ -116,9 +127,10 @@ export default function Navbar({
                 className="navbar-logout-btn" 
                 onClick={onLogout}
                 title="Sign out of HR session"
+                aria-label="Logout"
               >
                 <LogOut size={13} />
-                <span>Logout</span>
+                <span className="btn-text-responsive">Logout</span>
               </button>
             </div>
           )}

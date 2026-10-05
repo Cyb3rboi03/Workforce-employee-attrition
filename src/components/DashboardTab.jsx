@@ -684,11 +684,8 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
 
           {/* Overtime comparison cards */}
           <div 
-            className="ot-comparison-grid"
+            className={`ot-comparison-grid ot-cols-${displayedOvertimeList.length}`}
             style={{ 
-              gridTemplateColumns: displayedOvertimeList.length === 1 
-                ? '1fr' 
-                : (displayedOvertimeList.length === 2 ? '1fr 1fr' : 'repeat(3, 1fr)'),
               gap: '12px'
             }}
           >
@@ -776,11 +773,8 @@ export default function DashboardTab({ employees, onSelectEmployee, onNavigateTo
 
             {/* Risk Tier Cards (High, Medium, Low) */}
             <div 
-              className="ot-comparison-grid"
+              className={`ot-comparison-grid ot-cols-${displayedRiskList.length}`}
               style={{ 
-                gridTemplateColumns: displayedRiskList.length === 1 
-                  ? '1fr' 
-                  : (displayedRiskList.length === 2 ? '1fr 1fr' : 'repeat(3, 1fr)'),
                 gap: '12px',
                 marginBottom: '14px'
               }}
