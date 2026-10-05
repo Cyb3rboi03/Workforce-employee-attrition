@@ -66,6 +66,12 @@ npm run dev
 ```
 Open [http://localhost:5173/](http://localhost:5173/) in your web browser.
 
+### 2. Auto-Sync to GitHub
+To automatically commit and push any changes as you code:
+```bash
+npm run auto-sync
+```
+
 ### 2. Train or Re-evaluate ML Models (Python)
 ```bash
 .venv/bin/python ml/train_model.py
